@@ -7,6 +7,22 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+
+
+        <Style TargetType="Button">
+
+            <Setter Property="BorderThickness" Value="8"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="FontSize" Value="40"/>
+
+
+
+        </Style>
+    </Page.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -24,5 +40,58 @@
             Source="Assets/blueback.png" 
                Stretch="Fill"/>
         <Image Grid.Row="0" Grid.Column="1"    Source="Assets/mapa.png"  />
+        <StackPanel Grid.Row="0" Grid.Column="0" Margin="20" Spacing="30">
+            <Button Width="285" >
+                <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
+                    <TextBlock HorizontalAlignment="Left">MAP 1</TextBlock>
+
+                </StackPanel>
+
+            </Button>
+            <Button Width="285" >
+                <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
+                    <TextBlock HorizontalAlignment="Left">MAP 2</TextBlock>
+                    <SymbolIcon Foreground="Black"  Symbol="Shop" HorizontalAlignment="Right"/>
+                </StackPanel>
+
+            </Button>
+            <Button Width="285" >
+                <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
+                    <TextBlock HorizontalAlignment="Left">MAP 3</TextBlock>
+                    <SymbolIcon Foreground="Black"  Symbol="Shop" HorizontalAlignment="Right"/>
+                </StackPanel>
+
+            </Button>
+            <Button Width="285" >
+                <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
+                    <TextBlock HorizontalAlignment="Left">MAP 4</TextBlock>
+                    <SymbolIcon Foreground="Black"  Symbol="Shop" HorizontalAlignment="Right"/>
+                </StackPanel>
+
+            </Button>
+            <Button Width="285" >
+                <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
+                    <TextBlock HorizontalAlignment="Left">MAP 5</TextBlock>
+                    <SymbolIcon Foreground="Black"  Symbol="Shop" HorizontalAlignment="Right"/>
+                </StackPanel>
+
+            </Button>
+
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Spacing="20">
+            <Button>
+                <SymbolIcon Foreground="Black"  Symbol="Back" HorizontalAlignment="Right" Height="82" Width="89"/>
+              
+            </Button>
+            <TextBox Background="LightGray" Text="NORMAL" FontSize="40"></TextBox>
+            <Button>
+                <SymbolIcon Foreground="Black"  Symbol="Back" HorizontalAlignment="Right" Height="82" Width="89" RenderTransformOrigin="0.5,0.5">
+                    <SymbolIcon.RenderTransform>
+                        <CompositeTransform Rotation="181.116"/>
+                    </SymbolIcon.RenderTransform>
+                </SymbolIcon>
+
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>
