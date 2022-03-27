@@ -8,7 +8,73 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Page.Resources>
+        <Style x:Key="TextStyle" TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="45"/>
+            <Setter Property="FontFamily" Value="Tahoma"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
 
+        <DataTemplate x:Key="Item_List">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Espada" Style="{StaticResource TextStyle}"/>
+                <TextBlock Text="Strenght: +20" Grid.Column="1" Style="{StaticResource TextStyle}"/>
+                <TextBlock Text="20" Grid.Column="2" Style="{StaticResource TextStyle}"/>
+                <Image Source="" 
+                       Grid.Column="3" 
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Center"
+                       Height="20"
+                       Width="20"/>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+    
+
+    <Grid Background="Gray" BorderBrush="Black" BorderThickness="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="1"
+                   Text="Items"
+                   Style="{StaticResource TextStyle}"/>
+
+        <TextBlock Grid.Row="1"
+                   Grid.Column="1"
+                   Text="Stats"
+                   Style="{StaticResource TextStyle}"/>
+
+        <TextBlock Grid.Row="1"
+                   Grid.Column="2"
+                   Text="Weight"
+                   Style="{StaticResource TextStyle}"/>
+
+        <TextBlock Grid.Row="1"
+                   Grid.Column="3"
+                   Text="Character"
+                   Style="{StaticResource TextStyle}"/>
+
+        <ListView x:Name="ImageGridView" 
+                  Grid.Row="2" Grid.ColumnSpan="5"                 
+                  ItemTemplate="{StaticResource Item_List}"/>
     </Grid>
 </Page>
