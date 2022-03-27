@@ -145,6 +145,13 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\blueback.png" />
+    <Content Include="Assets\bluefire.png" />
+    <Content Include="Assets\bluemeber.png" />
+    <Content Include="Assets\pergamino.png" />
+    <Content Include="bluefire.png" />
+    <Content Include="bluemeber.png" />
+    <Content Include="pergamino.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

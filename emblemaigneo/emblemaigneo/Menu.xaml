@@ -7,8 +7,75 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+
+
+        <Style TargetType="Button">
+
+            <Setter Property="BorderThickness" Value="8"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="LightGray"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="40"/>
+
+
+
+        </Style>
+    </Page.Resources>
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="4*"/>
 
+        </Grid.RowDefinitions>
+        <Image 
+          Grid.ColumnSpan="2"
+            Grid.RowSpan="2"
+            Source="Assets/blueback.png" 
+               Stretch="Fill"/>
+        <StackPanel
+            Orientation="Vertical" Margin="4" Spacing="30" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" >
+            <Button Width="285" >
+                <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
+                    <TextBlock HorizontalAlignment="Left">CONTINUE</TextBlock>
+                    <SymbolIcon Symbol="Next" HorizontalAlignment="Right"/>
+                </StackPanel>
+            </Button>
+            <Button >
+                <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
+                    <TextBlock HorizontalAlignment="Left">NEW GAME</TextBlock>
+                    <SymbolIcon Symbol="Add" HorizontalAlignment="Right"/>
+                </StackPanel>
+            </Button>
+            <Button Width="288" >
+                <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
+                    <TextBlock HorizontalAlignment="Left"> SETTINGS</TextBlock>
+                    <SymbolIcon Symbol="Setting" Width="42"/>
+                </StackPanel>
+            </Button>
+
+
+        </StackPanel>
+        <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Margin="0" Spacing="-30">
+            <Image 
+            Source="Assets/bluefire.png" 
+               Stretch="Uniform" Height="164" Width="245" VerticalAlignment="Bottom"/>
+            <Image 
+            Source="Assets/bluefire.png" 
+               Stretch="Uniform" Height="226" Width="275" VerticalAlignment="Bottom"/>
+            <Image 
+            Source="Assets/bluefire.png" 
+               Stretch="Uniform" Height="170" Width="261" VerticalAlignment="Bottom"/>
+
+
+        </StackPanel>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="80">EMBLEMA IGNEO</TextBlock>
     </Grid>
 </Page>
