@@ -9,17 +9,38 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.Resources>
+        <Style TargetType="Border">
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="7"/>
+            <Setter Property="CornerRadius" Value="15"/>
+        </Style>
+
         <Style x:Key="TextStyle" TargetType="TextBlock">
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="FontSize" Value="45"/>
+
             <Setter Property="FontFamily" Value="Tahoma"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Foreground" Value="White"/>
         </Style>
 
+
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="45"/>
+            <Setter Property="FontFamily" Value="Tahoma"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="GhostWhite"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="10"/>
+            <Setter Property="Width" Value="250"/>
+        </Style>
+
         <DataTemplate x:Key="Item_List">
-            <Grid>
+            <Grid Width="1460">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*"/>
                     <ColumnDefinition/>
@@ -27,21 +48,21 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Text="Espada" Style="{StaticResource TextStyle}"/>
-                <TextBlock Text="Strenght: +20" Grid.Column="1" Style="{StaticResource TextStyle}"/>
-                <TextBlock Text="20" Grid.Column="2" Style="{StaticResource TextStyle}"/>
-                <Image Source="" 
+                <TextBlock Text="Espada" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
+                <TextBlock Text="Strenght: 20" Grid.Column="1" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
+                <TextBlock Text="20" Grid.Column="2" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
+                <Image Source="Assets/blueback.png" 
                        Grid.Column="3" 
                        VerticalAlignment="Center" 
                        HorizontalAlignment="Center"
-                       Height="20"
-                       Width="20"/>
+                       MaxHeight="80"/>
             </Grid>
         </DataTemplate>
     </Page.Resources>
-    
 
-    <Grid Background="Gray" BorderBrush="Black" BorderThickness="5">
+
+    <Grid x:Name="MiGrid" Background="DarkGray" BorderBrush="Black" BorderThickness="5">
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition/>
@@ -49,14 +70,60 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <StackPanel HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+            <Button Content="Short By:"
+                    Margin="20, 0, 20, 0"
+                    Style="{StaticResource ButtonStyle}"/>
+
+            <ComboBox Width="250"                      
+                      FontFamily="Tahoma"
+                      FontSize="45" 
+                      VerticalAlignment="Center">
+                <ComboBoxItem>Equipped Character</ComboBoxItem>
+                <ComboBoxItem IsSelected="True">Type</ComboBoxItem>
+                <ComboBoxItem>Stats</ComboBoxItem>
+                <ComboBoxItem>Weight</ComboBoxItem>
+                <ComboBoxItem>Not Equipped</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" 
+                    Grid.ColumnSpan="2"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal">
+            <Button Content="Remove"
+                    Style="{StaticResource ButtonStyle}"
+                    Margin="0, 0, 20, 0"/>
+            <Button Content="Equip / Use"
+                    Width="300"
+                    Style="{StaticResource ButtonStyle}"/>
+
+        </StackPanel>
+
+        <Button HorizontalAlignment="Right"
+                Margin="0, 0, 20, 0"
+                Grid.Column="5"  
+                Content="X"
+                Width="100"
+                Style="{StaticResource ButtonStyle}"/>
+
+        <Border Grid.Row="1"/>
+        <Border Grid.Row="1" Grid.Column="1"/>
+        <Border Grid.Row="1" Grid.Column="2"/>
+        <Border Grid.Row="1" Grid.Column="3"/>
+
+
         <TextBlock Grid.Row="1"
                    Text="Items"
-                   Style="{StaticResource TextStyle}"/>
+                   Style="{StaticResource TextStyle}" TextAlignment="Left"/>
 
         <TextBlock Grid.Row="1"
                    Grid.Column="1"
@@ -75,6 +142,42 @@
 
         <ListView x:Name="ImageGridView" 
                   Grid.Row="2" Grid.ColumnSpan="5"                 
-                  ItemTemplate="{StaticResource Item_List}"/>
+                  ItemTemplate="{StaticResource Item_List}">
+            <ListViewItem Width="1517">
+                <Grid Width="1460">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Espada" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
+                    <TextBlock Text="Strenght: +20" Grid.Column="1" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
+                    <TextBlock Text="20" Grid.Column="2" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
+                    <Image Source="Assets/blueback.png" 
+                       Grid.Column="3" 
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Center"
+                       MaxHeight="80"/>
+                </Grid>
+            </ListViewItem>
+            <ListViewItem></ListViewItem>
+            <ListViewItem></ListViewItem>
+            <ListViewItem></ListViewItem>
+            <ListViewItem></ListViewItem>
+            <ListViewItem></ListViewItem>
+            <ListViewItem></ListViewItem>
+            <ListViewItem></ListViewItem>
+            <ListViewItem></ListViewItem>
+            <ListViewItem></ListViewItem>
+            <ListViewItem></ListViewItem>
+            <ListViewItem></ListViewItem>
+            <ListViewItem></ListViewItem>
+            <ListViewItem></ListViewItem>
+            <ListViewItem></ListViewItem>
+            <ListViewItem></ListViewItem>
+            <ListViewItem></ListViewItem>
+        </ListView>
     </Grid>
 </Page>

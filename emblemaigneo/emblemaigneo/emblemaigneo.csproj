@@ -128,6 +128,7 @@
     <Compile Include="inventario.xaml.cs">
       <DependentUpon>inventario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Item.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
