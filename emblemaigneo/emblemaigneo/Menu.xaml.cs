@@ -26,5 +26,18 @@ namespace emblemaigneo
         {
             this.InitializeComponent();
         }
+
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+            
+            
+                // Cuando no se restaura la pila de navegación, navegar a la primera página,
+                // configurando la nueva página pasándole la información requerida como
+                //parámetro de navegación
+                Frame.Navigate(typeof(Opciones));
+           
+            // Asegurarse de que la ventana actual está activa.
+            Window.Current.Activate();
+        }
     }
 }

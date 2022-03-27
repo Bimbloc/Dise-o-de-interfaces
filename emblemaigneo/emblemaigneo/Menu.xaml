@@ -54,7 +54,7 @@
                     <SymbolIcon Symbol="Add" HorizontalAlignment="Right"/>
                 </StackPanel>
             </Button>
-            <Button Width="288" >
+            <Button x:Name="Settings" Width="288"  Click="Settings_Click">
                 <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
                     <TextBlock HorizontalAlignment="Left"> SETTINGS</TextBlock>
                     <SymbolIcon Symbol="Setting" Width="42"/>
