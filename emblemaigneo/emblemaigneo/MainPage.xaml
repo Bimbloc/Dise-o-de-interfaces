@@ -8,7 +8,135 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Page.Resources>
+        <SolidColorBrush x:Key="TransparentBlack" Color="Black" Opacity="0.8"/>
+        <SolidColorBrush x:Key="TransparentGray" Color="Gray" Opacity="0.8"/>
+        <Style x:Key="BlackBox" TargetType="Grid">
+            <Setter Property="Background" Value ="{StaticResource TransparentBlack}"/>
+            <Setter Property="Margin" Value="20"/>
+            <Setter Property="CornerRadius" Value="20"/>
+            <Setter Property="Opacity" Value="20"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TransparentGray}"/>
+            <Setter Property="BorderThickness" Value="5"/>
+        </Style>
+    </Page.Resources>
 
+    <Grid>
+        <Grid x:Name="Map">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Image Source="ms-appx:///Assets/Campo.jpg"
+                   Grid.RowSpan="3"/>
+
+            <Grid x:Name="InfoBox"
+              Height="300"
+              VerticalAlignment="Center"
+              Style="{StaticResource BlackBox}"
+              Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="1.5*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image
+                   Margin="30,0,10,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Source="ms-appx:///Assets/Square150x150Logo.scale-200.png"
+                   Stretch="Fill"/>
+                <StackPanel Orientation="Vertical"
+                        HorizontalAlignment="Stretch"
+                        Grid.Column="1"
+                        Margin="20, 0, 20, 0"
+                        Padding="5">
+                    <StackPanel Orientation="Vertical"
+                            VerticalAlignment="Stretch"
+                            Padding="15"
+                            BorderThickness="5"
+                            BorderBrush="{StaticResource TransparentGray}"
+                            CornerRadius="10"
+                            Margin="0, 0, 0, 10" HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Vertical">
+                            <Grid BorderBrush="{StaticResource TransparentGray}"
+                              BorderThickness="4"
+                              CornerRadius="10"
+                              Padding="5"
+                              Margin="0, 0, 0, 10">
+                                <TextBlock Text="Ferdinand Von Aegir"
+                                   FontSize="20"
+                                   FontFamily="Taurus"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                            </Grid>
+
+                            <Grid BorderBrush="{StaticResource TransparentGray}"
+                              BorderThickness="4"
+                              CornerRadius="10"
+                              Padding="5">
+                                <TextBlock Text="Armored Knight"
+                                   FontSize="20"
+                                   FontFamily="Taurus"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                            </Grid>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            Padding="10"
+                            BorderBrush="{StaticResource TransparentGray}"
+                            BorderThickness="5"
+                            CornerRadius="10">
+                        <Grid Margin="0, 0, 0, 20"
+                          HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.2*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="HP"
+                                   FontSize="30"
+                                   FontFamily="Taurus"
+                                   FontWeight="Bold"
+                                   Foreground="Green"
+                                   Margin="0,0,0,0" HorizontalAlignment="Center"/>
+                            <ProgressBar CornerRadius="5"
+                                     Background="WhiteSmoke"
+                                     Foreground="Green"
+                                     Value="85" 
+                                     Width="Auto" 
+                                     Height="20"
+                                     Grid.Column="1"/>
+                        </Grid>
+                        <Grid HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.2*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="EXP"
+                                   FontSize="30"
+                                   FontFamily="Taurus"
+                                   FontWeight="Bold"
+                                   Foreground="SteelBlue"
+                                   Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+                            <ProgressBar CornerRadius="5"
+                                     Background="WhiteSmoke"
+                                     Foreground="SteelBlue"
+                                     Value="35" 
+                                     Width="Auto" 
+                                     Height="20"
+                                     Grid.Column="1"/>
+                        </Grid>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>
