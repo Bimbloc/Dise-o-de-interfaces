@@ -9,10 +9,14 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.Resources>
+        <SolidColorBrush x:Key="TransparentBlack" Color="Black" Opacity="0.8"/>
+        <SolidColorBrush x:Key="TransparentGray" Color="Gray" Opacity="0.8"/>
+        <SolidColorBrush x:Key="TransparentWhite" Color="White" Opacity="0.9"/>
         <Style TargetType="Border">
-            <Setter Property="BorderBrush" Value="Gray"/>
-            <Setter Property="BorderThickness" Value="7"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TransparentGray}"/>
+            <Setter Property="BorderThickness" Value="5"/>
             <Setter Property="CornerRadius" Value="15"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
         </Style>
 
         <Style x:Key="TextStyle" TargetType="TextBlock">
@@ -30,28 +34,29 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="FontSize" Value="45"/>
-            <Setter Property="FontFamily" Value="Tahoma"/>
+            <Setter Property="FontFamily" Value="Georgia"/>
             <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Background" Value="GhostWhite"/>
-            <Setter Property="BorderBrush" Value="Gray"/>
-            <Setter Property="BorderThickness" Value="10"/>
-            <Setter Property="Width" Value="250"/>
+            <Setter Property="Background" Value="{StaticResource TransparentWhite}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TransparentGray}"/>
+            <Setter Property="BorderThickness" Value="5"/>
+            <Setter Property="Width" Value="270"/>
+            <Setter Property="Height" Value="70"/>
+            <Setter Property="CornerRadius" Value="15"/>
         </Style>
 
         <DataTemplate x:Key="Item_List">
-            <Grid Width="1460">
+            <Grid Width="1536" HorizontalAlignment="Center">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Text="Espada" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
-                <TextBlock Text="Strenght: 20" Grid.Column="1" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
+                <TextBlock Text="Iron Sword" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
+                <TextBlock Text="Strenght: +20" Grid.Column="1" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
                 <TextBlock Text="20" Grid.Column="2" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
-                <Image Source="Assets/blueback.png" 
+                <Image Source="ms-appx:///Assets/Square150x150Logo.scale-200.png"
                        Grid.Column="3" 
                        VerticalAlignment="Center" 
                        HorizontalAlignment="Center"
@@ -60,124 +65,153 @@
         </DataTemplate>
     </Page.Resources>
 
+    <Grid>
+        <Image  Grid.ColumnSpan="4"
+            Grid.RowSpan="3"
+            Source="ms-appx:///Assets/Campo.jpg"
+            Stretch="Fill"/>
 
-    <Grid x:Name="MiGrid" Background="DarkGray" BorderBrush="Black" BorderThickness="5">
+        <Grid x:Name="MiGrid" Background="{StaticResource TransparentBlack}" Width="1536" Height="864" CornerRadius="18">
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        <StackPanel HorizontalAlignment="Left"
+
+
+            <StackPanel HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                     Orientation="Horizontal">
-            <Button Content="Short By:"
-                    Margin="20, 0, 20, 0"
-                    Style="{StaticResource ButtonStyle}"/>
 
-            <ComboBox Width="250"                      
-                      FontFamily="Tahoma"
-                      FontSize="45" 
-                      VerticalAlignment="Center">
-                <ComboBoxItem>Equipped Character</ComboBoxItem>
-                <ComboBoxItem IsSelected="True">Type</ComboBoxItem>
-                <ComboBoxItem>Stats</ComboBoxItem>
-                <ComboBoxItem>Weight</ComboBoxItem>
-                <ComboBoxItem>Not Equipped</ComboBoxItem>
-            </ComboBox>
-        </StackPanel>
+                <TextBlock Text="Sort by:"
+                           Margin="30, 0, 20, 0"
+                           Style="{StaticResource TextStyle}">
+                    
+                </TextBlock>
 
-        <StackPanel Grid.Column="1" 
-                    Grid.ColumnSpan="2"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center"
-                    Orientation="Horizontal">
+                <ComboBox Width="330"     
+                          Height="70"
+                          Margin="0, 2.5, 0, 0"
+                          FontFamily="Georgia"
+                          FontSize="45" 
+                          VerticalAlignment="Center"
+                          BorderBrush="{StaticResource TransparentGray}"
+                          BorderThickness="5"
+                          CornerRadius="15"
+                          Background="{StaticResource TransparentWhite}">
+                    <ComboBoxItem>Equipped Character</ComboBoxItem>
+                    <ComboBoxItem IsSelected="True">Type</ComboBoxItem>
+                    <ComboBoxItem>Stats</ComboBoxItem>
+                    <ComboBoxItem>Weight</ComboBoxItem>
+                    <ComboBoxItem>Not Equipped</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+
             <Button Content="Remove"
-                    Style="{StaticResource ButtonStyle}"
-                    Margin="0, 0, 20, 0"/>
-            <Button Content="Equip / Use"
-                    Width="300"
-                    Style="{StaticResource ButtonStyle}"/>
-
-        </StackPanel>
-
-        <Button HorizontalAlignment="Right"
-                Margin="0, 0, 20, 0"
-                Grid.Column="5"  
-                Content="X"
-                Width="100"
+                HorizontalAlignment="Right"
+                Grid.Column="1"
+                Style="{StaticResource ButtonStyle}"
+                Margin="0, 2.5, 5, 0"/>
+            <Button Content="Equip/Use"
+                HorizontalAlignment="Left"
+                Grid.Column="2"
+                Margin="5, 2.5, 0, 0"
                 Style="{StaticResource ButtonStyle}"/>
 
-        <Border Grid.Row="1"/>
-        <Border Grid.Row="1" Grid.Column="1"/>
-        <Border Grid.Row="1" Grid.Column="2"/>
-        <Border Grid.Row="1" Grid.Column="3"/>
 
 
-        <TextBlock Grid.Row="1"
+            <Button HorizontalAlignment="Right"
+                Margin="0, 2.5, 30, 0"
+                Grid.Column="5"  
+                Width="70"
+                Style="{StaticResource ButtonStyle}">
+                <SymbolIcon Symbol="Cancel"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"/>
+            </Button>
+
+            <Border Grid.Row="1"/>
+            <Border Grid.Row="1" Grid.Column="1"/>
+            <Border Grid.Row="1" Grid.Column="2"/>
+            <Border Grid.Row="1" Grid.Column="3"/>
+
+            <Border  
+                Width="1536" 
+                Height="864"
+                Grid.ColumnSpan="4"
+                Grid.RowSpan="3">
+            </Border>
+
+
+            <TextBlock Grid.Row="1"
                    Text="Items"
                    Style="{StaticResource TextStyle}" TextAlignment="Left"/>
 
-        <TextBlock Grid.Row="1"
+            <TextBlock Grid.Row="1"
                    Grid.Column="1"
                    Text="Stats"
                    Style="{StaticResource TextStyle}"/>
 
-        <TextBlock Grid.Row="1"
+            <TextBlock Grid.Row="1"
                    Grid.Column="2"
                    Text="Weight"
                    Style="{StaticResource TextStyle}"/>
 
-        <TextBlock Grid.Row="1"
+            <TextBlock Grid.Row="1"
                    Grid.Column="3"
                    Text="Character"
                    Style="{StaticResource TextStyle}"/>
 
-        <ListView x:Name="ImageGridView" 
+            <ListView x:Name="ImageGridView" 
                   Grid.Row="2" Grid.ColumnSpan="5"                 
                   ItemTemplate="{StaticResource Item_List}">
-            <ListViewItem Width="1517">
-                <Grid Width="1460">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
+                <ListViewItem>
+                    <Grid Width="1536" HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-                    <TextBlock Text="Espada" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
-                    <TextBlock Text="Strenght: +20" Grid.Column="1" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
-                    <TextBlock Text="20" Grid.Column="2" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
-                    <Image Source="Assets/blueback.png" 
+                        <TextBlock Text="Iron Sword" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
+                        <TextBlock Text="Strenght: +20" Grid.Column="1" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
+                        <TextBlock Text="20" Grid.Column="2" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
+                        <Image Source="ms-appx:///Assets/Square150x150Logo.scale-200.png"
                        Grid.Column="3" 
                        VerticalAlignment="Center" 
                        HorizontalAlignment="Center"
                        MaxHeight="80"/>
-                </Grid>
-            </ListViewItem>
-            <ListViewItem></ListViewItem>
-            <ListViewItem></ListViewItem>
-            <ListViewItem></ListViewItem>
-            <ListViewItem></ListViewItem>
-            <ListViewItem></ListViewItem>
-            <ListViewItem></ListViewItem>
-            <ListViewItem></ListViewItem>
-            <ListViewItem></ListViewItem>
-            <ListViewItem></ListViewItem>
-            <ListViewItem></ListViewItem>
-            <ListViewItem></ListViewItem>
-            <ListViewItem></ListViewItem>
-            <ListViewItem></ListViewItem>
-            <ListViewItem></ListViewItem>
-            <ListViewItem></ListViewItem>
-            <ListViewItem></ListViewItem>
-        </ListView>
+                    </Grid>
+                </ListViewItem>
+                <ListViewItem></ListViewItem>
+                <ListViewItem></ListViewItem>
+                <ListViewItem></ListViewItem>
+                <ListViewItem></ListViewItem>
+                <ListViewItem></ListViewItem>
+                <ListViewItem></ListViewItem>
+                <ListViewItem></ListViewItem>
+                <ListViewItem></ListViewItem>
+                <ListViewItem></ListViewItem>
+                <ListViewItem></ListViewItem>
+                <ListViewItem></ListViewItem>
+                <ListViewItem></ListViewItem>
+                <ListViewItem></ListViewItem>
+                <ListViewItem></ListViewItem>
+                <ListViewItem></ListViewItem>
+                <ListViewItem></ListViewItem>
+            </ListView>
+        </Grid>
     </Grid>
+
+    
 </Page>
