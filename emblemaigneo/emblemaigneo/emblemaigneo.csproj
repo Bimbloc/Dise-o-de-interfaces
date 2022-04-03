@@ -125,6 +125,9 @@
     <Compile Include="EligeMapa.xaml.cs">
       <DependentUpon>EligeMapa.xaml</DependentUpon>
     </Compile>
+    <Compile Include="InicioBatalla.xaml.cs">
+      <DependentUpon>InicioBatalla.xaml</DependentUpon>
+    </Compile>
     <Compile Include="inventario.xaml.cs">
       <DependentUpon>inventario.xaml</DependentUpon>
     </Compile>
@@ -178,6 +181,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EligeMapa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InicioBatalla.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

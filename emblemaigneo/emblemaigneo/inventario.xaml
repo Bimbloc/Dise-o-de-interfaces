@@ -33,7 +33,7 @@
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="45"/>
+            <Setter Property="FontSize" Value="40"/>
             <Setter Property="FontFamily" Value="Georgia"/>
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="Background" Value="{StaticResource TransparentWhite}"/>
@@ -101,7 +101,7 @@
                           Height="70"
                           Margin="0, 2.5, 0, 0"
                           FontFamily="Georgia"
-                          FontSize="45" 
+                          FontSize="40" 
                           VerticalAlignment="Center"
                           BorderBrush="{StaticResource TransparentGray}"
                           BorderThickness="5"
@@ -174,41 +174,21 @@
             <ListView x:Name="ImageGridView" 
                   Grid.Row="2" Grid.ColumnSpan="5"                 
                   ItemTemplate="{StaticResource Item_List}">
-                <ListViewItem>
-                    <Grid Width="1536" HorizontalAlignment="Center">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <TextBlock Text="Iron Sword" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
-                        <TextBlock Text="Strenght: +20" Grid.Column="1" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
-                        <TextBlock Text="20" Grid.Column="2" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
-                        <Image Source="ms-appx:///Assets/Square150x150Logo.scale-200.png"
-                       Grid.Column="3" 
-                       VerticalAlignment="Center" 
-                       HorizontalAlignment="Center"
-                       MaxHeight="80"/>
-                    </Grid>
-                </ListViewItem>
-                <ListViewItem></ListViewItem>
-                <ListViewItem></ListViewItem>
-                <ListViewItem></ListViewItem>
-                <ListViewItem></ListViewItem>
-                <ListViewItem></ListViewItem>
-                <ListViewItem></ListViewItem>
-                <ListViewItem></ListViewItem>
-                <ListViewItem></ListViewItem>
-                <ListViewItem></ListViewItem>
-                <ListViewItem></ListViewItem>
-                <ListViewItem></ListViewItem>
-                <ListViewItem></ListViewItem>
-                <ListViewItem></ListViewItem>
-                <ListViewItem></ListViewItem>
-                <ListViewItem></ListViewItem>
-                <ListViewItem></ListViewItem>
+                <ListViewHeaderItem></ListViewHeaderItem>
+                <ListViewHeaderItem></ListViewHeaderItem>
+                <ListViewHeaderItem></ListViewHeaderItem>
+                <ListViewHeaderItem></ListViewHeaderItem>
+                <ListViewHeaderItem></ListViewHeaderItem>
+                <ListViewHeaderItem></ListViewHeaderItem>
+                <ListViewHeaderItem></ListViewHeaderItem>
+                <ListViewHeaderItem></ListViewHeaderItem>
+                <ListViewHeaderItem></ListViewHeaderItem>
+                <ListViewHeaderItem></ListViewHeaderItem>
+                <ListViewHeaderItem></ListViewHeaderItem>
+                <ListViewHeaderItem></ListViewHeaderItem>
+                <ListViewHeaderItem></ListViewHeaderItem>
+                <ListViewHeaderItem></ListViewHeaderItem>
+                <ListViewHeaderItem></ListViewHeaderItem>
             </ListView>
         </Grid>
     </Grid>
