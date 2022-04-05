@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GcLHKlfLOGESBe+Y5MBR7euGODXJ8aydNGfT4byJpGU1jAJCwafSfdtVhNdEoj70Nbo4VvDxfUcA9XXifRmK4g==",
+  "dgSpecHash": "NC9VJMF52fCu3KVz44yMLT0SzvOFvM7PLl4qMM64PUrMKKfldmty2WwEU1qJ0zadx37DuPY9iYcwzUwKXXMU9w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Rocio\\Documents\\Dise-o-de-interfaces\\emblemaigneo\\emblemaigneo\\emblemaigneo.csproj",
+  "projectFilePath": "C:\\Users\\Rodrigo\\Desktop\\Universidad\\Dise-o-de-interfaces\\emblemaigneo\\emblemaigneo\\emblemaigneo.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.net.native.compiler\\2.2.8-rel-28605-00\\microsoft.net.native.compiler.2.2.8-rel-28605-00.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.net.uwpcoreruntimesdk\\2.2.10\\microsoft.net.uwpcoreruntimesdk.2.2.10.nupkg.sha512",
