@@ -48,7 +48,7 @@
                     <SymbolIcon Symbol="Next" HorizontalAlignment="Right"/>
                 </StackPanel>
             </Button>
-            <Button >
+            <Button x:Name="Newgame" Click="Newgame_Click" >
                 <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
                     <TextBlock HorizontalAlignment="Left">NEW GAME</TextBlock>
                     <SymbolIcon Symbol="Add" HorizontalAlignment="Right"/>

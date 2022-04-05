@@ -39,5 +39,11 @@ namespace emblemaigneo
             // Asegurarse de que la ventana actual está activa.
             Window.Current.Activate();
         }
+
+        private void Newgame_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(EligeMapa));
+
+        }
     }
 }
