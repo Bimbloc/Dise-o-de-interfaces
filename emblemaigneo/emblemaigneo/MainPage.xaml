@@ -33,7 +33,7 @@
             <Setter Property="Height" Value="Auto"/>
             <Setter Property="CornerRadius" Value="15"/>
         </Style>
-        <Style TargetType="ListView">
+        <Style x:Key="BlackPanel" TargetType="StackPanel">
             <Setter Property="BorderBrush" Value="{StaticResource TransparentGray}"/>
             <Setter Property="BorderThickness" Value="5"/>
             <Setter Property="CornerRadius" Value="15"/>
@@ -422,10 +422,10 @@
                            Text="Ferdinand Von Aegir" FontSize="36" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Grid>
 
-            <ListView x:Name="ActionMenu"
-                      Grid.RowSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="50"
-                      Padding="20"
-                      HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" FlowDirection="LeftToRight" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <StackPanel x:Name="ActionMenu"
+                        Grid.RowSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="50"
+                        Padding="20"
+                        Style="{StaticResource BlackPanel}">
                 <Button Style="{StaticResource ButtonStyle}"
                         Content="Move" Margin="0,0,0,20" FontWeight="Normal"/>
                 <Button Style="{StaticResource ButtonStyle}"
@@ -434,7 +434,7 @@
                         Content="Items" Margin="0,0,0,20"/>
                 <Button Style="{StaticResource ButtonStyle}"
                         Content="Wait"/>
-            </ListView>
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>
