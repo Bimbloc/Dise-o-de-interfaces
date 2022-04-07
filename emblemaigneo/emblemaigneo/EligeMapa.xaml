@@ -40,36 +40,36 @@
             Source="Assets/blueback.png" 
                Stretch="Fill"/>
         <Image Grid.Row="0" Grid.Column="1"    Source="Assets/mapa.png"  />
-        <StackPanel Grid.Row="0" Grid.Column="0" Margin="20" Spacing="30">
-            <Button Width="285" Click="Button_Click">
+        <StackPanel Grid.Row="0" Grid.Column="0" Margin="20" Spacing="30" VerticalAlignment="Stretch" Grid.RowSpan="2">
+            <Button Width="auto" Click="Button_Click" HorizontalAlignment="Stretch">
                 <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
                     <TextBlock HorizontalAlignment="Left">MAP 1</TextBlock>
 
                 </StackPanel>
 
             </Button>
-            <Button Width="285" >
+            <Button Width="auto" HorizontalAlignment="Stretch" >
                 <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
                     <TextBlock HorizontalAlignment="Left">MAP 2</TextBlock>
                     <SymbolIcon Foreground="Black"  Symbol="Shop" HorizontalAlignment="Right"/>
                 </StackPanel>
 
             </Button>
-            <Button Width="285" >
+            <Button Width="auto" HorizontalAlignment="Stretch">
                 <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
                     <TextBlock HorizontalAlignment="Left">MAP 3</TextBlock>
                     <SymbolIcon Foreground="Black"  Symbol="Shop" HorizontalAlignment="Right"/>
                 </StackPanel>
 
             </Button>
-            <Button Width="285" >
+            <Button Width="auto" HorizontalAlignment="Stretch" >
                 <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
                     <TextBlock HorizontalAlignment="Left">MAP 4</TextBlock>
                     <SymbolIcon Foreground="Black"  Symbol="Shop" HorizontalAlignment="Right"/>
                 </StackPanel>
 
             </Button>
-            <Button Width="285" >
+            <Button Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
                 <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
                     <TextBlock HorizontalAlignment="Left">MAP 5</TextBlock>
                     <SymbolIcon Foreground="Black"  Symbol="Shop" HorizontalAlignment="Right"/>
