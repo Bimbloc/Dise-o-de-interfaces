@@ -159,6 +159,7 @@
     <Content Include="Assets\flagph.png" />
     <Content Include="Assets\mapa.png" />
     <Content Include="Assets\pergamino.png" />
+    <Content Include="Assets\preview.PNG" />
     <Content Include="bluefire.png" />
     <Content Include="bluemeber.png" />
     <Content Include="pergamino.png" />

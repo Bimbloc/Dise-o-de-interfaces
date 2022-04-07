@@ -1,26 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vic_M\\OneDrive\\Escritorio\\DSI\\Dise-o-de-interfaces\\emblemaigneo\\emblemaigneo\\emblemaigneo.csproj": {}
+    "C:\\Users\\Rodrigo\\Desktop\\Universidad\\Dise-o-de-interfaces\\emblemaigneo\\emblemaigneo\\emblemaigneo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vic_M\\OneDrive\\Escritorio\\DSI\\Dise-o-de-interfaces\\emblemaigneo\\emblemaigneo\\emblemaigneo.csproj": {
+    "C:\\Users\\Rodrigo\\Desktop\\Universidad\\Dise-o-de-interfaces\\emblemaigneo\\emblemaigneo\\emblemaigneo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vic_M\\OneDrive\\Escritorio\\DSI\\Dise-o-de-interfaces\\emblemaigneo\\emblemaigneo\\emblemaigneo.csproj",
+        "projectUniqueName": "C:\\Users\\Rodrigo\\Desktop\\Universidad\\Dise-o-de-interfaces\\emblemaigneo\\emblemaigneo\\emblemaigneo.csproj",
         "projectName": "emblemaigneo",
-        "projectPath": "C:\\Users\\Vic_M\\OneDrive\\Escritorio\\DSI\\Dise-o-de-interfaces\\emblemaigneo\\emblemaigneo\\emblemaigneo.csproj",
-        "packagesPath": "C:\\Users\\Vic_M\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vic_M\\OneDrive\\Escritorio\\DSI\\Dise-o-de-interfaces\\emblemaigneo\\emblemaigneo\\obj\\",
+        "projectPath": "C:\\Users\\Rodrigo\\Desktop\\Universidad\\Dise-o-de-interfaces\\emblemaigneo\\emblemaigneo\\emblemaigneo.csproj",
+        "packagesPath": "C:\\Users\\Rodrigo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Rodrigo\\Desktop\\Universidad\\Dise-o-de-interfaces\\emblemaigneo\\emblemaigneo\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Vic_M\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Rodrigo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
