@@ -29,5 +29,10 @@ namespace emblemaigneo
         {
             this.InitializeComponent();
         }
+
+        private void ImageGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

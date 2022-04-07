@@ -173,7 +173,8 @@
 
             <ListView x:Name="ImageGridView" 
                   Grid.Row="2" Grid.ColumnSpan="5"                 
-                  ItemTemplate="{StaticResource Item_List}">
+                  ItemTemplate="{StaticResource Item_List}" SelectionChanged="ImageGridView_SelectionChanged"
+                        >
                 <ListViewHeaderItem></ListViewHeaderItem>
                 <ListViewHeaderItem></ListViewHeaderItem>
                 <ListViewHeaderItem></ListViewHeaderItem>
