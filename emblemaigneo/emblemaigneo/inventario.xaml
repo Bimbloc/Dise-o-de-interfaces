@@ -199,7 +199,6 @@
 
             
             <ListView x:Name="ImageGridView" 
-<<<<<<< HEAD
                     Grid.Row="2"               
                   ItemTemplate="{StaticResource Item_List}">
                 <ListView.ItemContainerStyle>
@@ -207,11 +206,7 @@
                         <Setter Property="HorizontalContentAlignment"  Value="Stretch"></Setter>
                     </Style>
                 </ListView.ItemContainerStyle>
-=======
-                  Grid.Row="2" Grid.ColumnSpan="5"                 
-                  ItemTemplate="{StaticResource Item_List}" SelectionChanged="ImageGridView_SelectionChanged"
-                        >
->>>>>>> 04c4523cdaf245112a9c28e18a6474bf7d6690f7
+
                 <ListViewHeaderItem></ListViewHeaderItem>
                 <ListViewHeaderItem></ListViewHeaderItem>
                 <ListViewHeaderItem></ListViewHeaderItem>
