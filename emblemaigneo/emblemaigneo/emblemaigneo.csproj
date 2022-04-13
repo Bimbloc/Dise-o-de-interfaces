@@ -131,7 +131,6 @@
     <Compile Include="inventario.xaml.cs">
       <DependentUpon>inventario.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Item.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -142,6 +141,7 @@
       <DependentUpon>Opciones.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Unit.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

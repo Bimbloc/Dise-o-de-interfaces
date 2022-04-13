@@ -105,7 +105,7 @@
                                    FontFamily="Taurus"
                                    FontWeight="Bold"
                                    HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"/>
+                                   VerticalAlignment="Center" Foreground="White"/>
                         </Grid>
                         <Grid BorderBrush="{StaticResource TransparentGray}"
                               BorderThickness="4"
@@ -117,7 +117,7 @@
                                    FontFamily="Taurus"
                                    FontWeight="Bold"
                                    HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"/>
+                                   VerticalAlignment="Center" Foreground="White"/>
                         </Grid>
                     </Grid>
                     <Grid   VerticalAlignment="Stretch"
@@ -188,37 +188,37 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBlock Text="STR" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        <TextBlock Text="10" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                        <TextBlock Text="STR" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
+                        <TextBlock Text="10" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
-                        <TextBlock Text="MAG" FontSize="24" FontWeight="Bold" Margin="0,0,10,0"/>
-                        <TextBlock Text="10" FontSize="24" FontWeight="Normal"/>
+                        <TextBlock Text="MAG" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="White"/>
+                        <TextBlock Text="10" FontSize="24" FontWeight="Normal" Foreground="White"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2">
-                        <TextBlock Text="DEX" FontSize="24" FontWeight="Bold" Margin="0,0,10,0"/>
-                        <TextBlock Text="10" FontSize="24" FontWeight="Normal"/>
+                        <TextBlock Text="DEX" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="White"/>
+                        <TextBlock Text="10" FontSize="24" FontWeight="Normal" Foreground="White"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3">
-                        <TextBlock Text="SPD" FontSize="24" FontWeight="Bold" Margin="0,0,10,0"/>
-                        <TextBlock Text="10" FontSize="24" FontWeight="Normal"/>
+                        <TextBlock Text="SPD" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="White"/>
+                        <TextBlock Text="10" FontSize="24" FontWeight="Normal" Foreground="White"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
-                        <TextBlock Text="LCK" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        <TextBlock Text="10" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                        <TextBlock Text="LCK" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
+                        <TextBlock Text="10" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1">
-                        <TextBlock Text="DEF" FontSize="24" FontWeight="Bold" Margin="0,0,10,0"/>
-                        <TextBlock Text="10" FontSize="24" FontWeight="Normal"/>
+                        <TextBlock Text="DEF" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="White"/>
+                        <TextBlock Text="10" FontSize="24" FontWeight="Normal" Foreground="White"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1">
-                        <TextBlock Text="RES" FontSize="24" FontWeight="Bold" Margin="0,0,10,0"/>
-                        <TextBlock Text="10" FontSize="24" FontWeight="Normal"/>
+                        <TextBlock Text="RES" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="White"/>
+                        <TextBlock Text="10" FontSize="24" FontWeight="Normal" Foreground="White"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1">
-                        <TextBlock Text="CHAR" FontSize="24" FontWeight="Bold" Margin="0,0,10,0"/>
-                        <TextBlock Text="10" FontSize="24" FontWeight="Normal"/>
+                        <TextBlock Text="CHA" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="White"/>
+                        <TextBlock Text="10" FontSize="24" FontWeight="Normal" Foreground="White"/>
                     </StackPanel>
                 </Grid>
                 <Grid BorderBrush="{StaticResource TransparentGray}"
@@ -243,10 +243,10 @@
                         </Grid.ColumnDefinitions>
                         <Image Source="ms-appx:///Assets/Square150x150Logo.scale-200.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
                         <TextBlock Text="Steel Sword"
-                                       FontSize="30"
+                                       FontSize="24"
                                        FontFamily="Taurus"
                                        FontWeight="Bold"
-                                       Margin="30,0,0,0" VerticalAlignment="Center" Grid.Column="1"/>
+                                       Margin="30,0,0,0" VerticalAlignment="Center" Grid.Column="1" SelectionChanged="TextBlock_SelectionChanged" Foreground="White"/>
                     </Grid>
                     <Grid BorderBrush="{StaticResource TransparentGray}"
                               BorderThickness="5"
@@ -258,10 +258,10 @@
                         </Grid.ColumnDefinitions>
                         <Image Source="ms-appx:///Assets/Square150x150Logo.scale-200.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
                         <TextBlock Text="Silver Shield"
-                                       FontSize="30"
+                                       FontSize="24"
                                        FontFamily="Taurus"
                                        FontWeight="Bold"
-                                       Margin="30,0,0,0" VerticalAlignment="Center" Grid.Column="1"/>
+                                       Margin="30,0,0,0" VerticalAlignment="Center" Grid.Column="1" Foreground="White"/>
                     </Grid>
                     <Grid BorderBrush="{StaticResource TransparentGray}"
                               BorderThickness="5"
@@ -273,10 +273,10 @@
                         </Grid.ColumnDefinitions>
                         <Image Source="ms-appx:///Assets/Square150x150Logo.scale-200.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
                         <TextBlock Text="Iron-Heart Ring"
-                                       FontSize="30"
+                                       FontSize="24"
                                        FontFamily="Taurus"
                                        FontWeight="Bold"
-                                       Margin="30,0,0,0" VerticalAlignment="Center" Grid.Column="1"/>
+                                       Margin="30,0,0,0" VerticalAlignment="Center" Grid.Column="1" Foreground="White"/>
                     </Grid>
                     <Grid BorderBrush="{StaticResource TransparentGray}"
                               BorderThickness="5"
@@ -288,10 +288,10 @@
                         </Grid.ColumnDefinitions>
                         <Image Source="ms-appx:///Assets/Square150x150Logo.scale-200.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
                         <TextBlock Text="Leather Coat"
-                                       FontSize="30"
+                                       FontSize="24"
                                        FontFamily="Taurus"
                                        FontWeight="Bold"
-                                       Margin="30,0,0,0" VerticalAlignment="Center" Grid.Column="1"/>
+                                       Margin="30,0,0,0" VerticalAlignment="Center" Grid.Column="1" Foreground="White"/>
                     </Grid>
                 </Grid>
             </Grid>
@@ -331,16 +331,16 @@
                     <Image Grid.RowSpan="3"
                            Source="ms-appx:///Assets/Square150x150Logo.scale-200.png" Margin="0,0,0,0"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1">
-                        <TextBlock Text="DMG" FontSize="36" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        <TextBlock Text="10" FontSize="36" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                        <TextBlock Text="DMG" FontSize="36" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
+                        <TextBlock Text="10" FontSize="36" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1">
-                        <TextBlock Text="HIT" FontSize="36" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        <TextBlock Text="10" FontSize="36" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                        <TextBlock Text="HIT" FontSize="36" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
+                        <TextBlock Text="10" FontSize="36" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2">
-                        <TextBlock Text="CRIT" FontSize="36" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        <TextBlock Text="10" FontSize="36" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                        <TextBlock Text="CRIT" FontSize="36" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
+                        <TextBlock Text="10" FontSize="36" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
                     </StackPanel>
                     <Grid HorizontalAlignment="Stretch"
                           Grid.Row="3"
@@ -355,7 +355,7 @@
                                    FontSize="30"
                                    FontFamily="Taurus"
                                    FontWeight="Bold"
-                                   Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                   Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
                         <ProgressBar CornerRadius="5"
                                      Background="WhiteSmoke"
                                      Foreground="Green"
@@ -381,16 +381,16 @@
                     <Image Grid.RowSpan="3"
                            Source="ms-appx:///Assets/Square150x150Logo.scale-200.png" Grid.Column="1"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
-                        <TextBlock Text="DMG" FontSize="36" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        <TextBlock Text="10" FontSize="36" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                        <TextBlock Text="DMG" FontSize="36" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
+                        <TextBlock Text="10" FontSize="36" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1">
-                        <TextBlock Text="HIT" FontSize="36" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        <TextBlock Text="10" FontSize="36" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                        <TextBlock Text="HIT" FontSize="36" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
+                        <TextBlock Text="10" FontSize="36" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" Grid.Row="2">
-                        <TextBlock Text="CRIT" FontSize="36" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        <TextBlock Text="10" FontSize="36" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                        <TextBlock Text="CRIT" FontSize="36" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
+                        <TextBlock Text="10" FontSize="36" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
                     </StackPanel>
                     <Grid HorizontalAlignment="Stretch"
                           Grid.Row="3"
@@ -405,7 +405,7 @@
                                    FontSize="30"
                                    FontFamily="Taurus"
                                    FontWeight="Bold"
-                                   Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
+                                   Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Foreground="White"/>
                         <ProgressBar CornerRadius="5"
                                      Background="WhiteSmoke"
                                      Foreground="Red"
@@ -416,10 +416,10 @@
                 </Grid>
                 <TextBlock Grid.Row="1"
                            Grid.Column="1"
-                           Text="Bandit" FontSize="36" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                           Text="Bandit" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
                 <TextBlock Grid.Row="1"
                            Grid.Column="0"
-                           Text="Ferdinand Von Aegir" FontSize="36" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                           Text="Ferdinand Von Aegir" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
             </Grid>
 
             <StackPanel x:Name="ActionMenu"

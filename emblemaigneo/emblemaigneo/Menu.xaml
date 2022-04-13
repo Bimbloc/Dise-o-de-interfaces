@@ -42,7 +42,7 @@
                Stretch="Fill"/>
         <StackPanel
             Orientation="Vertical" Margin="4" Spacing="30" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" >
-            <Button Width="285" >
+            <Button Width="auto">
                 <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
                     <TextBlock HorizontalAlignment="Left">CONTINUE</TextBlock>
                     <SymbolIcon Symbol="Next" HorizontalAlignment="Right"/>
@@ -54,7 +54,7 @@
                     <SymbolIcon Symbol="Add" HorizontalAlignment="Right"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="Settings" Width="288"  Click="Settings_Click">
+            <Button x:Name="Settings" Width="auto"  Click="Settings_Click">
                 <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
                     <TextBlock HorizontalAlignment="Left"> SETTINGS</TextBlock>
                     <SymbolIcon Symbol="Setting" Width="42"/>
