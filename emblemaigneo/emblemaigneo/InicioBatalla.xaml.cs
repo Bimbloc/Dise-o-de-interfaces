@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,8 +23,17 @@ namespace emblemaigneo
     /// </summary>
     public sealed partial class InicioBatalla : Page
     {
+        public ObservableCollection<Unit> Ejercito { get; } = new ObservableCollection<Unit>();
+
         public InicioBatalla()
         {
+            
+            if (Ejercito != null)
+                foreach (Unit character in Army.GetAllUnits())
+                {
+                    Ejercito.Add(character);
+                }
+
             this.InitializeComponent();
         }
     }

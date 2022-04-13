@@ -44,7 +44,8 @@
             <Setter Property="CornerRadius" Value="15"/>
         </Style>
 
-        <DataTemplate x:Key="Item_List">
+        <DataTemplate x:Key="Item_List"
+                      x:DataType="local:Object">
             <Grid HorizontalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*"/>
@@ -53,10 +54,10 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Text="Iron Sword" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
-                <TextBlock Text="Strenght: +20" Grid.Column="1" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
-                <TextBlock Text="20" Grid.Column="2" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
-                <Image Source="ms-appx:///Assets/Square150x150Logo.scale-200.png"
+                <TextBlock Text="{x:Bind name}" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
+                <TextBlock Text="{x:Bind effectDescription}" Grid.Column="1" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
+                <TextBlock Text="{x:Bind GetWeight()}" Grid.Column="2" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
+                <Image Source="{x:Bind equipedChar.GetImage()}" 
                        Grid.Column="3" 
                        VerticalAlignment="Center" 
                        HorizontalAlignment="Center"
@@ -193,35 +194,16 @@
 
             </Grid>
 
-
-
-            
-
             
             <ListView x:Name="ImageGridView" 
-                    Grid.Row="2"               
-                  ItemTemplate="{StaticResource Item_List}">
+                    Grid.Row="2"          
+                    ItemsSource= "{x:Bind Inventario}"
+                    ItemTemplate="{StaticResource Item_List}">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment"  Value="Stretch"></Setter>
                     </Style>
                 </ListView.ItemContainerStyle>
-
-                <ListViewHeaderItem></ListViewHeaderItem>
-                <ListViewHeaderItem></ListViewHeaderItem>
-                <ListViewHeaderItem></ListViewHeaderItem>
-                <ListViewHeaderItem></ListViewHeaderItem>
-                <ListViewHeaderItem></ListViewHeaderItem>
-                <ListViewHeaderItem></ListViewHeaderItem>
-                <ListViewHeaderItem></ListViewHeaderItem>
-                <ListViewHeaderItem></ListViewHeaderItem>
-                <ListViewHeaderItem></ListViewHeaderItem>
-                <ListViewHeaderItem></ListViewHeaderItem>
-                <ListViewHeaderItem></ListViewHeaderItem>
-                <ListViewHeaderItem></ListViewHeaderItem>
-                <ListViewHeaderItem></ListViewHeaderItem>
-                <ListViewHeaderItem></ListViewHeaderItem>
-                <ListViewHeaderItem></ListViewHeaderItem>
             </ListView>
 
             <Border Grid.RowSpan="3"/>

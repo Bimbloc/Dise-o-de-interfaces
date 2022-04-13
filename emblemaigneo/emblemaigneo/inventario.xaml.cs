@@ -25,8 +25,18 @@ namespace emblemaigneo
 
     public sealed partial class inventario : Page
     {
+
+        public ObservableCollection<Object> Inventario { get; } = new ObservableCollection<Object>();
+
         public inventario()
         {
+            if (Inventario != null)
+                foreach (Object obj in Inventory.GetAllObjects())
+                {
+                    Inventario.Add(obj);
+                }
+
+
             this.InitializeComponent();
         }
 
@@ -34,5 +44,7 @@ namespace emblemaigneo
         {
 
         }
+
+        
     }
 }

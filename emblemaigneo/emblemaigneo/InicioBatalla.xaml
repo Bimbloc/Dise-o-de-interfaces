@@ -44,8 +44,9 @@
             <Setter Property="CornerRadius" Value="15"/>
         </Style>
 
-        <DataTemplate x:Key="Troop_List">
-            <Image Source="ms-appx:///Assets/Square150x150Logo.scale-200.png"
+        <DataTemplate x:Key="Troop_List"
+                      x:DataType="local:Unit">
+            <Image Source="{x:Bind GetImage()}"
                    HorizontalAlignment="Stretch"
                    Height="150"/>
         </DataTemplate>
@@ -125,7 +126,8 @@
             <GridView Grid.Row="1" 
                       Grid.ColumnSpan="2"
                       HorizontalAlignment="Center"                    
-                      ItemTemplate="{StaticResource Troop_List}">
+                      ItemTemplate="{StaticResource Troop_List}"
+                      ItemsSource= "{x:Bind Ejercito}">
                 <GridViewHeaderItem></GridViewHeaderItem>
                 <GridViewHeaderItem></GridViewHeaderItem>
                 <GridViewHeaderItem></GridViewHeaderItem>
