@@ -31,22 +31,22 @@
 
 
         <Style x:Key="ButtonStyle" TargetType="Button">
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="45"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="FontSize" Value="40"/>
             <Setter Property="FontFamily" Value="Georgia"/>
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="Background" Value="{StaticResource TransparentWhite}"/>
             <Setter Property="BorderBrush" Value="{StaticResource TransparentGray}"/>
             <Setter Property="BorderThickness" Value="5"/>
-            <Setter Property="Width" Value="270"/>
+            <Setter Property="Width" Value="Auto"/>
             <Setter Property="Height" Value="70"/>
             <Setter Property="CornerRadius" Value="15"/>
         </Style>
 
         <DataTemplate x:Key="Troop_List">
             <Image Source="ms-appx:///Assets/Square150x150Logo.scale-200.png"
-                   Width="180"
+                   HorizontalAlignment="Stretch"
                    Height="150"/>
         </DataTemplate>
 
@@ -55,28 +55,28 @@
     <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="108"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="10*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="108"/>
-            <RowDefinition/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-            <Image  Grid.ColumnSpan="2"
-            Grid.RowSpan="2"
+            <Image  Grid.ColumnSpan="3"
+            Grid.RowSpan="3"
             Source="ms-appx:///Assets/Campo.jpg"
             Stretch="Fill"/>
 
         <Grid x:Name="MiGrid" 
               Background="{StaticResource TransparentBlack}" 
-              Height="864"  
-              Width="600" 
               CornerRadius="18"
               Grid.Row="1"
               Grid.Column="1"
-              VerticalAlignment="Top"
-              HorizontalAlignment="Left">
+              VerticalAlignment="Stretch"
+              HorizontalAlignment="Stretch">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -89,20 +89,21 @@
             </Grid.RowDefinitions>
 
 
-            <Button HorizontalAlignment="Left"
+            <Button 
                 Grid.Row="2"
                 Style="{StaticResource ButtonStyle}"
-                Margin="21, 0, 0, 2.5">
+                Margin="16, 0, 8, 0">
+                
                 <StackPanel Orientation="Horizontal"  Spacing="12.5">
                     <SymbolIcon Foreground="Black"  Symbol="Refresh" HorizontalAlignment="Right"/>
                     <TextBlock FontSize="40">Reorganize</TextBlock>
                 </StackPanel>
             </Button>
             
-            <Button  HorizontalAlignment="Right"
+            <Button 
                 Grid.Column="1"
                 Grid.Row="2"
-                Margin="0, 0, 21, 2.5"
+                Margin="8, 0, 16, 0"
                 Style="{StaticResource ButtonStyle}">
                 <StackPanel Orientation="Horizontal"  Spacing="12.5">
                     <TextBlock FontSize="40">Start Battle</TextBlock>
@@ -115,8 +116,8 @@
             <Border Grid.Row="2"
                     Grid.ColumnSpan="2"/>
             <Border  
-                Width="600" 
-                Height="864"
+                HorizontalAlignment="Stretch" 
+                VerticalAlignment="Stretch"
                 Grid.ColumnSpan="2"
                 Grid.RowSpan="3">
             </Border>

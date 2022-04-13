@@ -31,24 +31,24 @@
 
 
         <Style x:Key="ButtonStyle" TargetType="Button">
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="FontSize" Value="40"/>
             <Setter Property="FontFamily" Value="Georgia"/>
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="Background" Value="{StaticResource TransparentWhite}"/>
             <Setter Property="BorderBrush" Value="{StaticResource TransparentGray}"/>
             <Setter Property="BorderThickness" Value="5"/>
-            <Setter Property="Width" Value="270"/>
+            <Setter Property="Width" Value="Auto"/>
             <Setter Property="Height" Value="70"/>
             <Setter Property="CornerRadius" Value="15"/>
         </Style>
 
         <DataTemplate x:Key="Item_List">
-            <Grid Width="1536" HorizontalAlignment="Center">
+            <Grid HorizontalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
@@ -66,38 +66,54 @@
     </Page.Resources>
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+
         <Image  Grid.ColumnSpan="4"
             Grid.RowSpan="3"
             Source="ms-appx:///Assets/Campo.jpg"
             Stretch="Fill"/>
 
-        <Grid x:Name="MiGrid" Background="{StaticResource TransparentBlack}" Width="1536" Height="864" CornerRadius="18">
+        <Grid Grid.Row="1" Grid.Column="1" x:Name="MiGrid" Background="{StaticResource TransparentBlack}" CornerRadius="18" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+            
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
                 <RowDefinition Height="100"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
+            
 
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
 
-            <StackPanel HorizontalAlignment="Left"
+                <StackPanel HorizontalAlignment="Stretch"
                     VerticalAlignment="Center"
                     Orientation="Horizontal">
 
-                <TextBlock Text="Sort by:"
+                    <TextBlock Text="Sort by:"
                            Margin="30, 0, 20, 0"
                            Style="{StaticResource TextStyle}">
-                    
-                </TextBlock>
 
-                <ComboBox Width="330"     
+                    </TextBlock>
+
+                    <ComboBox Width="Auto"  
                           Height="70"
                           Margin="0, 2.5, 0, 0"
                           FontFamily="Georgia"
@@ -106,74 +122,90 @@
                           BorderBrush="{StaticResource TransparentGray}"
                           BorderThickness="5"
                           CornerRadius="15"
-                          Background="{StaticResource TransparentWhite}">
-                    <ComboBoxItem>Equipped Character</ComboBoxItem>
-                    <ComboBoxItem IsSelected="True">Type</ComboBoxItem>
-                    <ComboBoxItem>Stats</ComboBoxItem>
-                    <ComboBoxItem>Weight</ComboBoxItem>
-                    <ComboBoxItem>Not Equipped</ComboBoxItem>
-                </ComboBox>
-            </StackPanel>
+                          Background="{StaticResource TransparentWhite}" HorizontalAlignment="Stretch">
+                        <ComboBoxItem>Equipped Char</ComboBoxItem>
+                        <ComboBoxItem IsSelected="True">Type</ComboBoxItem>
+                        <ComboBoxItem>Stats</ComboBoxItem>
+                        <ComboBoxItem>Weight</ComboBoxItem>
+                        <ComboBoxItem>Not Equipped</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
 
 
-            <Button Content="Remove"
-                HorizontalAlignment="Right"
+                <Button Content="Remove"
                 Grid.Column="1"
                 Style="{StaticResource ButtonStyle}"
-                Margin="0, 2.5, 5, 0"/>
-            <Button Content="Equip/Use"
-                HorizontalAlignment="Left"
+                Margin="10, 2.5, 10, 0"/>
+                <Button Content="Equip/Use"
                 Grid.Column="2"
-                Margin="5, 2.5, 0, 0"
+                Margin="10, 2.5, 10, 0"
                 Style="{StaticResource ButtonStyle}"/>
 
 
 
-            <Button HorizontalAlignment="Right"
+                <Button HorizontalAlignment="Right"
                 Margin="0, 2.5, 30, 0"
                 Grid.Column="5"  
                 Width="70"
                 Style="{StaticResource ButtonStyle}">
-                <SymbolIcon Symbol="Cancel"
+                    <SymbolIcon Symbol="Cancel"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"/>
-            </Button>
+                </Button>
 
-            <Border Grid.Row="1"/>
-            <Border Grid.Row="1" Grid.Column="1"/>
-            <Border Grid.Row="1" Grid.Column="2"/>
-            <Border Grid.Row="1" Grid.Column="3"/>
+            </Grid>
 
-            <Border  
-                Width="1536" 
-                Height="864"
-                Grid.ColumnSpan="4"
-                Grid.RowSpan="3">
-            </Border>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+                <Border Grid.Row="1"/>
+                <Border Grid.Row="1" Grid.Column="1"/>
+                <Border Grid.Row="1" Grid.Column="2"/>
+                <Border Grid.Row="1" Grid.Column="3"/>
+
+                
 
 
-            <TextBlock Grid.Row="1"
+                <TextBlock Grid.Row="1"
                    Text="Items"
                    Style="{StaticResource TextStyle}" TextAlignment="Left"/>
 
-            <TextBlock Grid.Row="1"
+                <TextBlock Grid.Row="1"
                    Grid.Column="1"
                    Text="Stats"
                    Style="{StaticResource TextStyle}"/>
 
-            <TextBlock Grid.Row="1"
+                <TextBlock Grid.Row="1"
                    Grid.Column="2"
                    Text="Weight"
                    Style="{StaticResource TextStyle}"/>
 
-            <TextBlock Grid.Row="1"
+                <TextBlock Grid.Row="1"
                    Grid.Column="3"
-                   Text="Character"
+                   Text="Char"
                    Style="{StaticResource TextStyle}"/>
 
+
+            </Grid>
+
+
+
+            
+
+            
             <ListView x:Name="ImageGridView" 
-                  Grid.Row="2" Grid.ColumnSpan="5"                 
+                    Grid.Row="2"               
                   ItemTemplate="{StaticResource Item_List}">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment"  Value="Stretch"></Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
                 <ListViewHeaderItem></ListViewHeaderItem>
                 <ListViewHeaderItem></ListViewHeaderItem>
                 <ListViewHeaderItem></ListViewHeaderItem>
@@ -190,6 +222,8 @@
                 <ListViewHeaderItem></ListViewHeaderItem>
                 <ListViewHeaderItem></ListViewHeaderItem>
             </ListView>
+
+            <Border Grid.RowSpan="3"/>
         </Grid>
     </Grid>
 
