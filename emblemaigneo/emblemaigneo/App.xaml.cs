@@ -44,6 +44,7 @@ namespace emblemaigneo
 
             // No repetir la inicialización de la aplicación si la ventana tiene contenido todavía,
             // solo asegurarse de que la ventana está activa.
+            this.FocusVisualKind = FocusVisualKind.Reveal;
             if (rootFrame == null)
             {
                 // Crear un marco para que actúe como contexto de navegación y navegar a la primera página.
@@ -68,7 +69,7 @@ namespace emblemaigneo
                     // configurando la nueva página pasándole la información requerida como
                     //parámetro de navegación
                     ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
-                    rootFrame.Navigate(typeof(InicioBatalla), e.Arguments);
+                    rootFrame.Navigate(typeof(Menu), e.Arguments);
                 }
                 // Asegurarse de que la ventana actual está activa.
                 Window.Current.Activate();

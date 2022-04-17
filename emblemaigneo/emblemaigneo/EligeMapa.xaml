@@ -18,13 +18,17 @@
             <Setter Property="BorderBrush" Value="Gray"/>
             <Setter Property="FontStyle" Value="Italic"/>
             <Setter Property="FontSize" Value="40"/>
+            <Setter Property="FocusVisualPrimaryBrush" Value="Aqua"></Setter>
+            <Setter Property="FocusVisualSecondaryBrush" Value="Aquamarine"></Setter>
+            <Setter Property="FocusVisualPrimaryThickness" Value="8"></Setter>
+            <Setter Property="FocusVisualSecondaryThickness" Value="10"></Setter>
 
 
 
         </Style>
     </Page.Resources>
 
-    <Grid>
+    <Grid KeyDown="Grid_KeyDown">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="3*"/>
@@ -40,7 +44,9 @@
             Source="Assets/blueback.png" 
                Stretch="Fill"/>
         <Image Grid.Row="0" Grid.Column="1"    Source="Assets/mapa.png"  />
-        <StackPanel Grid.Row="0" Grid.Column="0" Margin="20" Spacing="30" VerticalAlignment="Stretch" Grid.RowSpan="2">
+        <ScrollViewer>
+        <Grid>
+        <StackPanel Grid.RowSpan="1" Grid.Row="0" Grid.Column="0" Margin="14" Spacing="26" VerticalAlignment="Top">
             <Button Width="auto" Click="Button_Click" HorizontalAlignment="Stretch">
                 <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
                     <TextBlock HorizontalAlignment="Left">MAP 1</TextBlock>
@@ -48,37 +54,47 @@
                 </StackPanel>
 
             </Button>
-            <Button Width="auto" HorizontalAlignment="Stretch" >
+            <Button Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Top">
                 <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
                     <TextBlock HorizontalAlignment="Left">MAP 2</TextBlock>
-                    <SymbolIcon Foreground="Black"  Symbol="Shop" HorizontalAlignment="Right"/>
+                    <BitmapIcon UriSource="Assets\lockedicon.png">
+                        
+                    </BitmapIcon>
+                        
                 </StackPanel>
 
             </Button>
-            <Button Width="auto" HorizontalAlignment="Stretch">
+            <Button Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Top">
                 <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
                     <TextBlock HorizontalAlignment="Left">MAP 3</TextBlock>
-                    <SymbolIcon Foreground="Black"  Symbol="Shop" HorizontalAlignment="Right"/>
+                    <BitmapIcon UriSource="Assets\lockedicon.png">
+
+                    </BitmapIcon>
                 </StackPanel>
 
             </Button>
             <Button Width="auto" HorizontalAlignment="Stretch" >
                 <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
                     <TextBlock HorizontalAlignment="Left">MAP 4</TextBlock>
-                    <SymbolIcon Foreground="Black"  Symbol="Shop" HorizontalAlignment="Right"/>
+                    <BitmapIcon UriSource="Assets\lockedicon.png">
+
+                    </BitmapIcon>
                 </StackPanel>
 
             </Button>
             <Button Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
                 <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
                     <TextBlock HorizontalAlignment="Left">MAP 5</TextBlock>
-                    <SymbolIcon Foreground="Black"  Symbol="Shop" HorizontalAlignment="Right"/>
+                    <BitmapIcon UriSource="Assets\lockedicon.png">
+
+                    </BitmapIcon>
                 </StackPanel>
 
             </Button>
 
         </StackPanel>
-
+        </Grid>
+        </ScrollViewer>
         <StackPanel x:Name="dificultades"  Visibility="Collapsed" Spacing="26" Orientation="Vertical" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal" Background="CadetBlue">
             <Button Background="CadetBlue" BorderBrush="CadetBlue">NORMAL</Button>
@@ -93,5 +109,8 @@
                 <TextBlock TextWrapping="Wrap" Text="Descripcion de la dificultad"></TextBlock>
             </StackPanel>
         </StackPanel>
+        <Button x:Name="Goback" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Stretch" Click="Goback_Click" >
+            <SymbolIcon Symbol="Back"></SymbolIcon>
+        </Button>
     </Grid>
 </Page>

@@ -31,5 +31,17 @@ namespace emblemaigneo
         {
             Frame.Navigate(typeof(Menu));
         }
+
+        private void Grid_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Windows.System.VirtualKey.Escape:
+                case Windows.System.VirtualKey.GamepadB:
+                    Frame.Navigate(typeof(Menu));
+                    break;
+            }
+
+        }
     }
 }

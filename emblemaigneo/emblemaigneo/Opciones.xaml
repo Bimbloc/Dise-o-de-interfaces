@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid KeyDown="Grid_KeyDown">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="3*"/>
@@ -22,7 +22,7 @@
             Grid.Column="0"
           VerticalAlignment="Top" HorizontalAlignment="Center"
             Source="Assets/pergamino.png" 
-               Stretch="Uniform" Width="1480"/>
+               Stretch="UniformToFill"/>
         <StackPanel Margin="4" Spacing="32"
           Grid.Column="0"  Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel HorizontalAlignment="Center" Orientation="Vertical" Background="Black" Width="174">
@@ -74,7 +74,7 @@
                     </StackPanel>
                 </Button>
             </StackPanel>
-        <Image Grid.Column="1"  Grid.ColumnSpan="2" Source="Assets/preview.PNG" ></Image>
+        <Image Grid.Column="1"  Grid.ColumnSpan="2" Stretch="Fill" Margin="40" Source="Assets/preview.PNG" ></Image>
 
     </Grid>
 

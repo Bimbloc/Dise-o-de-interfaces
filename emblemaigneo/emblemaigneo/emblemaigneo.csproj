@@ -157,6 +157,8 @@
     <Content Include="Assets\flag.png" />
     <Content Include="Assets\flagen.png" />
     <Content Include="Assets\flagph.png" />
+    <Content Include="Assets\lockedicon.png" />
+    <Content Include="Assets\lockicon.jpg" />
     <Content Include="Assets\mapa.png" />
     <Content Include="Assets\pergamino.png" />
     <Content Include="Assets\preview.PNG" />
