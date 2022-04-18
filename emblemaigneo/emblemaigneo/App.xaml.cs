@@ -69,7 +69,7 @@ namespace emblemaigneo
                     // configurando la nueva página pasándole la información requerida como
                     //parámetro de navegación
                     ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
-                    rootFrame.Navigate(typeof(Menu), e.Arguments);
+                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
                 }
                 // Asegurarse de que la ventana actual está activa.
                 Window.Current.Activate();

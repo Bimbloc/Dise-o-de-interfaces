@@ -53,7 +53,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Image Source="ms-appx:///Assets/Campo.jpg"
+            <Image Source="ms-appx:///Assets/mapa.png"
                    Grid.RowSpan="3"
                    Grid.ColumnSpan="3"/>
 
