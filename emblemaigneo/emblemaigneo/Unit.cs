@@ -68,9 +68,9 @@ namespace emblemaigneo
         void onDeEquip() { }
     };
 
-    public class Unit
+    public class Unit : ObservableObject
     {
-        int[] stats = new int[8];
+        public int[] stats { get; set; }
 
         public string name { get; set; }
         public string icon { get; set; }
@@ -173,69 +173,93 @@ namespace emblemaigneo
             new Unit()
             {
                 name = "Byleth(F)",
-                icon = "byleth_female.png"
+                icon = "byleth_female.png",
 
+                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
              },
             new Unit()
             {
                 name = "Byleth(M)",
-                icon = "byleth_male.png"
+                icon = "byleth_male.png",
+
+                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
              },
             new Unit()
             {
                 name = "Chrom",
-                icon = "chrom.png"
+                icon = "chrom.png",
+
+                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
              },
             new Unit()
             {
                 name = "Corrin(F)",
-                icon = "corrin_female.png"
+                icon = "corrin_female.png",
+
+                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
              },
             new Unit()
             {
                 name = "Corrin(M)",
-                icon = "corrin_male.png"
+                icon = "corrin_male.png",
 
+                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
              },
             new Unit()
             {
                 name = "Ike",
-                icon = "ike.png"
+                icon = "ike.png",
+
+                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
              },
             new Unit()
             {
                 name = "Lucina",
-                icon = "lucina.png"
+                icon = "lucina.png",
+
+                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
              },
             new Unit()
             {
                 name = "Marth",
-                icon = "marth.png"
+                icon = "marth.png",
+
+                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
              },
             new Unit()
             {
                 name = "Pyra",
-                icon = "pyra.png"
+                icon = "pyra.png",
+
+                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
              },
             new Unit()
             {
                 name = "Richter",
-                icon = "richter.png"
+                icon = "richter.png",
+
+                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
              },
             new Unit()
             {
                 name = "Robin",
-                icon = "robin.png"
+                icon = "robin.png",
+
+                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
              },
             new Unit()
             {
                 name = "Roy",
-                icon = "roy.png"
+                icon = "roy.png",
+
+                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
              },
             new Unit()
             {
                 name = "Zelda",
-                icon = "zelda.png"
+                icon = "zelda.png",
+
+                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
              },
           };
 

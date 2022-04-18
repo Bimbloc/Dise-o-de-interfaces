@@ -27,6 +27,8 @@ namespace emblemaigneo
             this.InitializeComponent();
         }
 
+        public MapLogic Logic { get; } = new MapLogic();
+
         private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
         {
 
