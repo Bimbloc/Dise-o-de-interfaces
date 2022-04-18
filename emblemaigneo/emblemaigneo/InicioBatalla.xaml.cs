@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -35,6 +36,20 @@ namespace emblemaigneo
                 }
 
             this.InitializeComponent();
+        }
+
+        private void cuadriculagrid_DragOver(object sender, DragEventArgs e)
+        {
+            e.AcceptedOperation = DataPackageOperation.Copy;
+        }
+
+        private void cuadriculagrid_Drop(object sender, DragEventArgs e)
+        {
+            GridViewItem g =tropasgrid.Items[0] as GridViewItem;
+            //tropasgrid.Items.RemoveAt(0);
+            //cuadriculagrid.Items.Add(g);
+
+
         }
     }
 }
