@@ -27,6 +27,16 @@ namespace emblemaigneo
         public MainPage()
         {
             this.InitializeComponent();
+
+            MyGrid Cuadricula = new MyGrid();
+            Map.Children.Add(Cuadricula);
+            Cuadricula.Name = "Cuadricula";
+            Cuadricula.SetValue(Grid.RowSpanProperty, 3);
+            Cuadricula.SetValue(Grid.ColumnSpanProperty, 3);
+
+            Cuadricula.Columns = 32;
+            Cuadricula.Rows = 18;
+            Cuadricula.CreateTileImages();
         }
 
         public MapLogic Logic { get; } = new MapLogic();
