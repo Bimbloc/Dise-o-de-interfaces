@@ -6,22 +6,18 @@ using System.Threading.Tasks;
 
 namespace emblemaigneo
 {
-    public struct SelectedUnitStats
+    public struct UnitStats
     {
-        public int STR { get; set; }
-        public int MAG { get; set; }
-        public int DEX { get; set; }
-        public int SPD { get; set; }
-        public int LCK { get; set; }
-        public int DEF { get; set; }
-        public int RES { get; set; }
-        public int CHA { get; set; }
+        public int STR; public int LCK;
+        public int MAG; public int DEF;
+        public int DEX; public int RES;
+        public int SPD; public int CHA;
     }
 
     public class MapLogic : ObservableObject
     {
-        private SelectedUnitStats unitStats_;
-        public SelectedUnitStats unitStats { get => unitStats; }
+        private UnitStats unitStats_;
+        public UnitStats unitStats { get => unitStats_; }
 
         private Unit selectedUnit_;
         public Unit selectedUnit 
@@ -48,6 +44,8 @@ namespace emblemaigneo
             unitStats_.DEF = selectedUnit_.stats[5];
             unitStats_.RES = selectedUnit_.stats[6];
             unitStats_.CHA = selectedUnit_.stats[7];
+
+            RaisePropertyChanged(nameof(unitStats));
         }
     }
 }

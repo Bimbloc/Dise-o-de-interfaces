@@ -73,7 +73,7 @@
                    Margin="30,0,10,0"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Center"
-                   Source="ms-appx:///Assets/Square150x150Logo.scale-200.png"
+                   Source="{x:Bind Logic.selectedUnit.GetImage(), Mode=OneWay}"
                    Stretch="Fill"/>
                 <Grid   HorizontalAlignment="Stretch"
                         Grid.Column="1"
@@ -100,7 +100,7 @@
                               CornerRadius="10"
                               Padding="5"
                               Margin="0,0,0,0" VerticalAlignment="Stretch">
-                            <TextBlock Text="{x:Bind Logic.selectedUnit.name}"
+                            <TextBlock Text="{x:Bind Logic.selectedUnit.name, Mode=OneWay}"
                                    FontSize="20"
                                    FontFamily="Taurus"
                                    FontWeight="Bold"
@@ -146,7 +146,7 @@
                             <ProgressBar CornerRadius="5"
                                      Background="WhiteSmoke"
                                      Foreground="Green"
-                                     Value="85" 
+                                     Value="{x:Bind Logic.selectedUnit.getHpPercentage(), Mode=OneWay}" 
                                      Width="Auto"
                                      Grid.Column="1" VerticalAlignment="Stretch"/>
                         </Grid>
@@ -165,7 +165,7 @@
                             <ProgressBar CornerRadius="5"
                                      Background="WhiteSmoke"
                                      Foreground="SteelBlue"
-                                     Value="35" 
+                                     Value="{x:Bind Logic.selectedUnit.exp, Mode=OneWay}" 
                                      Width="Auto"
                                      Grid.Column="1" VerticalAlignment="Stretch"/>
                         </Grid>
@@ -189,36 +189,36 @@
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <TextBlock Text="STR" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
-                        <TextBlock Text="{x:Bind Logic.unitStats.STR}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
+                        <TextBlock Text="{x:Bind Logic.unitStats.STR, Mode=OneWay}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
                         <TextBlock Text="MAG" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="White"/>
-                        <TextBlock Text="{x:Bind Logic.unitStats.MAG}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
+                        <TextBlock Text="{x:Bind Logic.unitStats.MAG, Mode=OneWay}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2">
                         <TextBlock Text="DEX" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="White"/>
-                        <TextBlock Text="{x:Bind Logic.unitStats.DEX}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
+                        <TextBlock Text="{x:Bind Logic.unitStats.DEX, Mode=OneWay}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3">
                         <TextBlock Text="SPD" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="White"/>
-                        <TextBlock Text="{x:Bind Logic.unitStats.SPD}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
+                        <TextBlock Text="{x:Bind Logic.unitStats.SPD, Mode=OneWay}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
                         <TextBlock Text="LCK" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
-                        <TextBlock Text="{x:Bind Logic.unitStats.LCK}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
+                        <TextBlock Text="{x:Bind Logic.unitStats.LCK, Mode=OneWay}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1">
                         <TextBlock Text="DEF" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="White"/>
-                        <TextBlock Text="{x:Bind Logic.unitStats.DEF}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
+                        <TextBlock Text="{x:Bind Logic.unitStats.DEF, Mode=OneWay}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1">
                         <TextBlock Text="RES" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="White"/>
-                        <TextBlock Text="{x:Bind Logic.unitStats.RES}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
+                        <TextBlock Text="{x:Bind Logic.unitStats.RES, Mode=OneWay}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1">
                         <TextBlock Text="CHA" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="White"/>
-                        <TextBlock Text="{x:Bind Logic.unitStats.CHA}" FontSize="24" FontWeight="Normal" Foreground="White"/>
+                        <TextBlock Text="{x:Bind Logic.unitStats.CHA, Mode=OneWay}" FontSize="24" FontWeight="Normal" Foreground="White"/>
                     </StackPanel>
                 </Grid>
                 <Grid BorderBrush="{StaticResource TransparentGray}"
@@ -329,7 +329,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Image Grid.RowSpan="3"
-                           Source="ms-appx:///Assets/Square150x150Logo.scale-200.png" Margin="0,0,0,0"/>
+                           Source="{x:Bind Logic.selectedUnit.GetImage(), Mode=OneWay}" Margin="0,0,0,0"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1">
                         <TextBlock Text="DMG" FontSize="36" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
                         <TextBlock Text="10" FontSize="36" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
@@ -351,7 +351,7 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="28/30"
+                        <TextBlock Text="{x:Bind Logic.selectedUnit.getHpDisplay(), Mode=OneWay}"
                                    FontSize="30"
                                    FontFamily="Taurus"
                                    FontWeight="Bold"
@@ -359,7 +359,7 @@
                         <ProgressBar CornerRadius="5"
                                      Background="WhiteSmoke"
                                      Foreground="Green"
-                                     Value="85" 
+                                     Value="{x:Bind Logic.selectedUnit.getHpPercentage(), Mode=OneWay}" 
                                      Width="Auto"
                                      Grid.Column="1" VerticalAlignment="Stretch" FlowDirection="RightToLeft"/>
                     </Grid>
@@ -419,7 +419,7 @@
                            Text="Bandit" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
                 <TextBlock Grid.Row="1"
                            Grid.Column="0"
-                           Text="Ferdinand Von Aegir" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                           Text="{x:Bind Logic.selectedUnit.name, Mode=OneWay}" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
             </Grid>
 
             <StackPanel x:Name="ActionMenu"
@@ -427,7 +427,8 @@
                         Padding="20"
                         Style="{StaticResource BlackPanel}">
                 <Button Style="{StaticResource ButtonStyle}"
-                        Content="Move" Margin="0,0,0,20" FontWeight="Normal"/>
+                        Content="Move" Margin="0,0,0,20" FontWeight="Normal"
+                        Click="Move_Click"/>
                 <Button Style="{StaticResource ButtonStyle}"
                         Content="Attack" Margin="0,0,0,20"/>
                 <Button Style="{StaticResource ButtonStyle}"

@@ -70,14 +70,40 @@ namespace emblemaigneo
 
     public class Unit : ObservableObject
     {
+        public Unit(int maxHp_) 
+        {
+            maxHp = maxHp_;
+            hp = maxHp - 3;
+
+            Random rnd = new Random();
+            exp = rnd.Next(0, 100);
+        }
+
         public int[] stats { get; set; }
 
         public string name { get; set; }
         public string icon { get; set; }
 
+        public int maxHp { get; }
+        public int hp { get; set; }
+
+        public double exp { get; set; }
+
         public BitmapImage GetImage()
         {
             return new BitmapImage(new Uri("ms-appx:///Assets/Units/" + icon));
+        }
+
+        public string getHpDisplay() 
+        {
+            return hp + "/" + maxHp;
+        }
+        public double getHpPercentage() 
+        {
+            float currHP = hp;
+            float maxHP = maxHp;
+
+            return Math.Round(currHP / maxHp * 100);
         }
     }
 
@@ -170,91 +196,91 @@ namespace emblemaigneo
     {
         public static List<Unit> army = new List<Unit>()
         {
-            new Unit()
+            new Unit(30)
             {
                 name = "Byleth(F)",
                 icon = "byleth_female.png",
 
-                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
+                stats = new int[8] { 10, 23, 20, 25, 10, 15, 20, 25 }
              },
-            new Unit()
+            new Unit(30)
             {
                 name = "Byleth(M)",
                 icon = "byleth_male.png",
 
-                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
+                stats = new int[8] { 17, 15, 20, 25, 10, 15, 20, 25 }
              },
-            new Unit()
+            new Unit(26)
             {
                 name = "Chrom",
                 icon = "chrom.png",
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
              },
-            new Unit()
+            new Unit(25)
             {
                 name = "Corrin(F)",
                 icon = "corrin_female.png",
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
              },
-            new Unit()
+            new Unit(25)
             {
                 name = "Corrin(M)",
                 icon = "corrin_male.png",
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
              },
-            new Unit()
+            new Unit(17)
             {
                 name = "Ike",
                 icon = "ike.png",
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
              },
-            new Unit()
+            new Unit(27)
             {
                 name = "Lucina",
                 icon = "lucina.png",
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
              },
-            new Unit()
+            new Unit(20)
             {
                 name = "Marth",
                 icon = "marth.png",
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
              },
-            new Unit()
+            new Unit(19)
             {
                 name = "Pyra",
                 icon = "pyra.png",
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
              },
-            new Unit()
+            new Unit(18)
             {
                 name = "Richter",
                 icon = "richter.png",
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
              },
-            new Unit()
+            new Unit(21)
             {
                 name = "Robin",
                 icon = "robin.png",
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
              },
-            new Unit()
+            new Unit(22)
             {
                 name = "Roy",
                 icon = "roy.png",
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
              },
-            new Unit()
+            new Unit(13)
             {
                 name = "Zelda",
                 icon = "zelda.png",

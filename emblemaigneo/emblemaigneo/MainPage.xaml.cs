@@ -22,6 +22,8 @@ namespace emblemaigneo
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        int n = 0;
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -32,6 +34,12 @@ namespace emblemaigneo
         private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Move_Click(object sender, RoutedEventArgs e)
+        {
+            n++;
+            Logic.selectedUnit = Army.army[n];
         }
     }
 }
