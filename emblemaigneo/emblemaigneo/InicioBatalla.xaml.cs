@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -14,6 +15,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -24,6 +26,10 @@ namespace emblemaigneo
     /// </summary>
     public sealed partial class InicioBatalla : Page
     {
+        int cuadradito =0;
+        int tropa = 0;
+        ImageSource tropaicon;
+        MyGrid Cuadricula = new MyGrid();
         public ObservableCollection<Unit> Ejercito { get; } = new ObservableCollection<Unit>();
 
         public InicioBatalla()
@@ -36,6 +42,16 @@ namespace emblemaigneo
                 }
 
             this.InitializeComponent();
+          //  MyGrid Cuadricula = new MyGrid();
+            Map.Children.Add(Cuadricula);
+            Cuadricula.Name = "Cuadricula";
+            Cuadricula.SetValue(Grid.RowSpanProperty,1);
+            Cuadricula.SetValue(Grid.ColumnSpanProperty, 1);
+
+            Cuadricula.Columns = 32;
+            Cuadricula.Rows = 18;
+           
+            Cuadricula.CreateTileImages();
         }
 
         private void cuadriculagrid_DragOver(object sender, DragEventArgs e)
@@ -45,10 +61,34 @@ namespace emblemaigneo
 
         private void cuadriculagrid_Drop(object sender, DragEventArgs e)
         {
-            GridViewItem g =tropasgrid.Items[0] as GridViewItem;
+            // GridViewItem g =tropasgrid.Items[0] as GridViewItem;
             //tropasgrid.Items.RemoveAt(0);
-            //cuadriculagrid.Items.Add(g);
+           MyGrid g = Map.Children[0] as MyGrid;//la cuadricula entera
 
+            //   Grid g2 = g.Children[cuadradito] as Grid;
+            // ImageSource i = Ejercito[0].GetImage() ;
+            ImageSource i = tropaicon;
+            Image im=   new Image();
+            im.Source = i;
+            g.SetSource(im);
+           // g2.Children.Add(im);
+            cuadradito += 1;
+            
+            //g.Background = 
+
+
+        }
+
+        private void statbattlebutton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
+
+        }
+
+        private void tropasgrid_DragItemsStarting(object sender, DragItemsStartingEventArgs e)
+        {
+            Unit u = e.Items[0] as Unit;
+            tropaicon = u.GetImage();
 
         }
     }

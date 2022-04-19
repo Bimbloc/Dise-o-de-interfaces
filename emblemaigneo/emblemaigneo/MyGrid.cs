@@ -71,11 +71,29 @@ namespace emblemaigneo
                 for (int j = 0; j < Rows; j++) 
                 {
                     Image image = new Image();
+                    image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Units/"+ "richter.png"));
                     image.SetValue(Grid.ColumnProperty, i);
                     image.SetValue(Grid.RowProperty, j);
 
                     Children.Add(image);
                 }
+            }
+        }
+        public void SetSource(Image sr)
+        {
+            for (int i = 0; i < Columns; i++)
+            {
+                for (int j = 0; j < Rows; j++)
+                {
+                    Image image = new Image();
+                    image.Source = sr.Source;
+                    image.SetValue(Grid.ColumnProperty, i);
+                    image.SetValue(Grid.RowProperty, j);
+
+                    Children.Add(image);
+                }
+
+
             }
         }
     }
