@@ -23,20 +23,21 @@ namespace emblemaigneo
     public sealed partial class MainPage : Page
     {
         int n = 0;
+        CuadriculaMapa Cuadricula;
 
         public MainPage()
         {
             this.InitializeComponent();
 
-            MyGrid Cuadricula = new MyGrid();
+            Cuadricula= new CuadriculaMapa(32, 18, this);
             Map.Children.Add(Cuadricula);
             Cuadricula.Name = "Cuadricula";
             Cuadricula.SetValue(Grid.RowSpanProperty, 3);
             Cuadricula.SetValue(Grid.ColumnSpanProperty, 3);
 
-            Cuadricula.Columns = 32;
-            Cuadricula.Rows = 18;
-            Cuadricula.CreateTileImages();
+            UnitDisplay byleth = new UnitDisplay(Army.army[0]);
+
+            Cuadricula.contentControls[6, 9].Content = byleth;
         }
 
         public MapLogic Logic { get; } = new MapLogic();
@@ -50,6 +51,11 @@ namespace emblemaigneo
         {
             n++;
             Logic.selectedUnit = Army.army[n];
+        }
+
+        public void ShowActionMenu() 
+        {
+            ActionMenu.Visibility = Visibility.Visible;
         }
     }
 }

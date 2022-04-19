@@ -43,15 +43,15 @@ namespace emblemaigneo
 
             this.InitializeComponent();
           //  MyGrid Cuadricula = new MyGrid();
-            Map.Children.Add(Cuadricula);
-            Cuadricula.Name = "Cuadricula";
-            Cuadricula.SetValue(Grid.RowSpanProperty,1);
-            Cuadricula.SetValue(Grid.ColumnSpanProperty, 1);
+            //Map.Children.Add(Cuadricula);
+            //Cuadricula.Name = "Cuadricula";
+            //Cuadricula.SetValue(Grid.RowSpanProperty,1);
+            //Cuadricula.SetValue(Grid.ColumnSpanProperty, 1);
 
-            Cuadricula.Columns = 32;
-            Cuadricula.Rows = 18;
+            //Cuadricula.Columns = 32;
+            //Cuadricula.Rows = 18;
            
-            Cuadricula.CreateTileImages();
+            //Cuadricula.CreateTileImages();
         }
 
         private void cuadriculagrid_DragOver(object sender, DragEventArgs e)
@@ -70,7 +70,6 @@ namespace emblemaigneo
             ImageSource i = tropaicon;
             Image im=   new Image();
             im.Source = i;
-            g.SetSource(im);
            // g2.Children.Add(im);
             cuadradito += 1;
             
