@@ -35,6 +35,8 @@ namespace emblemaigneo
             Cuadricula.SetValue(Grid.RowSpanProperty, 3);
             Cuadricula.SetValue(Grid.ColumnSpanProperty, 3);
 
+            Cuadricula.KeyDown += new KeyEventHandler(OnKeyDown);
+
             UnitDisplay byleth = new UnitDisplay(Army.army[0]);
 
             Cuadricula.contentControls[6, 9].Content = byleth;
@@ -42,9 +44,43 @@ namespace emblemaigneo
 
         public MapLogic Logic { get; } = new MapLogic();
 
-        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
+        private void OnKeyDown(object sender, KeyRoutedEventArgs e)
         {
+            DependencyObject candidate = null;
 
+            var options = new FindNextElementOptions()
+            {
+                SearchRoot = Cuadricula,
+                XYFocusNavigationStrategyOverride = XYFocusNavigationStrategyOverride.Projection
+            };
+
+            switch (e.Key)
+            {
+                case Windows.System.VirtualKey.Up:
+                    candidate =
+                        FocusManager.FindNextElement(
+                            FocusNavigationDirection.Up, options);
+                    break;
+                case Windows.System.VirtualKey.Down:
+                    candidate =
+                        FocusManager.FindNextElement(
+                            FocusNavigationDirection.Down, options);
+                    break;
+                case Windows.System.VirtualKey.Left:
+                    candidate = FocusManager.FindNextElement(
+                        FocusNavigationDirection.Left, options);
+                    break;
+                case Windows.System.VirtualKey.Right:
+                    candidate =
+                        FocusManager.FindNextElement(
+                            FocusNavigationDirection.Right, options);
+                    break;
+            }
+            // Also consider whether candidate is a Hyperlink, WebView, or TextBlock.
+            if (candidate != null && candidate is Control)
+            {
+                (candidate as Control).Focus(FocusState.Keyboard);
+            }
         }
 
         private void Move_Click(object sender, RoutedEventArgs e)
@@ -56,6 +92,21 @@ namespace emblemaigneo
         public void ShowActionMenu() 
         {
             ActionMenu.Visibility = Visibility.Visible;
+        }
+
+        public void ShowInfoBox() 
+        {
+            InfoBox.Visibility = Visibility.Visible;
+        }
+
+        public void CollapseInfoBox()
+        {
+            InfoBox.Visibility = Visibility.Collapsed;
+        }
+
+        public void SetSelectedUnit(Unit unit_) 
+        {
+            Logic.selectedUnit = unit_;
         }
     }
 }

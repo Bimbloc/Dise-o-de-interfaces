@@ -14,14 +14,14 @@ namespace emblemaigneo
     class CuadriculaMapa : MyGrid
     {
         public Grid[,] tiles { get; set; }
-        public ContentControl[,] contentControls { get; set; }
+        public UserControl[,] contentControls { get; set; }
 
         MainPage mainPage;
 
         public CuadriculaMapa(int columnas, int filas, MainPage mainPage_) 
         {
             tiles = new Grid[columnas, filas];
-            contentControls = new ContentControl[columnas, filas];
+            contentControls = new UserControl[columnas, filas];
 
             Columns = columnas;
             Rows = filas;
@@ -42,17 +42,21 @@ namespace emblemaigneo
                     tile.SetValue(Grid.RowProperty, j);
                     tile.Background = new SolidColorBrush(Color.FromArgb(100, 50, 50, 50));
 
-                    Children.Add(tile);
                     tiles[i, j] = tile;
 
                     //crea el contentControl que controla las unidades de esa casilla
-                    ContentControl contentControl = new ContentControl();
+                    UserControl contentControl = new UserControl();
                     contentControl.SetValue(Grid.ColumnProperty, i);
                     contentControl.SetValue(Grid.RowProperty, j);
                     contentControl.SetValue(Control.IsTabStopProperty, true);
                     contentControl.SetValue(Control.UseSystemFocusVisualsProperty, true);
+                    contentControl.XYFocusKeyboardNavigation = XYFocusKeyboardNavigationMode.Enabled;
 
-                    contentControl.Tapped += new TappedEventHandler(onTileClick);
+                    contentControl.PointerReleased += new PointerEventHandler(ControlHost_PointerReleased);
+                    contentControl.PointerPressed += new PointerEventHandler(onTileClick);
+                    contentControl.GotFocus += new RoutedEventHandler(onControlFocus);
+
+                    contentControl.Content = tile;
                     contentControls[i, j] = contentControl;
 
                     Children.Add(contentControl);
@@ -62,15 +66,46 @@ namespace emblemaigneo
 
         private void onTileClick(object sender, RoutedEventArgs e)
         {
-            ContentControl tileCC = sender as ContentControl;
+            UserControl tileCC = sender as UserControl;
+
+            tileCC.Focus(FocusState.Keyboard);
 
             //si hay unidades en la casilla abre el menu de acciones 
-            if (tileCC.Content != null)
+            if (tileCC.Content is UnitDisplay)
             {
+                UnitDisplay unitDisp = tileCC.Content as UnitDisplay;
+
                 mainPage.ShowActionMenu();
             }
 
             //tile.Background = new SolidColorBrush(Color.FromArgb(150, 50, 200, 50)); 
+        }
+
+        private void onControlFocus(object sender, RoutedEventArgs e)
+        {
+            UserControl tileCC = sender as UserControl;
+
+            tileCC.Focus(FocusState.Keyboard);
+
+            //si hay unidades en la casilla abre el menu de acciones 
+            if (tileCC.Content is UnitDisplay)
+            {
+                UnitDisplay unitDisp = tileCC.Content as UnitDisplay;
+
+                mainPage.ShowInfoBox();
+                mainPage.SetSelectedUnit(unitDisp.unit);
+            }
+
+            else 
+            {
+                mainPage.CollapseInfoBox();
+            }
+        }
+
+        private void ControlHost_PointerReleased(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        {
+            // Prevent most handlers along the event route from handling the same event again.
+            e.Handled = true;
         }
     }
 }

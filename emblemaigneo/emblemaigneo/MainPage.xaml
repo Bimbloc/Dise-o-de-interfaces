@@ -248,7 +248,7 @@
                                        FontSize="24"
                                        FontFamily="Taurus"
                                        FontWeight="Bold"
-                                       Margin="30,0,0,0" VerticalAlignment="Center" Grid.Column="1" SelectionChanged="TextBlock_SelectionChanged" Foreground="White"/>
+                                       Margin="30,0,0,0" VerticalAlignment="Center" Grid.Column="1" Foreground="White"/>
                     </Grid>
                     <Grid BorderBrush="{StaticResource TransparentGray}"
                               BorderThickness="5"
@@ -429,7 +429,8 @@
                         Grid.RowSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="50"
                         Padding="20"
                         Style="{StaticResource BlackPanel}"
-                        Visibility="Collapsed">
+                        Visibility="Collapsed"
+                        Canvas.ZIndex="5">
                 <Button Style="{StaticResource ButtonStyle}"
                         Content="Move" Margin="0,0,0,20" FontWeight="Normal"
                         Click="Move_Click"/>
