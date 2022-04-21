@@ -96,6 +96,11 @@ namespace emblemaigneo
             ActionMenu.Visibility = Visibility.Visible;
         }
 
+        public void CollapseActionMenu()
+        {
+            ActionMenu.Visibility = Visibility.Collapsed;
+        }
+
         public void ShowInfoBox() 
         {
             InfoBox.Visibility = Visibility.Visible;
