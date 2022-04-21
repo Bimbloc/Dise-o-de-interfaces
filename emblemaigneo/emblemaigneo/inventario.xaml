@@ -137,8 +137,8 @@
                 Grid.Column="1"
                 Style="{StaticResource ButtonStyle}"
                 Margin="10, 2.5, 10, 0"/>
-                
-                <Viewbox Grid.Column="2"
+
+                <Viewbox Grid.Column="2">
                     <Button Content="Equip/Use"
                 
                 Margin="10, 2.5, 10, 0"

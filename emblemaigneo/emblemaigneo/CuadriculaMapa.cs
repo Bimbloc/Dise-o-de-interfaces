@@ -16,6 +16,8 @@ namespace emblemaigneo
         public Grid[,] tiles { get; set; }
         public UserControl[,] contentControls { get; set; }
 
+        public bool gameStarted { get; set; } = false;
+
         MainPage mainPage;
 
         public CuadriculaMapa(int columnas, int filas, MainPage mainPage_) 
@@ -52,9 +54,18 @@ namespace emblemaigneo
                     contentControl.SetValue(Control.UseSystemFocusVisualsProperty, true);
                     contentControl.XYFocusKeyboardNavigation = XYFocusKeyboardNavigationMode.Enabled;
 
-                    contentControl.PointerReleased += new PointerEventHandler(ControlHost_PointerReleased);
-                    contentControl.PointerPressed += new PointerEventHandler(onTileClick);
-                    contentControl.GotFocus += new RoutedEventHandler(onControlFocus);
+                    //eventos en la cuadricula cuando se ha iniciado el juego
+                    if (gameStarted)
+                    {
+                        contentControl.PointerReleased += new PointerEventHandler(ControlHost_PointerReleased);
+                        contentControl.PointerPressed += new PointerEventHandler(onTileClick);
+                        contentControl.GotFocus += new RoutedEventHandler(onControlFocus);
+                    }
+                    //eventos menu inicio
+                    else 
+                    { 
+                    
+                    }
 
                     contentControl.Content = tile;
                     contentControls[i, j] = contentControl;
