@@ -97,6 +97,8 @@ namespace emblemaigneo
         public void ShowActionMenu() 
         {
             ActionMenu.Visibility = Visibility.Visible;
+            //ActionMenu.Focus(FocusState.);
+            //ActionMenu.IsFocusEngaged = true;
         }
 
         public void CollapseActionMenu()
