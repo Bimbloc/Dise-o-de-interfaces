@@ -37,6 +37,9 @@ namespace emblemaigneo
 
             Cuadricula.KeyDown += new KeyEventHandler(OnKeyDown);
 
+            Cuadricula.gameStarted = true;
+            Cuadricula.CreateTileImages();
+
             UnitDisplay byleth = new UnitDisplay(Army.army[0]);
 
             Cuadricula.contentControls[6, 9].Content = byleth;
