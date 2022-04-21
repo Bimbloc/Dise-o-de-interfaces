@@ -22,14 +22,34 @@ namespace emblemaigneo
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        int n = 0;
+
         public MainPage()
         {
             this.InitializeComponent();
+
+            MyGrid Cuadricula = new MyGrid();
+            Map.Children.Add(Cuadricula);
+            Cuadricula.Name = "Cuadricula";
+            Cuadricula.SetValue(Grid.RowSpanProperty, 3);
+            Cuadricula.SetValue(Grid.ColumnSpanProperty, 3);
+
+            Cuadricula.Columns = 32;
+            Cuadricula.Rows = 18;
+            Cuadricula.CreateTileImages();
         }
+
+        public MapLogic Logic { get; } = new MapLogic();
 
         private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Move_Click(object sender, RoutedEventArgs e)
+        {
+            n++;
+            Logic.selectedUnit = Army.army[n];
         }
     }
 }

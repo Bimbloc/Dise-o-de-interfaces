@@ -45,5 +45,10 @@ namespace emblemaigneo
             Frame.Navigate(typeof(EligeMapa));
 
         }
+
+        private void Continue_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(InicioBatalla));
+        }
     }
 }

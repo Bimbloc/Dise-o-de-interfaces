@@ -19,7 +19,10 @@
             <Setter Property="FontStyle" Value="Italic"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontSize" Value="40"/>
-
+            <Setter Property="FocusVisualPrimaryBrush" Value="Aqua"></Setter>
+            <Setter Property="FocusVisualSecondaryBrush" Value="Aquamarine"></Setter>
+            <Setter Property="FocusVisualPrimaryThickness" Value="8"></Setter>
+            <Setter Property="FocusVisualSecondaryThickness" Value="10"></Setter>
 
 
         </Style>
@@ -42,8 +45,9 @@
                Stretch="Fill"/>
         <StackPanel
             Orientation="Vertical" Margin="4" Spacing="30" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" >
-            <Button Width="auto">
-                <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
+            <Button x:Name="Continue" Click="Continue_Click" Width="auto">
+             
+                <StackPanel  Orientation="Horizontal" Margin="10" Spacing="12">
                     <TextBlock HorizontalAlignment="Left">CONTINUE</TextBlock>
                     <SymbolIcon Symbol="Next" HorizontalAlignment="Right"/>
                 </StackPanel>
