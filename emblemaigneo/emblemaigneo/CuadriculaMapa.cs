@@ -20,7 +20,7 @@ namespace emblemaigneo
 
         MainPage mainPage;
 
-        public CuadriculaMapa(int columnas, int filas, MainPage mainPage_) 
+        public CuadriculaMapa(int columnas, int filas, MainPage mainPage_ = null) 
         {
             tiles = new Grid[columnas, filas];
             contentControls = new UserControl[columnas, filas];
@@ -71,6 +71,19 @@ namespace emblemaigneo
                     contentControls[i, j] = contentControl;
 
                     Children.Add(contentControl);
+                }
+            }
+        }
+
+        public void placeUnitsInGrid() 
+        {
+            foreach (Unit unit in Army.army) 
+            {
+                if (unit.row != -1) 
+                {
+                    UnitDisplay unitDisplay = new UnitDisplay(unit);
+
+                    contentControls[unit.row, unit.colum].Content = unitDisplay;
                 }
             }
         }
