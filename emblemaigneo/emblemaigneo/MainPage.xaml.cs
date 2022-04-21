@@ -75,6 +75,8 @@ namespace emblemaigneo
                         FocusManager.FindNextElement(
                             FocusNavigationDirection.Right, options);
                     break;
+                default: 
+                    break;
             }
             // Also consider whether candidate is a Hyperlink, WebView, or TextBlock.
             if (candidate != null && candidate is Control)

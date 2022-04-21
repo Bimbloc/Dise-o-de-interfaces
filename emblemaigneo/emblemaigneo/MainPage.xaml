@@ -63,7 +63,8 @@
                   Style="{StaticResource BlackBox}"
                   Grid.Row="2"
                   Grid.ColumnSpan="3"
-                  Visibility="Collapsed">
+                  Visibility="Collapsed"
+                  Canvas.ZIndex="5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="1.5*"/>
