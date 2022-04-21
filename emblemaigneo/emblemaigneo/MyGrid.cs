@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 
 namespace emblemaigneo
@@ -14,8 +17,6 @@ namespace emblemaigneo
         public MyGrid()
         {
         }
-
-        public bool IsTabStop { get; set; } = true;
 
         public int Columns
         {
@@ -61,39 +62,6 @@ namespace emblemaigneo
 
                     ((MyGrid)d).RowDefinitions.Add(row);
                 }
-            }
-        }
-
-        public void CreateTileImages() 
-        {
-            for (int i = 0; i < Columns; i++) 
-            {
-                for (int j = 0; j < Rows; j++) 
-                {
-                    Image image = new Image();
-                    image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Units/"+ "richter.png"));
-                    image.SetValue(Grid.ColumnProperty, i);
-                    image.SetValue(Grid.RowProperty, j);
-
-                    Children.Add(image);
-                }
-            }
-        }
-        public void SetSource(Image sr)
-        {
-            for (int i = 0; i < Columns; i++)
-            {
-                for (int j = 0; j < Rows; j++)
-                {
-                    Image image = new Image();
-                    image.Source = sr.Source;
-                    image.SetValue(Grid.ColumnProperty, i);
-                    image.SetValue(Grid.RowProperty, j);
-
-                    Children.Add(image);
-                }
-
-
             }
         }
     }

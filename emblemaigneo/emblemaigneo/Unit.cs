@@ -287,6 +287,12 @@ namespace emblemaigneo
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
              },
+            new Unit(-1)
+            { 
+                name = "placeholder",
+
+                icon = "transparente.png"
+            }
           };
 
 
