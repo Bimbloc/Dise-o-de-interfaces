@@ -27,7 +27,6 @@ namespace emblemaigneo
 
             Columns = columnas;
             Rows = filas;
-            CreateTileImages();
 
             mainPage = mainPage_;
         }

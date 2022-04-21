@@ -37,6 +37,9 @@ namespace emblemaigneo
 
             Cuadricula.KeyDown += new KeyEventHandler(OnKeyDown);
 
+            Cuadricula.gameStarted = true;
+            Cuadricula.CreateTileImages();
+
             UnitDisplay byleth = new UnitDisplay(Army.army[0]);
 
             Cuadricula.contentControls[6, 9].Content = byleth;
@@ -94,6 +97,8 @@ namespace emblemaigneo
         public void ShowActionMenu() 
         {
             ActionMenu.Visibility = Visibility.Visible;
+            //ActionMenu.Focus(FocusState.);
+            //ActionMenu.IsFocusEngaged = true;
         }
 
         public void CollapseActionMenu()
