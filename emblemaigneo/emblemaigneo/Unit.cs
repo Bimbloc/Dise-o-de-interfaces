@@ -33,8 +33,7 @@ namespace emblemaigneo
 
         public int value { get; }
         public string stat { get; }
-        public int row { get; set; } = -1;
-        public int colum { get; set; } = -1;
+
         public Unit equipedChar;
 
         public string GetWeight()
@@ -89,6 +88,9 @@ namespace emblemaigneo
         public int hp { get; set; }
 
         public double exp { get; set; }
+
+        public int row { get; set; } = -1;
+        public int colum { get; set; } = -1;
 
         public BitmapImage GetImage()
         {
