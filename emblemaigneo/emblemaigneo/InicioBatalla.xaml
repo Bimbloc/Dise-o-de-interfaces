@@ -68,7 +68,7 @@
         
         <Image  Grid.ColumnSpan="3"
             Grid.RowSpan="3"
-            Source="ms-appx:///Assets/Campo.jpg"
+            Source="ms-appx:///Assets/mapa.png"
             Stretch="Fill"  AllowDrop="True"
             DragOver="cuadriculagrid_DragOver" Drop="cuadriculagrid_Drop"/>
         <Grid 
