@@ -35,8 +35,6 @@ namespace emblemaigneo
             Cuadricula.SetValue(Grid.RowSpanProperty, 3);
             Cuadricula.SetValue(Grid.ColumnSpanProperty, 3);
 
-            Cuadricula.KeyDown += new KeyEventHandler(OnKeyDown);
-
             Cuadricula.gameStarted = true;
             Cuadricula.CreateTileImages();
 
@@ -47,47 +45,6 @@ namespace emblemaigneo
 
         public MapLogic Logic { get; } = new MapLogic();
 
-        private void OnKeyDown(object sender, KeyRoutedEventArgs e)
-        {
-            DependencyObject candidate = null;
-
-            var options = new FindNextElementOptions()
-            {
-                SearchRoot = Cuadricula,
-                XYFocusNavigationStrategyOverride = XYFocusNavigationStrategyOverride.Projection
-            };
-
-            switch (e.Key)
-            {
-                case Windows.System.VirtualKey.Up:
-                    candidate =
-                        FocusManager.FindNextElement(
-                            FocusNavigationDirection.Up, options);
-                    break;
-                case Windows.System.VirtualKey.Down:
-                    candidate =
-                        FocusManager.FindNextElement(
-                            FocusNavigationDirection.Down, options);
-                    break;
-                case Windows.System.VirtualKey.Left:
-                    candidate = FocusManager.FindNextElement(
-                        FocusNavigationDirection.Left, options);
-                    break;
-                case Windows.System.VirtualKey.Right:
-                    candidate =
-                        FocusManager.FindNextElement(
-                            FocusNavigationDirection.Right, options);
-                    break;
-                default: 
-                    break;
-            }
-            // Also consider whether candidate is a Hyperlink, WebView, or TextBlock.
-            if (candidate != null && candidate is Control)
-            {
-                (candidate as Control).Focus(FocusState.Keyboard);
-            }
-        }
-
         private void Move_Click(object sender, RoutedEventArgs e)
         {
             n++;
@@ -97,8 +54,8 @@ namespace emblemaigneo
         public void ShowActionMenu() 
         {
             ActionMenu.Visibility = Visibility.Visible;
-            //ActionMenu.Focus(FocusState.);
-            //ActionMenu.IsFocusEngaged = true;
+            ActionMenu.Focus(FocusState.Keyboard);
+            ActionMenu.IsFocusEngaged = true;
         }
 
         public void CollapseActionMenu()
@@ -119,6 +76,11 @@ namespace emblemaigneo
         public void SetSelectedUnit(Unit unit_) 
         {
             Logic.selectedUnit = unit_;
+        }
+
+        private void ActionMenu_FocusDisengaged(Control sender, FocusDisengagedEventArgs args)
+        {
+            CollapseActionMenu();
         }
     }
 }

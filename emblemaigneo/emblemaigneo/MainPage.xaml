@@ -103,24 +103,28 @@
                               CornerRadius="10"
                               Padding="5"
                               Margin="0,0,0,0" VerticalAlignment="Stretch">
-                            <TextBlock Text="{x:Bind Logic.selectedUnit.name, Mode=OneWay}"
+                            <Viewbox>
+                                <TextBlock Text="{x:Bind Logic.selectedUnit.name, Mode=OneWay}"
                                    FontSize="20"
                                    FontFamily="Taurus"
                                    FontWeight="Bold"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center" Foreground="White"/>
+                            </Viewbox>
                         </Grid>
                         <Grid BorderBrush="{StaticResource TransparentGray}"
                               BorderThickness="4"
                               CornerRadius="10"
                               Padding="5"
                               Grid.Row="1">
-                            <TextBlock Text="Armored Knight"
+                            <Viewbox>
+                                <TextBlock Text="Armored Knight"
                                    FontSize="20"
                                    FontFamily="Taurus"
                                    FontWeight="Bold"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center" Foreground="White"/>
+                            </Viewbox>
                         </Grid>
                     </Grid>
                     <Grid   VerticalAlignment="Stretch"
@@ -140,12 +144,14 @@
                                 <ColumnDefinition Width="0.2*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Text="HP"
+                            <Viewbox>
+                                <TextBlock Text="HP"
                                    FontSize="30"
                                    FontFamily="Taurus"
                                    FontWeight="Bold"
                                    Foreground="Green"
                                    Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Viewbox>
                             <ProgressBar CornerRadius="5"
                                      Background="WhiteSmoke"
                                      Foreground="Green"
@@ -159,12 +165,14 @@
                                 <ColumnDefinition Width="0.2*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Text="EXP"
+                            <Viewbox>
+                                <TextBlock Text="EXP"
                                    FontSize="30"
                                    FontFamily="Taurus"
                                    FontWeight="Bold"
                                    Foreground="SteelBlue"
                                    Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Viewbox>
                             <ProgressBar CornerRadius="5"
                                      Background="WhiteSmoke"
                                      Foreground="SteelBlue"
@@ -190,38 +198,78 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBlock Text="STR" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
-                        <TextBlock Text="{x:Bind Logic.unitStats.STR, Mode=OneWay}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                Padding="5">
+                        <Viewbox>
+                            <TextBlock Text="STR" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
+                        </Viewbox>
+                        <Viewbox>
+                            <TextBlock Text="{x:Bind Logic.unitStats.STR, Mode=OneWay}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
+                        </Viewbox>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
-                        <TextBlock Text="MAG" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="White"/>
-                        <TextBlock Text="{x:Bind Logic.unitStats.MAG, Mode=OneWay}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"
+                                Padding="5">
+                        <Viewbox>
+                            <TextBlock Text="MAG" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="White"/>
+                        </Viewbox>
+                        <Viewbox>
+                            <TextBlock Text="{x:Bind Logic.unitStats.MAG, Mode=OneWay}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
+                        </Viewbox>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2">
-                        <TextBlock Text="DEX" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="White"/>
-                        <TextBlock Text="{x:Bind Logic.unitStats.DEX, Mode=OneWay}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2"
+                                Padding="5">
+                        <Viewbox>
+                            <TextBlock Text="DEX" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="White"/>
+                        </Viewbox>
+                        <Viewbox>
+                            <TextBlock Text="{x:Bind Logic.unitStats.DEX, Mode=OneWay}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
+                        </Viewbox>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3">
-                        <TextBlock Text="SPD" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="White"/>
-                        <TextBlock Text="{x:Bind Logic.unitStats.SPD, Mode=OneWay}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3"
+                                Padding="5">
+                        <Viewbox>
+                            <TextBlock Text="SPD" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="White"/>
+                        </Viewbox>
+                        <Viewbox>
+                            <TextBlock Text="{x:Bind Logic.unitStats.SPD, Mode=OneWay}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
+                        </Viewbox>
                     </StackPanel>
 
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
-                        <TextBlock Text="LCK" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
-                        <TextBlock Text="{x:Bind Logic.unitStats.LCK, Mode=OneWay}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"
+                                Padding="5">
+                        <Viewbox>
+                            <TextBlock Text="LCK" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
+                        </Viewbox>
+                        <Viewbox>
+                            <TextBlock Text="{x:Bind Logic.unitStats.LCK, Mode=OneWay}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
+                        </Viewbox>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1">
-                        <TextBlock Text="DEF" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="White"/>
-                        <TextBlock Text="{x:Bind Logic.unitStats.DEF, Mode=OneWay}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1"
+                                Padding="5">
+                        <Viewbox>
+                            <TextBlock Text="DEF" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="White"/>
+                        </Viewbox>
+                        <Viewbox>
+                            <TextBlock Text="{x:Bind Logic.unitStats.DEF, Mode=OneWay}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
+                        </Viewbox>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1">
-                        <TextBlock Text="RES" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="White"/>
-                        <TextBlock Text="{x:Bind Logic.unitStats.RES, Mode=OneWay}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1"
+                                Padding="5">
+                        <Viewbox>
+                            <TextBlock Text="RES" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="White"/>
+                        </Viewbox>
+                        <Viewbox>
+                            <TextBlock Text="{x:Bind Logic.unitStats.RES, Mode=OneWay}" FontSize="24" FontWeight="Normal" VerticalAlignment="Stretch" Foreground="White"/>
+                        </Viewbox>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1">
-                        <TextBlock Text="CHA" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="White"/>
-                        <TextBlock Text="{x:Bind Logic.unitStats.CHA, Mode=OneWay}" FontSize="24" FontWeight="Normal" Foreground="White"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1"
+                                Padding="5">
+                        <Viewbox>
+                            <TextBlock Text="CHA" FontSize="24" FontWeight="Bold" Margin="0,0,10,0" Foreground="White"/>
+                        </Viewbox>
+                        <Viewbox>
+                            <TextBlock Text="{x:Bind Logic.unitStats.CHA, Mode=OneWay}" FontSize="24" FontWeight="Normal" Foreground="White"/>
+                        </Viewbox>
                     </StackPanel>
                 </Grid>
                 <Grid BorderBrush="{StaticResource TransparentGray}"
@@ -245,11 +293,12 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Image Source="ms-appx:///Assets/Square150x150Logo.scale-200.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
-                        <TextBlock Text="Steel Sword"
+                        <Viewbox Grid.Column="1">
+                            <TextBlock Text="Steel Sword"
                                        FontSize="24"
                                        FontFamily="Taurus"
-                                       FontWeight="Bold"
-                                       Margin="30,0,0,0" VerticalAlignment="Center" Grid.Column="1" Foreground="White"/>
+                                       FontWeight="Bold" VerticalAlignment="Center" Foreground="White"/>
+                        </Viewbox>
                     </Grid>
                     <Grid BorderBrush="{StaticResource TransparentGray}"
                               BorderThickness="5"
@@ -260,11 +309,13 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Image Source="ms-appx:///Assets/Square150x150Logo.scale-200.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
-                        <TextBlock Text="Silver Shield"
+                        <Viewbox Grid.Column="1">
+                            <TextBlock Text="Steel Sword"
                                        FontSize="24"
                                        FontFamily="Taurus"
                                        FontWeight="Bold"
-                                       Margin="30,0,0,0" VerticalAlignment="Center" Grid.Column="1" Foreground="White"/>
+                                       VerticalAlignment="Center" Foreground="White"/>
+                        </Viewbox>
                     </Grid>
                     <Grid BorderBrush="{StaticResource TransparentGray}"
                               BorderThickness="5"
@@ -275,11 +326,13 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Image Source="ms-appx:///Assets/Square150x150Logo.scale-200.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
-                        <TextBlock Text="Iron-Heart Ring"
+                        <Viewbox Grid.Column="1">
+                            <TextBlock Text="Steel Sword"
                                        FontSize="24"
                                        FontFamily="Taurus"
                                        FontWeight="Bold"
-                                       Margin="30,0,0,0" VerticalAlignment="Center" Grid.Column="1" Foreground="White"/>
+                                       VerticalAlignment="Center" Foreground="White"/>
+                        </Viewbox>
                     </Grid>
                     <Grid BorderBrush="{StaticResource TransparentGray}"
                               BorderThickness="5"
@@ -290,11 +343,13 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Image Source="ms-appx:///Assets/Square150x150Logo.scale-200.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
-                        <TextBlock Text="Leather Coat"
+                        <Viewbox  Grid.Column="1">
+                            <TextBlock Text="Steel Sword"
                                        FontSize="24"
                                        FontFamily="Taurus"
                                        FontWeight="Bold"
-                                       Margin="30,0,0,0" VerticalAlignment="Center" Grid.Column="1" Foreground="White"/>
+                                       VerticalAlignment="Center" Foreground="White"/>
+                        </Viewbox>
                     </Grid>
                 </Grid>
             </Grid>
@@ -308,10 +363,11 @@
                   Margin="50"
                   ColumnSpacing="10"
                   RowSpacing="10"
+                  Canvas.ZIndex="5"
                   Visibility="Collapsed">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="2*"/>
-                    <RowDefinition/>
+                    <RowDefinition />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -335,16 +391,28 @@
                     <Image Grid.RowSpan="3"
                            Source="{x:Bind Logic.selectedUnit.GetImage(), Mode=OneWay}" Margin="0,0,0,0"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1">
-                        <TextBlock Text="DMG" FontSize="36" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
-                        <TextBlock Text="10" FontSize="36" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
+                        <Viewbox>
+                            <TextBlock Text="DMG" FontSize="36" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
+                        </Viewbox>
+                        <Viewbox>
+                            <TextBlock Text="10" FontSize="36" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
+                        </Viewbox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1">
-                        <TextBlock Text="HIT" FontSize="36" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
-                        <TextBlock Text="10" FontSize="36" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
+                        <Viewbox>
+                            <TextBlock Text="HIT" FontSize="36" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
+                        </Viewbox>
+                        <Viewbox>
+                            <TextBlock Text="10" FontSize="36" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
+                        </Viewbox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2">
-                        <TextBlock Text="CRIT" FontSize="36" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
-                        <TextBlock Text="10" FontSize="36" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
+                        <Viewbox>
+                            <TextBlock Text="CRIT" FontSize="36" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
+                        </Viewbox>
+                        <Viewbox>
+                            <TextBlock Text="10" FontSize="36" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
+                        </Viewbox>
                     </StackPanel>
                     <Grid HorizontalAlignment="Stretch"
                           Grid.Row="3"
@@ -355,11 +423,13 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="{x:Bind Logic.selectedUnit.getHpDisplay(), Mode=OneWay}"
+                        <Viewbox>
+                            <TextBlock Text="{x:Bind Logic.selectedUnit.getHpDisplay(), Mode=OneWay}"
                                    FontSize="30"
                                    FontFamily="Taurus"
                                    FontWeight="Bold"
                                    Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                        </Viewbox>
                         <ProgressBar CornerRadius="5"
                                      Background="WhiteSmoke"
                                      Foreground="Green"
@@ -385,16 +455,28 @@
                     <Image Grid.RowSpan="3"
                            Source="ms-appx:///Assets/Square150x150Logo.scale-200.png" Grid.Column="1"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
-                        <TextBlock Text="DMG" FontSize="36" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
-                        <TextBlock Text="10" FontSize="36" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
+                        <Viewbox>
+                            <TextBlock Text="DMG" FontSize="36" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
+                        </Viewbox>
+                        <Viewbox>
+                            <TextBlock Text="10" FontSize="36" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
+                        </Viewbox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1">
-                        <TextBlock Text="HIT" FontSize="36" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
-                        <TextBlock Text="10" FontSize="36" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
+                        <Viewbox>
+                            <TextBlock Text="HIT" FontSize="36" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
+                        </Viewbox>
+                        <Viewbox>
+                            <TextBlock Text="10" FontSize="36" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
+                        </Viewbox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" Grid.Row="2">
-                        <TextBlock Text="CRIT" FontSize="36" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
-                        <TextBlock Text="10" FontSize="36" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
+                        <Viewbox>
+                            <TextBlock Text="CRIT" FontSize="36" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
+                        </Viewbox>
+                        <Viewbox>
+                            <TextBlock Text="10" FontSize="36" FontWeight="Normal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
+                        </Viewbox>
                     </StackPanel>
                     <Grid HorizontalAlignment="Stretch"
                           Grid.Row="3"
@@ -405,11 +487,13 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="28/30"
+                        <Viewbox Grid.Column="1">
+                            <TextBlock Text="28/30"
                                    FontSize="30"
                                    FontFamily="Taurus"
                                    FontWeight="Bold"
-                                   Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Foreground="White"/>
+                                   Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                        </Viewbox>
                         <ProgressBar CornerRadius="5"
                                      Background="WhiteSmoke"
                                      Foreground="Red"
@@ -418,23 +502,26 @@
                                      Grid.Column="0" VerticalAlignment="Stretch"/>
                     </Grid>
                 </Grid>
-                <TextBlock Grid.Row="1"
-                           Grid.Column="1"
-                           Text="Bandit" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
-                <TextBlock Grid.Row="1"
-                           Grid.Column="0"
-                           Text="{x:Bind Logic.selectedUnit.name, Mode=OneWay}" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                <Viewbox Grid.Row="1"
+                         Grid.Column="1">
+                    <TextBlock Text="Bandit" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                </Viewbox>
+                <Viewbox Grid.Row="1"
+                         Grid.Column="0">
+                    <TextBlock Text="{x:Bind Logic.selectedUnit.name, Mode=OneWay}" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                </Viewbox>
             </Grid>
 
             <ContentControl x:Name="ActionMenu"
                             Grid.RowSpan="2"
-                            Canvas.ZIndex="5"
+                            Canvas.ZIndex="6"
                             IsTabStop="True"
-                            IsFocusEngagementEnabled="True">
+                            IsFocusEngagementEnabled="True"
+                            Visibility="Collapsed"
+                            FocusDisengaged="ActionMenu_FocusDisengaged">
                 <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="50"
                         Padding="20"
-                        Style="{StaticResource BlackPanel}"
-                        Visibility="Collapsed">
+                        Style="{StaticResource BlackPanel}">
                     <Button Style="{StaticResource ButtonStyle}"
                         Content="Move" Margin="0,0,0,20" FontWeight="Normal"
                         Click="Move_Click"/>
