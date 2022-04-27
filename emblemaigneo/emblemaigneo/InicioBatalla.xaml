@@ -71,10 +71,10 @@
             Grid.RowSpan="3"
             Source="ms-appx:///Assets/mapa.png"
             Stretch="Fill"  AllowDrop="True"
-            DragOver="cuadriculagrid_DragOver" Drop="cuadriculagrid_Drop"/>
+            DragOver="cuadriculagrid_DragOver"/>
         <Grid 
             x:Name="Map" Grid.Row="1" Grid.Column="2" AllowDrop="True"
-            DragOver="cuadriculagrid_DragOver" Drop="cuadriculagrid_Drop"
+            DragOver="cuadriculagrid_DragOver"
             TabFocusNavigation="Local" Grid.ColumnSpan="2" >
 
         </Grid>

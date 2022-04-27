@@ -29,7 +29,7 @@ namespace emblemaigneo
         int cuadradito =0;
         int tropa = 0;
         ImageSource tropaicon;
-        MyGrid Cuadricula = new MyGrid();
+        CuadriculaMapa Cuadricula;
         public ObservableCollection<Unit> Ejercito { get; } = new ObservableCollection<Unit>();
 
         public InicioBatalla()
@@ -43,11 +43,12 @@ namespace emblemaigneo
 
             this.InitializeComponent();
             
-             Cuadricula = new CuadriculaMapa(32, 18, null);
+             Cuadricula = new CuadriculaMapa(32, 18, null,this);
             Map.Children.Add(Cuadricula);
             Cuadricula.Name = "Cuadricula";
             Cuadricula.SetValue(Grid.RowSpanProperty, 3);
             Cuadricula.SetValue(Grid.ColumnSpanProperty, 3);
+            Cuadricula.CreateTileImages();
 
             //  MyGrid Cuadricula = new MyGrid();
             //Map.Children.Add(Cuadricula);
@@ -66,18 +67,29 @@ namespace emblemaigneo
             e.AcceptedOperation = DataPackageOperation.Copy;
         }
 
-        private void cuadriculagrid_Drop(object sender, DragEventArgs e)
+        public void cuadriculagrid_Drop(object sender, DragEventArgs e)
         {
             // GridViewItem g =tropasgrid.Items[0] as GridViewItem;
             //tropasgrid.Items.RemoveAt(0);
-           MyGrid g = Map.Children[0] as MyGrid;//la cuadricula entera
+          // MyGrid g = Map.Children[0] as MyGrid;//la cuadricula entera
            
-            //   Grid g2 = g.Children[cuadradito] as Grid;
+              //Grid g2 = g.Children[cuadradito] as Grid;
             // ImageSource i = Ejercito[0].GetImage() ;
             ImageSource i = tropaicon;
-            Image im=   new Image();
-            im.Source = i;
-           // g2.Children.Add(im);
+           
+           // Image im=   new Image();
+           // im.Source = i;
+          UserControl cc = sender as UserControl;
+            UnitDisplay ui = new UnitDisplay(Army.army[0]);
+
+            ui.unit.colum = Grid.GetColumn(cc);
+            ui.unit.row = Grid.GetRow(cc);
+            cc.Content = ui;
+           // cc.Source = i;
+
+            // Grid back = cc.Content as Grid;
+            //back.Children.Add(im);
+           //  g2.Children.Add(im);
            // cuadradito += 1;
             
             //g.Background = 
@@ -96,6 +108,10 @@ namespace emblemaigneo
             Unit u = e.Items[0] as Unit;
             tropaicon = u.GetImage();
 
+        }
+       public  void colocaTropa()
+        { 
+        
         }
     }
 }

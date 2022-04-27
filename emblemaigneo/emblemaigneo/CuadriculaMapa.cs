@@ -19,7 +19,7 @@ namespace emblemaigneo
         public bool gameStarted { get; set; } = false;
 
         MainPage mainPage;
-
+        InicioBatalla inicioBatalla;
         public struct PointerPos
         {
             public int x;
@@ -28,7 +28,7 @@ namespace emblemaigneo
 
         PointerPos pointer;
 
-        public CuadriculaMapa(int columnas, int filas, MainPage mainPage_ = null) 
+        public CuadriculaMapa(int columnas, int filas, MainPage mainPage_ = null,InicioBatalla inibatalla = null) 
         {
             tiles = new Grid[columnas, filas];
             contentControls = new UserControl[columnas, filas];
@@ -41,6 +41,7 @@ namespace emblemaigneo
             Rows = filas;
 
             mainPage = mainPage_;
+            inicioBatalla = inibatalla;
         }
 
         private void OnKeyDown(object sender, KeyRoutedEventArgs e)
@@ -118,8 +119,10 @@ namespace emblemaigneo
                     }
                     //eventos menu inicio
                     else 
-                    { 
-                    
+                    {
+                        contentControl.SetValue(Control.AllowDropProperty,true);
+                        contentControl.Drop += new DragEventHandler(dropeaTropa);
+                        
                     }
 
                     contentControl.Content = tile;
@@ -212,6 +215,10 @@ namespace emblemaigneo
         public void FocusPointer()
         {
             contentControls[pointer.x, pointer.y].Focus(FocusState.Keyboard);
+        }
+        void dropeaTropa(object sender, DragEventArgs e)
+        {
+            inicioBatalla.cuadriculagrid_Drop(sender,e);
         }
     }
 }
