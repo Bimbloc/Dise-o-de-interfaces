@@ -42,7 +42,14 @@ namespace emblemaigneo
                 }
 
             this.InitializeComponent();
-          //  MyGrid Cuadricula = new MyGrid();
+            
+             Cuadricula = new CuadriculaMapa(32, 18, null);
+            Map.Children.Add(Cuadricula);
+            Cuadricula.Name = "Cuadricula";
+            Cuadricula.SetValue(Grid.RowSpanProperty, 3);
+            Cuadricula.SetValue(Grid.ColumnSpanProperty, 3);
+
+            //  MyGrid Cuadricula = new MyGrid();
             //Map.Children.Add(Cuadricula);
             //Cuadricula.Name = "Cuadricula";
             //Cuadricula.SetValue(Grid.RowSpanProperty,1);
@@ -50,7 +57,7 @@ namespace emblemaigneo
 
             //Cuadricula.Columns = 32;
             //Cuadricula.Rows = 18;
-           
+
             //Cuadricula.CreateTileImages();
         }
 
@@ -64,14 +71,14 @@ namespace emblemaigneo
             // GridViewItem g =tropasgrid.Items[0] as GridViewItem;
             //tropasgrid.Items.RemoveAt(0);
            MyGrid g = Map.Children[0] as MyGrid;//la cuadricula entera
-
+           
             //   Grid g2 = g.Children[cuadradito] as Grid;
             // ImageSource i = Ejercito[0].GetImage() ;
             ImageSource i = tropaicon;
             Image im=   new Image();
             im.Source = i;
            // g2.Children.Add(im);
-            cuadradito += 1;
+           // cuadradito += 1;
             
             //g.Background = 
 

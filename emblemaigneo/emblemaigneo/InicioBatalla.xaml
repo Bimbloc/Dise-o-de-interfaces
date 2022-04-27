@@ -56,34 +56,33 @@
     <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="35*"/>
             <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="10*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="8*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
-        <Image  Grid.ColumnSpan="3"
+
+        <Image  Grid.ColumnSpan="4"
             Grid.RowSpan="3"
             Source="ms-appx:///Assets/mapa.png"
             Stretch="Fill"  AllowDrop="True"
             DragOver="cuadriculagrid_DragOver" Drop="cuadriculagrid_Drop"/>
         <Grid 
-            x:Name="Map" Grid.Row="1" Grid.Column="3" AllowDrop="True"
+            x:Name="Map" Grid.Row="1" Grid.Column="2" AllowDrop="True"
             DragOver="cuadriculagrid_DragOver" Drop="cuadriculagrid_Drop"
-            TabFocusNavigation="Local" >
+            TabFocusNavigation="Local" Grid.ColumnSpan="2" >
 
         </Grid>
         <Grid x:Name="MiGrid" 
               Background="{StaticResource TransparentBlack}" 
               CornerRadius="18"
               Grid.Row="1"
-              Grid.Column="1"
-              VerticalAlignment="Stretch"
-              HorizontalAlignment="Stretch">
+              Grid.Column="1">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -94,19 +93,19 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
-           
+
 
             <Button 
                 Grid.Row="2"
                 Style="{StaticResource ButtonStyle}"
                 Margin="16, 0, 8, 0">
-                
+
                 <StackPanel Orientation="Horizontal"  Spacing="12.5">
                     <SymbolIcon Foreground="Black"  Symbol="Refresh" HorizontalAlignment="Right"/>
                     <TextBlock FontSize="40">Reorganize</TextBlock>
                 </StackPanel>
             </Button>
-            
+
             <Button x:Name="statbattlebutton"
                     Click="statbattlebutton_Click"
                 Grid.Column="1"
@@ -116,7 +115,7 @@
                 <StackPanel Orientation="Horizontal"  Spacing="12.5">
                     <TextBlock FontSize="40">Start Battle</TextBlock>
                     <SymbolIcon Foreground="Black"  Symbol="Forward" HorizontalAlignment="Right"/>
-                    
+
                 </StackPanel>
             </Button>
 
@@ -163,6 +162,6 @@
                    Style="{StaticResource TextStyle}" TextAlignment="Left"/>
 
         </Grid>
-       
+
     </Grid>
 </Page>
