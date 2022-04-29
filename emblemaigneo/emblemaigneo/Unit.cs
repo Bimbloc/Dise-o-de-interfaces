@@ -91,6 +91,7 @@ namespace emblemaigneo
 
         public int row { get; set; } = -1;
         public int colum { get; set; } = -1;
+        public int id { get; set; } = -1;
 
         public BitmapImage GetImage()
         {
@@ -204,91 +205,104 @@ namespace emblemaigneo
                 name = "Byleth(F)",
                 icon = "byleth_female.png",
 
-                stats = new int[8] { 10, 23, 20, 25, 10, 15, 20, 25 }
+                stats = new int[8] { 10, 23, 20, 25, 10, 15, 20, 25 },
+                id =0
              },
             new Unit(30)
             {
                 name = "Byleth(M)",
                 icon = "byleth_male.png",
 
-                stats = new int[8] { 17, 15, 20, 25, 10, 15, 20, 25 }
+                stats = new int[8] { 17, 15, 20, 25, 10, 15, 20, 25 },
+                id =1
              },
             new Unit(26)
             {
                 name = "Chrom",
                 icon = "chrom.png",
 
-                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
+                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
+                id =2
              },
             new Unit(25)
             {
                 name = "Corrin(F)",
                 icon = "corrin_female.png",
 
-                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
+                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
+                id=3
              },
             new Unit(25)
             {
                 name = "Corrin(M)",
                 icon = "corrin_male.png",
 
-                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
+                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
+                id=4
              },
             new Unit(17)
             {
                 name = "Ike",
                 icon = "ike.png",
 
-                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
+                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
+                id=5
              },
             new Unit(27)
             {
                 name = "Lucina",
                 icon = "lucina.png",
 
-                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
+                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
+                id=6
              },
             new Unit(20)
             {
                 name = "Marth",
                 icon = "marth.png",
 
-                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
+                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
+                id=7
              },
             new Unit(19)
             {
                 name = "Pyra",
                 icon = "pyra.png",
 
-                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
+                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
+                id=8
              },
             new Unit(18)
             {
                 name = "Richter",
                 icon = "richter.png",
 
-                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
+                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
+                id=9
              },
             new Unit(21)
             {
                 name = "Robin",
                 icon = "robin.png",
 
-                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
+                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
+                id=10
              },
             new Unit(22)
             {
                 name = "Roy",
                 icon = "roy.png",
 
-                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
+                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
+                id=11
              },
             new Unit(13)
             {
                 name = "Zelda",
                 icon = "zelda.png",
 
-                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 }
+                stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
+                id=12
              },
             new Unit(-1)
             { 

@@ -29,6 +29,7 @@ namespace emblemaigneo
         int cuadradito =0;
         int tropa = 0;
         ImageSource tropaicon;
+        Unit ur;
         CuadriculaMapa Cuadricula;
         public ObservableCollection<Unit> Ejercito { get; } = new ObservableCollection<Unit>();
 
@@ -71,16 +72,17 @@ namespace emblemaigneo
         {
             // GridViewItem g =tropasgrid.Items[0] as GridViewItem;
             //tropasgrid.Items.RemoveAt(0);
-          // MyGrid g = Map.Children[0] as MyGrid;//la cuadricula entera
-           
-              //Grid g2 = g.Children[cuadradito] as Grid;
+            // MyGrid g = Map.Children[0] as MyGrid;//la cuadricula entera
+
+            //Grid g2 = g.Children[cuadradito] as Grid;
             // ImageSource i = Ejercito[0].GetImage() ;
+            int id = ur.id;
             ImageSource i = tropaicon;
            
            // Image im=   new Image();
            // im.Source = i;
           UserControl cc = sender as UserControl;
-            UnitDisplay ui = new UnitDisplay(Army.army[0]);
+            UnitDisplay ui = new UnitDisplay(Army.army[id]);
 
             ui.unit.colum = Grid.GetColumn(cc);
             ui.unit.row = Grid.GetRow(cc);
@@ -106,7 +108,15 @@ namespace emblemaigneo
         private void tropasgrid_DragItemsStarting(object sender, DragItemsStartingEventArgs e)
         {
             Unit u = e.Items[0] as Unit;
-            tropaicon = u.GetImage();
+            /*  GridView g = sender as GridView;
+              GridViewHeaderItem gh = g.Items[0] as GridViewHeaderItem;
+              Unit u = gh.Content as Unit;*/
+            //UnitDisplay ud = sender as UnitDisplay;
+            //Unit u =  as Unit;
+            // UnitDisplay item = e.Items[0] as UnitDisplay;
+            //Unit u = item.unit;
+            ur = u;
+           // tropaicon = u.GetImage();
 
         }
        public  void colocaTropa()
