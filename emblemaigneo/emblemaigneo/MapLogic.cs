@@ -23,11 +23,15 @@ namespace emblemaigneo
         public Unit selectedUnit 
         { 
             get => selectedUnit_; 
-            set { 
+            set {
                 Set(ref selectedUnit_, value);
                 setStats();
-            } 
+            }
         }
+
+        public enum State { MOVING, ATTACKING, ACTION_MENU, MAP_NAVIGATING };
+
+        public State state { get; set; } = State.MAP_NAVIGATING;
 
         public MapLogic() 
         {

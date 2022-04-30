@@ -42,7 +42,7 @@
     </Page.Resources>
 
     <Grid>
-        <Grid x:Name="Map">
+        <Grid x:Name="Map" KeyDown="Map_KeyDown">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>

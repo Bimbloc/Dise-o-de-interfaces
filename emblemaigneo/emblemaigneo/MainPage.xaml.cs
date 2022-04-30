@@ -29,7 +29,7 @@ namespace emblemaigneo
         {
             this.InitializeComponent();
 
-            Cuadricula= new CuadriculaMapa(32, 18, this);
+            Cuadricula = new CuadriculaMapa(32, 18, this);
             Map.Children.Add(Cuadricula);
             Cuadricula.Name = "Cuadricula";
             Cuadricula.SetValue(Grid.RowSpanProperty, 3);
@@ -44,9 +44,14 @@ namespace emblemaigneo
 
         private void Move_Click(object sender, RoutedEventArgs e)
         {
-            n++;
-            Logic.selectedUnit = Army.army[n];
+            Cuadricula.drawCircularRange(5, Logic.selectedUnit.colum, Logic.selectedUnit.row, false);
+            CollapseActionMenu();
+
+            Logic.state = MapLogic.State.MOVING;
         }
+
+        public MapLogic.State getState() { return Logic.state; }
+        public void setState(MapLogic.State newState) { Logic.state = newState; }
 
         public void ShowActionMenu() 
         {
@@ -78,6 +83,14 @@ namespace emblemaigneo
         private void ActionMenu_FocusDisengaged(Control sender, FocusDisengagedEventArgs args)
         {
             CollapseActionMenu();
+
+            Logic.state = MapLogic.State.MAP_NAVIGATING;
+        }
+
+        private void Map_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.GamepadA || e.Key == Windows.System.VirtualKey.Space || e.Key == Windows.System.VirtualKey.Enter)
+                e.Handled = true;
         }
     }
 }

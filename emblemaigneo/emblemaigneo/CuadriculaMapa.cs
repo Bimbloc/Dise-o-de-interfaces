@@ -81,6 +81,9 @@ namespace emblemaigneo
                 changed = true;
             }
 
+            if (e.Key == Windows.System.VirtualKey.GamepadA || e.Key == Windows.System.VirtualKey.Space || e.Key == Windows.System.VirtualKey.Enter)
+                e.Handled = true;
+
             if (changed)
             {
                 FocusPointer();
@@ -93,15 +96,7 @@ namespace emblemaigneo
             {
                 for (int j = 0; j < Rows; j++)
                 {
-                    //crea la tile, que tiene el color de la casilla
-                    Grid tile = new Grid();
-                    tile.SetValue(Grid.ColumnProperty, i);
-                    tile.SetValue(Grid.RowProperty, j);
-                    tile.Background = new SolidColorBrush(Color.FromArgb(100, 50, 50, 50));
-
-                    tiles[i, j] = tile;
-
-                    //crea el contentControl que controla las unidades de esa casilla
+                     //crea el contentControl que controla las unidades de esa casilla
                     UserControl contentControl = new UserControl();
                     contentControl.SetValue(Grid.ColumnProperty, i);
                     contentControl.SetValue(Grid.RowProperty, j);
@@ -124,11 +119,11 @@ namespace emblemaigneo
                         contentControl.Drop += new DragEventHandler(dropeaTropa);
                         
                     }
-
-                    contentControl.Content = tile;
                     contentControls[i, j] = contentControl;
 
                     Children.Add(contentControl);
+
+                    createTileGrid(i, j);
                 }
             }
         }
@@ -141,6 +136,8 @@ namespace emblemaigneo
                 {
                     UnitDisplay unitDisplay = new UnitDisplay(unit);
 
+                    unitDisplay.Background = new SolidColorBrush(Color.FromArgb(100, 50, 50, 50));
+
                     contentControls[unit.colum, unit.row].Content = unitDisplay;
                 }
             }
@@ -148,17 +145,38 @@ namespace emblemaigneo
 
         private void onTileKeyDown(object sender, KeyRoutedEventArgs e) 
         {
-            if (e.Key == Windows.System.VirtualKey.GamepadA || e.Key == Windows.System.VirtualKey.Space) 
+            if (e.Key == Windows.System.VirtualKey.GamepadA || e.Key == Windows.System.VirtualKey.Space || e.Key == Windows.System.VirtualKey.Enter)
             {
                 UserControl tileCC = sender as UserControl;
 
-                //si hay unidades en la casilla abre el menu de acciones 
-                if (tileCC.Content is UnitDisplay)
+                if (mainPage.getState() == MapLogic.State.MAP_NAVIGATING)
                 {
-                    UnitDisplay unitDisp = tileCC.Content as UnitDisplay;
+                    //si hay unidades en la casilla abre el menu de acciones 
+                    if (tileCC.Content is UnitDisplay)
+                    {
+                        mainPage.ShowActionMenu();
 
-                    mainPage.ShowActionMenu();
+                        mainPage.setState(MapLogic.State.ACTION_MENU);
+                    }
                 }
+
+                else if (mainPage.getState() == MapLogic.State.MOVING) 
+                {
+                    mainPage.setState(MapLogic.State.MAP_NAVIGATING);
+
+                    UnitDisplay unit = contentControls[mainPage.Logic.selectedUnit.colum, mainPage.Logic.selectedUnit.row].Content as UnitDisplay;
+
+                    createTileGrid(mainPage.Logic.selectedUnit.colum, mainPage.Logic.selectedUnit.row);
+
+                    tileCC.Content = unit;
+
+                    mainPage.Logic.selectedUnit.colum = GetColumn(tileCC);
+                    mainPage.Logic.selectedUnit.row = GetRow(tileCC);
+
+                    clearBackground();
+                }
+
+                e.Handled = true;
             }
         }
 
@@ -166,23 +184,44 @@ namespace emblemaigneo
         {
             UserControl tileCC = sender as UserControl;
 
-            //si hay unidades en la casilla abre el menu de acciones 
-            if (tileCC.Content is UnitDisplay)
+            if (mainPage.getState() == MapLogic.State.MAP_NAVIGATING)
             {
-                UnitDisplay unitDisp = tileCC.Content as UnitDisplay;
+                //si hay unidades en la casilla abre el menu de acciones 
+                if (tileCC.Content is UnitDisplay)
+                {
+                    UnitDisplay unitDisp = tileCC.Content as UnitDisplay;
 
-                mainPage.ShowActionMenu();
+                    mainPage.ShowInfoBox();
+                    mainPage.SetSelectedUnit(unitDisp.unit);
+
+                    mainPage.ShowActionMenu();
+                }
+
+                else tileCC.Focus(FocusState.Keyboard);
             }
 
-            else
+            else if (mainPage.getState() == MapLogic.State.MOVING)
             {
-                //actualiza la posicion de pointer
-                pointer.x = GetRow(tileCC);
-                pointer.y = GetColumn(tileCC);
+                if (isInRange(4, GetColumn(tileCC), GetRow(tileCC)))
+                {
+                    UnitDisplay unit = contentControls[mainPage.Logic.selectedUnit.colum, mainPage.Logic.selectedUnit.row].Content as UnitDisplay;
 
-                tileCC.Focus(FocusState.Keyboard);
+                    createTileGrid(mainPage.Logic.selectedUnit.colum, mainPage.Logic.selectedUnit.row);
+
+                    tileCC.Content = unit;
+
+                    mainPage.Logic.selectedUnit.colum = GetColumn(tileCC);
+                    mainPage.Logic.selectedUnit.row = GetRow(tileCC);
+                }
+
+                mainPage.setState(MapLogic.State.MAP_NAVIGATING);
+
+                clearBackground();
             }
-            //tile.Background = new SolidColorBrush(Color.FromArgb(150, 50, 200, 50)); 
+
+            //actualiza la posicion de pointer
+            pointer.y = GetRow(tileCC);
+            pointer.x = GetColumn(tileCC);
         }
 
         private void onControlFocus(object sender, RoutedEventArgs e)
@@ -219,6 +258,70 @@ namespace emblemaigneo
         void dropeaTropa(object sender, DragEventArgs e)
         {
             inicioBatalla.cuadriculagrid_Drop(sender,e);
+        }
+
+        public void drawCircularRange(int range, int x, int y, bool attack) 
+        {
+            bool[,] marcas = new bool[Columns, Rows];
+
+            Color color;
+
+            if (attack) color = Color.FromArgb(100, 255, 50, 50);
+            else color = Color.FromArgb(100, 50, 50, 255);
+
+            drawCircleRec(range, 0, x, y, marcas, color);
+        }
+
+        void drawCircleRec(int maxRange, int actRange, int x, int y, bool[,] marcas, Color color)
+        {
+            if (x > -1 && y > -1 && x < Columns && y < Rows) 
+            {
+                Grid tile = contentControls[x, y].Content as Grid;
+
+                if (!marcas[x, y])
+                {
+                    if (tile != null)
+                    {
+                        tile.Background = new SolidColorBrush(color);
+                        marcas[x, y] = true;
+                    }
+                    if (actRange + 1 < maxRange)
+                    {
+                        drawCircleRec(maxRange, actRange + 1, x + 1, y, marcas, color);
+                        drawCircleRec(maxRange, actRange + 1, x - 1, y, marcas, color);
+                        drawCircleRec(maxRange, actRange + 1, x, y + 1, marcas, color);
+                        drawCircleRec(maxRange, actRange + 1, x, y - 1, marcas, color);
+                    }
+                }
+            }
+        }
+
+        void createTileGrid(int x, int y) 
+        {
+            Grid tile = new Grid();
+            tile.Background = new SolidColorBrush(Color.FromArgb(100, 50, 50, 50));
+
+            contentControls[x, y].Content = tile;
+        }
+
+        void clearBackground() 
+        {
+            for (int i = 0; i < Columns; i++) 
+            {
+                for (int j = 0; j < Rows; j++) 
+                {
+                    Grid tile = contentControls[i, j].Content as Grid;
+                    tile.Background = new SolidColorBrush(Color.FromArgb(100, 50, 50, 50));
+                }
+            }
+        }
+
+        bool isInRange(int range, int targetX, int targetY) 
+        {
+            int x = Math.Abs(targetX - mainPage.Logic.selectedUnit.colum);
+            int y = Math.Abs(targetY - mainPage.Logic.selectedUnit.row);
+
+            return x + y <= range;
         }
     }
 }
