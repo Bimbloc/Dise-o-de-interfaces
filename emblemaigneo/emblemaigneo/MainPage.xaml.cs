@@ -37,10 +37,7 @@ namespace emblemaigneo
 
             Cuadricula.gameStarted = true;
             Cuadricula.CreateTileImages();
-
-            UnitDisplay byleth = new UnitDisplay(Army.army[0]);
-
-            Cuadricula.contentControls[6, 9].Content = byleth;
+            Cuadricula.placeUnitsInGrid();
         }
 
         public MapLogic Logic { get; } = new MapLogic();

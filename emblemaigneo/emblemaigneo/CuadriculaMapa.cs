@@ -141,7 +141,7 @@ namespace emblemaigneo
                 {
                     UnitDisplay unitDisplay = new UnitDisplay(unit);
 
-                    contentControls[unit.row, unit.colum].Content = unitDisplay;
+                    contentControls[unit.colum, unit.row].Content = unitDisplay;
                 }
             }
         }
