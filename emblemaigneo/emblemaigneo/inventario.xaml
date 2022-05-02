@@ -57,7 +57,8 @@
                 <TextBlock Text="{x:Bind name}" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
                 <TextBlock Text="{x:Bind effectDescription}" Grid.Column="1" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
                 <TextBlock Text="{x:Bind GetWeight()}" Grid.Column="2" FontWeight="Normal" Style="{StaticResource TextStyle}"/>
-                <Image Source="{x:Bind equipedChar.GetImage()}" 
+                <Image Source="{x:Bind GetImage()}"
+                       x:Name="imagen"
                        Grid.Column="3" 
                        VerticalAlignment="Center" 
                        HorizontalAlignment="Center"
@@ -132,19 +133,71 @@
                     </ComboBox>
                 </StackPanel>
 
-
-                <Button Content="Remove"
-                Grid.Column="1"
-                Style="{StaticResource ButtonStyle}"
-                Margin="10, 2.5, 10, 0"/>
+                <!--<Viewbox Grid.Column="1">
+                    <Button Content="Remove"
+                  
+                    Style="{StaticResource ButtonStyle}"
+                    Margin="10, 2.5, 10, 0"
+                            Click="Remove_Button"/>
+                </Viewbox>
+                
 
                 <Viewbox Grid.Column="2">
                     <Button Content="Equip/Use"
                 
                 Margin="10, 2.5, 10, 0"
-                Style="{StaticResource ButtonStyle}"/>
+                Style="{StaticResource ButtonStyle}"
+                Click="EquipUse_Button"/>
 
-                </Viewbox>
+                </Viewbox>-->
+
+
+                <!--<Button Content="Remove"
+                        Grid.Column="1"
+                        Style="{StaticResource ButtonStyle}"
+                        Margin="10, 2.5, 10, 0"
+                        Click="Remove_Button"/>-->
+
+                <Button 
+                Grid.Column="1"
+                Style="{StaticResource ButtonStyle}"
+                Margin="10, 2.5, 10, 0"
+                Click="Remove_Button">
+
+                    <StackPanel Orientation="Horizontal"  Spacing="12.5">
+                        <TextBlock FontSize="40" Foreground="Blue">(X)</TextBlock>
+                        <TextBlock FontSize="40">Remove</TextBlock>
+                    </StackPanel>
+                </Button>
+
+
+                <!--<Button Content="Equip/Use"
+                        Grid.Column="2"
+                        Margin="10, 2.5, 10, 0"
+                        Style="{StaticResource ButtonStyle}"
+                        Click="EquipUse_Button">
+                   
+                   
+                </Button>-->
+
+                <Button 
+                Grid.Column="2"
+                Style="{StaticResource ButtonStyle}"
+                Margin="10, 2.5, 10, 0"
+                Click="Remove_Button">
+
+                    <StackPanel Orientation="Horizontal"  Spacing="12.5">
+                        <TextBlock FontSize="40" Foreground="Green">(A)</TextBlock>
+                        <TextBlock FontSize="40">Equip/Use</TextBlock>
+                    </StackPanel>
+                </Button>
+
+
+
+
+
+
+
 
 
 
@@ -152,10 +205,12 @@
                 Margin="0, 2.5, 30, 0"
                 Grid.Column="5"  
                 Width="70"
+                Click="Button_Click"
                 Style="{StaticResource ButtonStyle}">
                     <SymbolIcon Symbol="Cancel"
                             HorizontalAlignment="Center"
-                            VerticalAlignment="Center"/>
+                            VerticalAlignment="Center"
+                                />
                 </Button>
 
             </Grid>
@@ -202,7 +257,12 @@
             <ListView x:Name="ImageGridView" 
                     Grid.Row="2"          
                     ItemsSource= "{x:Bind Inventario}"
-                    ItemTemplate="{StaticResource Item_List}">
+                    ItemTemplate="{StaticResource Item_List}"
+                        
+                      IsFocusEngagementEnabled="True"
+                      KeyDown="ImageGridView_KeyDown"
+                      ItemClick="ImageGridView_ItemClick"
+                      IsItemClickEnabled="True">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment"  Value="Stretch"></Setter>

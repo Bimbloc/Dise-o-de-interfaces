@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,6 +26,9 @@ namespace emblemaigneo
 
     public sealed partial class inventario : Page
     {
+        Unit selectedUnit;
+
+        DispatcherTimer timer;
 
         public ObservableCollection<Object> Inventario { get; } = new ObservableCollection<Object>();
 
@@ -37,7 +41,20 @@ namespace emblemaigneo
                 }
 
 
+
+
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            // If e.Parameter is a string, set the TextBlock's text with it.
+            if (e?.Parameter is string unitName)
+            {
+                selectedUnit = Army.GetUnitByName(unitName);
+            }
+
+            base.OnNavigatedTo(e);
         }
 
         private void ImageGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -45,6 +62,88 @@ namespace emblemaigneo
 
         }
 
-        
+        private void Remove_Button(object sender, RoutedEventArgs e)
+        {
+            if (ImageGridView.SelectedItem != null)
+            {
+                Object o = (Object) ImageGridView.SelectedItem;
+
+                if (o.equipedChar != null)
+                {
+                    o.equipedChar = null;
+                    ChangeItem(o);
+                }             
+            }        
+        }
+
+        private void EquipUse_Button(object sender, RoutedEventArgs e)
+        {
+            if (ImageGridView.SelectedItem != null)
+            {
+                Object o = (Object)ImageGridView.SelectedItem;
+
+                Unit lastUnit = o.equipedChar;
+
+                if (lastUnit == null)
+                {
+                    o.equipedChar = selectedUnit;
+                    o.OnUseEquip(selectedUnit);
+                    ChangeItem(o);
+
+                }
+                else if (lastUnit != selectedUnit)
+                {
+                    o.OnDeEquip(lastUnit);
+                    o.equipedChar = selectedUnit;
+                    if (!o.isUsable)
+                        o.OnUseEquip(selectedUnit);
+
+                    ChangeItem(o);
+                }
+                else if (lastUnit == selectedUnit)
+                {
+                    if (o.isUsable)
+                    {
+                        o.OnUseEquip(selectedUnit);
+                        Inventario.Remove(o);
+                    }
+                }
+            }                     
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
+        }
+
+        private void ChangeItem(Object o)
+        {
+            int index = Inventario.IndexOf(o);
+            Inventario.Remove(o);
+            Inventario.Insert(index, o);
+            if (index == 0)
+                ImageGridView.SelectedIndex = index + 1;
+            else
+                ImageGridView.SelectedIndex = index - 1;
+            ImageGridView.SelectedIndex = index;
+        }
+
+        private void ImageGridView_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+
+            switch (e.Key)
+            {
+                case VirtualKey.GamepadX:
+                    Remove_Button(sender, null);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void ImageGridView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            EquipUse_Button(sender, null);
+        }
     }
 }
