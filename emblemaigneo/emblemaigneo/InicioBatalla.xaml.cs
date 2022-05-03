@@ -26,13 +26,15 @@ namespace emblemaigneo
     /// </summary>
     public sealed partial class InicioBatalla : Page
     {
-        int cuadradito =0;
+        int cuadradito = 0;
         int tropa = 0;
         ImageSource tropaicon;
         Unit ur;
         CuadriculaMapa Cuadricula;
-        public ObservableCollection<Unit> Ejercito { get; } = new ObservableCollection<Unit>();
+        GridView gitem;
 
+        public ObservableCollection<Unit> Ejercito { get; } = new ObservableCollection<Unit>();
+      
         public InicioBatalla()
         {
             
@@ -40,6 +42,7 @@ namespace emblemaigneo
                 foreach (Unit character in Army.GetAllUnits())
                 {
                     Ejercito.Add(character);
+                    //Ejercitovisible.Add(new UnitDisplay(character));
                 }
 
             this.InitializeComponent();
@@ -76,24 +79,45 @@ namespace emblemaigneo
 
             //Grid g2 = g.Children[cuadradito] as Grid;
             // ImageSource i = Ejercito[0].GetImage() ;
-            int id = ur.id;
-            ImageSource i = tropaicon;
-           
-           // Image im=   new Image();
-           // im.Source = i;
-          UserControl cc = sender as UserControl;
-            UnitDisplay ui = new UnitDisplay(Army.army[id]);
+            Unit myi = tropasgrid.SelectedItem as Unit;
+            if (myi != null)
+            {
+                int id = ur.id;
+                ImageSource i = tropaicon;
 
-            ui.unit.colum = Grid.GetColumn(cc);
-            ui.unit.row = Grid.GetRow(cc);
-            cc.Content = ui;
-           // cc.Source = i;
+                // Image im=   new Image();
+                // im.Source = i;
+
+                UserControl cc = sender as UserControl;
+
+                UnitDisplay ui = new UnitDisplay(Army.army[id]);
+
+                ui.unit.colum = Grid.GetColumn(cc);
+                ui.unit.row = Grid.GetRow(cc);
+                cc.Content = ui;
+
+
+                //tropasgrid.SelectedItem el que has clickado se guarda bien aqui
+                //tropasgrid.Items.Remove(tropasgrid.SelectedItem);
+                int limite = myi.sitiolista;
+                Ejercito.RemoveAt(myi.sitiolista);
+                foreach (Unit character in Ejercito)
+                {
+                    if (character.sitiolista > limite)
+                    {
+                        character.sitiolista--;
+
+                    }
+                }
+            }
+         //  tropasgrid.Items.Remove(tropasgrid.SelectedItem);
+            // cc.Source = i;
 
             // Grid back = cc.Content as Grid;
             //back.Children.Add(im);
-           //  g2.Children.Add(im);
-           // cuadradito += 1;
-            
+            //  g2.Children.Add(im);
+            // cuadradito += 1;
+
             //g.Background = 
 
 
@@ -108,6 +132,11 @@ namespace emblemaigneo
         private void tropasgrid_DragItemsStarting(object sender, DragItemsStartingEventArgs e)
         {
             Unit u = e.Items[0] as Unit;
+            gitem = sender as GridView;
+          //  GridViewItem g = e.Items[0] as GridViewItem;
+            
+           // gitem = g;
+          
             /*  GridView g = sender as GridView;
               GridViewHeaderItem gh = g.Items[0] as GridViewHeaderItem;
               Unit u = gh.Content as Unit;*/
