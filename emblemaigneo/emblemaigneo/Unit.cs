@@ -11,6 +11,8 @@ namespace emblemaigneo
 
     public class Object
     {
+        
+
         public Object(int value_, string stat_) 
         {
             value = value_;
@@ -31,18 +33,29 @@ namespace emblemaigneo
         public string icon { get; set; }
         public string effectDescription { get; set; }
 
+        public bool isUsable { get; set; }
+
         public int value { get; }
         public string stat { get; }
 
         public Unit equipedChar;
+
+        public virtual bool OnUseEquip(Unit u) { return true; }
+        public virtual void OnDeEquip(Unit u) { }
+        
 
         public string GetWeight()
         {
             if (weight <= 0)
                 return "-";
             else return weight.ToString();
+        }
 
-
+        public BitmapImage GetImage()
+        {
+            if (equipedChar == null)
+                return new BitmapImage(new Uri("ms-appx:///Assets/LockScreenLogo.scale-200.png"));
+            return equipedChar.GetImage();
         }
     };
 
@@ -52,10 +65,18 @@ namespace emblemaigneo
         {
         }
 
-        void onUse() 
+        public Item() 
         {
-            
+            isUsable = true;
         }
+
+        public override bool OnUseEquip(Unit u) 
+        {
+            u.hp += 20;
+
+            return true;
+        }
+
     };
 
     public class Equipment : Object
@@ -63,9 +84,22 @@ namespace emblemaigneo
         public Equipment(int value_, string stat_, string effectDescription_) : base(value_, stat_)
         {
         }
-        void onEquip() { }
 
-        void onDeEquip() { }
+        public Equipment() 
+        {
+            isUsable = false;
+        }
+
+        public override bool OnUseEquip(Unit u)
+        {
+            u.stats[0] += 20;
+
+            return true;
+        }
+
+        public override void OnDeEquip(Unit u) {
+            u.stats[0] -= 20;
+        }
     };
 
     public class Unit :  ObservableObject
@@ -116,7 +150,7 @@ namespace emblemaigneo
     {
         public static List<Object> Objetos = new List<Object>()
         {
-            new Object()
+            new Equipment()
             {
                 name = "Iron Sword",
                 effectDescription = "Streght +20",
@@ -124,7 +158,7 @@ namespace emblemaigneo
                 equipedChar = Army.GetUnitByName("Byleth(M)")
 
              },
-            new Object()
+            new Equipment()
             {
                 name = "Iron Sword",
                 effectDescription = "Streght +20",
@@ -132,7 +166,7 @@ namespace emblemaigneo
                 equipedChar = Army.GetUnitByName("Byleth(F)")
 
              },
-            new Object()
+            new Equipment()
             {
                 name = "Silver Sword",
                 effectDescription = "Streght +25",
@@ -140,7 +174,7 @@ namespace emblemaigneo
                 equipedChar = Army.GetUnitByName("Corrin(F)")
 
              },
-            new Object()
+            new Equipment()
             {
                 name = "Iron Sword",
                 effectDescription = "Streght +20",
@@ -148,7 +182,7 @@ namespace emblemaigneo
                 equipedChar = Army.GetUnitByName("Corrin(F)")
 
              },
-            new Object()
+            new Item()
             {
                 name = "Small Potion",
                 effectDescription = "Restores 10 Hp",
@@ -156,7 +190,7 @@ namespace emblemaigneo
                 equipedChar = Army.GetUnitByName("Corrin(F)")
 
              },
-            new Object()
+            new Equipment()
             {
                 name = "Iron Sword",
                 effectDescription = "Streght +20",
@@ -164,14 +198,14 @@ namespace emblemaigneo
                 equipedChar = Army.GetUnitByName("Pyra")
 
              },
-            new Object()
+            new Equipment()
             {
                 name = "Long Bow",
                 effectDescription = "Def -10",
                 weight = 10,
                 equipedChar = Army.GetUnitByName("Pyra")
              },
-            new Object()
+            new Item()
             {
                 name = "Potion",
                 effectDescription = "Restores 20 Hp",
@@ -179,7 +213,7 @@ namespace emblemaigneo
                 equipedChar = Army.GetUnitByName("Pyra")
 
              },
-            new Object()
+            new Equipment()
             {
                 name = "Silver Sword",
                 effectDescription = "Streght +25",

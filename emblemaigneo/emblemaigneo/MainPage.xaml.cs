@@ -92,5 +92,10 @@ namespace emblemaigneo
             if (e.Key == Windows.System.VirtualKey.GamepadA || e.Key == Windows.System.VirtualKey.Space || e.Key == Windows.System.VirtualKey.Enter)
                 e.Handled = true;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(inventario), Logic.selectedUnit.name);
+        }
     }
 }

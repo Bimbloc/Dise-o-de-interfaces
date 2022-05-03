@@ -95,6 +95,7 @@
             </Grid.RowDefinitions>
 
 
+                
             <Button 
                 Grid.Row="2"
                 Style="{StaticResource ButtonStyle}"
@@ -105,6 +106,8 @@
                     <TextBlock FontSize="40">Reorganize</TextBlock>
                 </StackPanel>
             </Button>
+
+
 
             <Button x:Name="statbattlebutton"
                     Click="statbattlebutton_Click"
