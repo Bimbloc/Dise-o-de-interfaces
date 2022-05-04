@@ -113,13 +113,11 @@ namespace emblemaigneo
                         contentControl.GotFocus += new RoutedEventHandler(onControlFocus);
                     }
                     //eventos menu inicio
-                    else 
+                    else
                     {
                         contentControl.SetValue(Control.AllowDropProperty,true);
                         contentControl.Drop += new DragEventHandler(dropeaTropa);
                         contentControl.KeyDown += new KeyEventHandler(InitBatKeyDown);
-                        
-                        
                     }
                     contentControls[i, j] = contentControl;
 
@@ -255,9 +253,11 @@ namespace emblemaigneo
         {
             contentControls[pointer.x, pointer.y].Focus(FocusState.Keyboard);
         }
-        void dropeaTropa(object sender, DragEventArgs e)
+        private async void dropeaTropa(object sender, DragEventArgs e)
         {
-            inicioBatalla.cuadriculagrid_Drop(sender,e);
+            int id = int.Parse(await e.DataView.GetTextAsync());
+
+            inicioBatalla.cuadriculagrid_Drop(sender, e, id);
         }
         void InitBatKeyDown(object sender, KeyRoutedEventArgs e)
         {
