@@ -138,8 +138,6 @@ namespace emblemaigneo
                 {
                     UnitDisplay unitDisplay = new UnitDisplay(unit);
 
-                    unitDisplay.Background = new SolidColorBrush(Color.FromArgb(100, 50, 50, 50));
-
                     contentControls[unit.colum, unit.row].Content = unitDisplay;
                 }
             }

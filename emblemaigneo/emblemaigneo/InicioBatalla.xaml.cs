@@ -47,7 +47,7 @@ namespace emblemaigneo
 
             this.InitializeComponent();
             
-             Cuadricula = new CuadriculaMapa(32, 18, null,this);
+            Cuadricula = new CuadriculaMapa(32, 18, null,this);
             Map.Children.Add(Cuadricula);
             Cuadricula.Name = "Cuadricula";
             Cuadricula.SetValue(Grid.RowSpanProperty, 3);

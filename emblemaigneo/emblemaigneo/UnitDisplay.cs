@@ -25,6 +25,8 @@ namespace emblemaigneo
             icon.Source = unit.GetImage();
 
             Children.Add(icon);
+
+            Background = new SolidColorBrush(Color.FromArgb(100, 50, 50, 50));
         }
     }
 }
