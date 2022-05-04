@@ -11,9 +11,7 @@ namespace emblemaigneo
 
     public class Object
     {
-        
-
-        public Object(int value_, string stat_) 
+        public Object(int value_, string stat_)
         {
             value = value_;
             effectDescription = stat_;
@@ -42,7 +40,7 @@ namespace emblemaigneo
 
         public virtual bool OnUseEquip(Unit u) { return true; }
         public virtual void OnDeEquip(Unit u) { }
-        
+
 
         public string GetWeight()
         {
@@ -65,12 +63,12 @@ namespace emblemaigneo
         {
         }
 
-        public Item() 
+        public Item()
         {
             isUsable = true;
         }
 
-        public override bool OnUseEquip(Unit u) 
+        public override bool OnUseEquip(Unit u)
         {
             u.hp += 20;
 
@@ -88,7 +86,7 @@ namespace emblemaigneo
         {
         }
 
-        public Equipment() 
+        public Equipment()
         {
             isUsable = false;
         }
@@ -100,14 +98,15 @@ namespace emblemaigneo
             return true;
         }
 
-        public override void OnDeEquip(Unit u) {
+        public override void OnDeEquip(Unit u)
+        {
             u.stats[0] -= 20;
         }
     };
 
-    public class Unit :  ObservableObject
+    public class Unit : ObservableObject
     {
-        public Unit(int maxHp_) 
+        public Unit(int maxHp_)
         {
             maxHp = maxHp_;
             hp = maxHp - 3;
@@ -136,11 +135,11 @@ namespace emblemaigneo
             return new BitmapImage(new Uri("ms-appx:///Assets/Units/" + icon));
         }
 
-        public string getHpDisplay() 
+        public string getHpDisplay()
         {
             return hp + "/" + maxHp;
         }
-        public double getHpPercentage() 
+        public double getHpPercentage()
         {
             float currHP = hp;
             float maxHP = maxHp;
@@ -237,6 +236,22 @@ namespace emblemaigneo
         {
             return Objetos;
         }
+
+        public static List<Object> getItemsByUnit(Unit unit) 
+        {
+            selectedUnit = unit;
+
+            List<Object> items = Objetos.FindAll(isEquiped);
+
+            return items;
+        }
+
+        private static bool isEquiped(Object item) 
+        {
+            return selectedUnit.name == item.equipedChar.name;
+        }
+
+        static Unit selectedUnit;
     }
 
 
@@ -362,7 +377,7 @@ namespace emblemaigneo
                 sitioLista=12
              },
             new Unit(-1)
-            { 
+            {
                 name = "placeholder",
 
                 icon = "transparente.png"

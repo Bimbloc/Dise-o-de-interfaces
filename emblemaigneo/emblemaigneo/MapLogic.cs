@@ -19,6 +19,46 @@ namespace emblemaigneo
         private UnitStats unitStats_;
         public UnitStats unitStats { get => unitStats_; }
 
+        private List<string> equipedItems;
+
+        private string equipped1_;
+        public string equipped1 
+        {
+            get => equipped1_;
+            set
+            {
+                Set(ref equipped1_, value);
+            }
+        }
+        private string equipped2_;
+        public string equipped2
+        {
+            get => equipped2_;
+            set
+            {
+                Set(ref equipped2_, value);
+            }
+        }
+        private string equipped3_;
+        public string equipped3
+        {
+            get => equipped3_;
+            set
+            {
+                Set(ref equipped3_, value);
+            }
+        }
+        private string equipped4_;
+        public string equipped4
+        {
+            get => equipped4_;
+            set
+            {
+                Set(ref equipped4_, value);
+            }
+        }
+
+
         private Unit selectedUnit_;
         public Unit selectedUnit 
         { 
@@ -26,6 +66,7 @@ namespace emblemaigneo
             set {
                 Set(ref selectedUnit_, value);
                 setStats();
+                equipedItems = getEquipedItems(value);
             }
         }
 
@@ -36,6 +77,30 @@ namespace emblemaigneo
         public MapLogic() 
         {
             selectedUnit = Army.army[0];
+        }
+
+        List<string> getEquipedItems(Unit unit)
+        {
+            List<string> names = new List<string>();
+
+            List<Object> items = Inventory.getItemsByUnit(selectedUnit);
+
+            for (int i = 0; i < Math.Min(4, items.Count); i++) 
+            {
+                names.Add(items[i].name);
+            }
+
+            for (int j = 0; j < 4; j++) 
+            {
+                names.Add("");
+            }
+
+            equipped1 = names[0];
+            equipped2 = names[1];
+            equipped3 = names[2];
+            equipped4 = names[3];
+
+            return names;
         }
 
         void setStats() 
