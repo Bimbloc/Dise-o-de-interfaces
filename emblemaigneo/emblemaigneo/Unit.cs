@@ -105,7 +105,7 @@ namespace emblemaigneo
         }
     };
 
-    public class Unit : ObservableObject
+    public class Unit :  ObservableObject
     {
         public Unit(int maxHp_) 
         {
@@ -129,6 +129,7 @@ namespace emblemaigneo
         public int row { get; set; } = -1;
         public int colum { get; set; } = -1;
         public int id { get; set; } = -1;
+        public int sitiolista { get; set; } = -1;
 
         public BitmapImage GetImage()
         {
@@ -249,7 +250,8 @@ namespace emblemaigneo
                 icon = "byleth_female.png",
 
                 stats = new int[8] { 10, 23, 20, 25, 10, 15, 20, 25 },
-                id =0
+                id =0,
+                sitiolista=0
              },
             new Unit(30)
             {
@@ -257,7 +259,8 @@ namespace emblemaigneo
                 icon = "byleth_male.png",
 
                 stats = new int[8] { 17, 15, 20, 25, 10, 15, 20, 25 },
-                id =1
+                id =1,
+                sitiolista=1
              },
             new Unit(26)
             {
@@ -265,7 +268,8 @@ namespace emblemaigneo
                 icon = "chrom.png",
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
-                id =2
+                id =2,
+                sitiolista=2
              },
             new Unit(25)
             {
@@ -273,7 +277,8 @@ namespace emblemaigneo
                 icon = "corrin_female.png",
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
-                id=3
+                id=3,
+                sitiolista=3
              },
             new Unit(25)
             {
@@ -281,7 +286,8 @@ namespace emblemaigneo
                 icon = "corrin_male.png",
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
-                id=4
+                id=4,
+                sitiolista=4
              },
             new Unit(17)
             {
@@ -289,7 +295,8 @@ namespace emblemaigneo
                 icon = "ike.png",
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
-                id=5
+                id=5,
+                sitiolista=5
              },
             new Unit(27)
             {
@@ -297,7 +304,8 @@ namespace emblemaigneo
                 icon = "lucina.png",
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
-                id=6
+                id=6,
+                sitiolista=6
              },
             new Unit(20)
             {
@@ -305,7 +313,8 @@ namespace emblemaigneo
                 icon = "marth.png",
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
-                id=7
+                id=7,
+                sitiolista=7
              },
             new Unit(19)
             {
@@ -313,7 +322,8 @@ namespace emblemaigneo
                 icon = "pyra.png",
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
-                id=8
+                id=8,
+                sitiolista=8
              },
             new Unit(18)
             {
@@ -321,7 +331,8 @@ namespace emblemaigneo
                 icon = "richter.png",
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
-                id=9
+                id=9,
+                sitiolista=9
              },
             new Unit(21)
             {
@@ -329,7 +340,8 @@ namespace emblemaigneo
                 icon = "robin.png",
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
-                id=10
+                id=10,
+                sitiolista=10
              },
             new Unit(22)
             {
@@ -337,7 +349,8 @@ namespace emblemaigneo
                 icon = "roy.png",
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
-                id=11
+                id=11,
+                sitiolista=11
              },
             new Unit(13)
             {
@@ -345,7 +358,8 @@ namespace emblemaigneo
                 icon = "zelda.png",
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
-                id=12
+                id=12,
+                sitiolista=12
              },
             new Unit(-1)
             { 

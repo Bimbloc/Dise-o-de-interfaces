@@ -97,6 +97,8 @@
 
                 
             <Button 
+               x:Name="Reorganizabuton"
+                Click="Reorganizabuton_Click"
                 Grid.Row="2"
                 Style="{StaticResource ButtonStyle}"
                 Margin="16, 0, 8, 0">
@@ -132,7 +134,7 @@
                 Grid.RowSpan="3">
             </Border>
 
-            <GridView x:Name="tropasgrid" Grid.Row="1" 
+            <GridView  x:Name="tropasgrid" Grid.Row="1" 
                       Grid.ColumnSpan="2"
                       HorizontalAlignment="Center"                    
                       ItemTemplate="{StaticResource Troop_List}"
