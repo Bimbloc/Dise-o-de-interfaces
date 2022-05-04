@@ -81,6 +81,9 @@ namespace emblemaigneo
 
     public class Equipment : Object
     {
+
+        public int range { get; set; }
+
         public Equipment(int value_, string stat_, string effectDescription_) : base(value_, stat_)
         {
         }
@@ -154,7 +157,8 @@ namespace emblemaigneo
                 name = "Iron Sword",
                 effectDescription = "Streght +20",
                 weight = 20,
-                equipedChar = Army.GetUnitByName("Byleth(M)")
+                equipedChar = Army.GetUnitByName("Byleth(M)"),
+                range = 1
 
              },
             new Equipment()
@@ -162,7 +166,8 @@ namespace emblemaigneo
                 name = "Iron Sword",
                 effectDescription = "Streght +20",
                 weight = 20,
-                equipedChar = Army.GetUnitByName("Byleth(F)")
+                equipedChar = Army.GetUnitByName("Byleth(F)"),
+                range = 1
 
              },
             new Equipment()
@@ -170,7 +175,8 @@ namespace emblemaigneo
                 name = "Silver Sword",
                 effectDescription = "Streght +25",
                 weight = 15,
-                equipedChar = Army.GetUnitByName("Corrin(F)")
+                equipedChar = Army.GetUnitByName("Corrin(F)"),
+                range = 1
 
              },
             new Equipment()
@@ -178,7 +184,8 @@ namespace emblemaigneo
                 name = "Iron Sword",
                 effectDescription = "Streght +20",
                 weight = 20,
-                equipedChar = Army.GetUnitByName("Corrin(F)")
+                equipedChar = Army.GetUnitByName("Corrin(F)"),
+                range = 1
 
              },
             new Item()
@@ -202,7 +209,8 @@ namespace emblemaigneo
                 name = "Long Bow",
                 effectDescription = "Def -10",
                 weight = 10,
-                equipedChar = Army.GetUnitByName("Pyra")
+                equipedChar = Army.GetUnitByName("Pyra"),
+                range = 2
              },
             new Item()
             {
@@ -217,7 +225,8 @@ namespace emblemaigneo
                 name = "Silver Sword",
                 effectDescription = "Streght +25",
                 weight = 15,
-                equipedChar = Army.GetUnitByName("Chrom")
+                equipedChar = Army.GetUnitByName("Chrom"),
+                range = 1
 
              },
           };
