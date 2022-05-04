@@ -133,17 +133,15 @@ namespace emblemaigneo
 
             switch (e.Key)
             {
+                case VirtualKey.GamepadY:
+                    EquipUse_Button(sender, null);
+                    break;
                 case VirtualKey.GamepadX:
                     Remove_Button(sender, null);
                     break;
                 default:
                     break;
             }
-        }
-
-        private void ImageGridView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            EquipUse_Button(sender, null);
         }
     }
 }
