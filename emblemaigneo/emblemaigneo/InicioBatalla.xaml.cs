@@ -152,5 +152,38 @@ namespace emblemaigneo
         { 
         
         }
+
+        private void Reorganizabuton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(InicioBatalla));
+        }
+
+        public  void MiGrid_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            switch
+            (e.Key)
+            {
+                case Windows.System.VirtualKey.Enter:
+                case Windows.System.VirtualKey.GamepadY:
+            
+                    UserControl cc = sender as UserControl;
+
+                UnitDisplay ui = new UnitDisplay(Ejercito[0]);
+
+                ui.unit.colum = Grid.GetColumn(cc);
+                ui.unit.row = Grid.GetRow(cc);
+                cc.Content = ui;
+                Ejercito.RemoveAt(0);
+                foreach (Unit character in Ejercito)
+                {
+                    if (character.sitiolista > 0)
+                    {
+                        character.sitiolista--;
+
+                    }
+                }
+                break;
+            }
+        }
     }
 }

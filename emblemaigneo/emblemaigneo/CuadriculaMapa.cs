@@ -117,6 +117,8 @@ namespace emblemaigneo
                     {
                         contentControl.SetValue(Control.AllowDropProperty,true);
                         contentControl.Drop += new DragEventHandler(dropeaTropa);
+                        contentControl.KeyDown += new KeyEventHandler(InitBatKeyDown);
+                        
                         
                     }
                     contentControls[i, j] = contentControl;
@@ -259,7 +261,10 @@ namespace emblemaigneo
         {
             inicioBatalla.cuadriculagrid_Drop(sender,e);
         }
-
+        void InitBatKeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            inicioBatalla.MiGrid_KeyDown(sender, e);
+        }
         public void drawCircularRange(int range, int x, int y, bool attack) 
         {
             bool[,] marcas = new bool[Columns, Rows];
