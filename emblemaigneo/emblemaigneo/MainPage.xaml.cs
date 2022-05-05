@@ -74,6 +74,15 @@ namespace emblemaigneo
         {
             InfoBox.Visibility = Visibility.Collapsed;
         }
+        public void ShowBattlePreview()
+        {
+            BattlePreview.Visibility = Visibility.Visible;
+        }
+
+        public void CollapseBattlePreview()
+        {
+            BattlePreview.Visibility = Visibility.Collapsed;
+        }
 
         public void SetSelectedUnit(Unit unit_) 
         {
@@ -83,6 +92,7 @@ namespace emblemaigneo
         private void ActionMenu_FocusDisengaged(Control sender, FocusDisengagedEventArgs args)
         {
             CollapseActionMenu();
+            CollapseBattlePreview();
 
             Logic.state = MapLogic.State.MAP_NAVIGATING;
         }
@@ -96,6 +106,15 @@ namespace emblemaigneo
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(inventario), Logic.selectedUnit.name);
+        }
+
+        private void AttackKeyDown(object sender, RoutedEventArgs e)
+        {
+            int attackRange = 3;
+            Cuadricula.drawCircularRange(attackRange, Logic.selectedUnit.colum, Logic.selectedUnit.row, true);
+            ShowBattlePreview();
+
+            Logic.state = MapLogic.State.ATTACKING;
         }
     }
 }

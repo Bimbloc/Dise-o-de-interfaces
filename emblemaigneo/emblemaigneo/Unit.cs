@@ -38,6 +38,8 @@ namespace emblemaigneo
 
         public Unit equipedChar;
 
+        public int range { get; set; }
+
         public virtual bool OnUseEquip(Unit u) { return true; }
         public virtual void OnDeEquip(Unit u) { }
 
@@ -79,9 +81,6 @@ namespace emblemaigneo
 
     public class Equipment : Object
     {
-
-        public int range { get; set; }
-
         public Equipment(int value_, string stat_, string effectDescription_) : base(value_, stat_)
         {
         }
@@ -248,7 +247,9 @@ namespace emblemaigneo
 
         private static bool isEquiped(Object item) 
         {
-            return selectedUnit.name == item.equipedChar.name;
+            if (item.equipedChar != null) return selectedUnit.name == item.equipedChar.name;
+
+            return false;
         }
 
         static Unit selectedUnit;

@@ -84,6 +84,7 @@ namespace emblemaigneo
             if (e.Key == Windows.System.VirtualKey.GamepadA || e.Key == Windows.System.VirtualKey.Space || e.Key == Windows.System.VirtualKey.Enter)
                 e.Handled = true;
 
+            e.Handled = true;
             if (changed)
             {
                 FocusPointer();
@@ -160,16 +161,21 @@ namespace emblemaigneo
 
                 else if (mainPage.getState() == MapLogic.State.MOVING) 
                 {
+                    if (isInRange(4, GetColumn(tileCC), GetRow(tileCC)))
+                    {
+                        mainPage.setState(MapLogic.State.MAP_NAVIGATING);
+
+                        UnitDisplay unit = contentControls[mainPage.Logic.selectedUnit.colum, mainPage.Logic.selectedUnit.row].Content as UnitDisplay;
+
+                        createTileGrid(mainPage.Logic.selectedUnit.colum, mainPage.Logic.selectedUnit.row);
+
+                        tileCC.Content = unit;
+
+                        mainPage.Logic.selectedUnit.colum = GetColumn(tileCC);
+                        mainPage.Logic.selectedUnit.row = GetRow(tileCC);
+                    }
+
                     mainPage.setState(MapLogic.State.MAP_NAVIGATING);
-
-                    UnitDisplay unit = contentControls[mainPage.Logic.selectedUnit.colum, mainPage.Logic.selectedUnit.row].Content as UnitDisplay;
-
-                    createTileGrid(mainPage.Logic.selectedUnit.colum, mainPage.Logic.selectedUnit.row);
-
-                    tileCC.Content = unit;
-
-                    mainPage.Logic.selectedUnit.colum = GetColumn(tileCC);
-                    mainPage.Logic.selectedUnit.row = GetRow(tileCC);
 
                     clearBackground();
                 }

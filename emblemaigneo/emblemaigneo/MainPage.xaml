@@ -526,10 +526,11 @@
                         Content="Move" Margin="0,0,0,20" FontWeight="Normal"
                         Click="Move_Click"/>
                     <Button Style="{StaticResource ButtonStyle}"
-                        Content="Attack" Margin="0,0,0,20"/>
+                        Content="Attack" Margin="0,0,0,20"
+                            Click="AttackKeyDown"/>
                     <Button Style="{StaticResource ButtonStyle}"
                         Content="Items" Margin="0,0,0,20"
-                          Click="Button_Click"   />
+                          Click="Button_Click"/>
                     <Button Style="{StaticResource ButtonStyle}"
                         Content="Wait"/>
                 </StackPanel>

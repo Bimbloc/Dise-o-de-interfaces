@@ -82,7 +82,7 @@
 
         <Image  Grid.ColumnSpan="4"
             Grid.RowSpan="3"
-            Source="ms-appx:///Assets/Campo.jpg"
+            Source="ms-appx:///Assets/mapa.png"
             Stretch="Fill"/>
 
         <Grid Grid.Row="1" Grid.Column="1" x:Name="MiGrid" Background="{StaticResource TransparentBlack}" CornerRadius="18" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
