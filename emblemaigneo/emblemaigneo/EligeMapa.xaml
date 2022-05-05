@@ -95,18 +95,18 @@
         </StackPanel>
         </Grid>
         </ScrollViewer>
-        <StackPanel x:Name="dificultades"  Visibility="Collapsed" Spacing="26" Orientation="Vertical" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel x:Name="dificultades"  Visibility="Visible" Spacing="26" Orientation="Vertical" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal" Background="CadetBlue">
             <Button Background="CadetBlue" BorderBrush="CadetBlue" Click="Button_Click_1">NORMAL</Button >
-                <TextBlock TextWrapping="Wrap" Text="Enemigos con estadisticas neutrales"></TextBlock>
+                <TextBlock TextWrapping="Wrap" Text="Standart difficulty recomended for all players" VerticalAlignment="Center"></TextBlock>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Background="Yellow">
-                <Button Background="Yellow" BorderBrush="Yellow" Click="Button_Click_1">HARD</Button>
-                <TextBlock TextWrapping="Wrap" Text="Mayor cantidad de enemigos , más inteligentes"></TextBlock>
+            <StackPanel Orientation="Horizontal" Background="Orange">
+                <Button Background="Orange" BorderBrush="Orange" Click="Button_Click_1">HARD</Button>
+                <TextBlock TextWrapping="Wrap" Text="Difficulty reccomended for avanced players" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Background="Red">
+            <StackPanel Orientation="Horizontal" Background="red">
                 <Button Background="Red" BorderBrush="Red" Click="Button_Click_1">LUNATIC</Button>
-                <TextBlock TextWrapping="Wrap" Text="Enemigos más rapidos y con más vida "></TextBlock>
+                <TextBlock TextWrapping="Wrap" Text="Hardest difficulted, only for those who want a real challenge" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
             </StackPanel>
         </StackPanel>
         <Button x:Name="Goback" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Stretch" Click="Goback_Click" >
