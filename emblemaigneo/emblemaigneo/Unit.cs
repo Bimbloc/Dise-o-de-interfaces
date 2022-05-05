@@ -11,9 +11,7 @@ namespace emblemaigneo
 
     public class Object
     {
-        
-
-        public Object(int value_, string stat_) 
+        public Object(int value_, string stat_)
         {
             value = value_;
             effectDescription = stat_;
@@ -40,9 +38,11 @@ namespace emblemaigneo
 
         public Unit equipedChar;
 
+        public int range { get; set; }
+
         public virtual bool OnUseEquip(Unit u) { return true; }
         public virtual void OnDeEquip(Unit u) { }
-        
+
 
         public string GetWeight()
         {
@@ -65,12 +65,12 @@ namespace emblemaigneo
         {
         }
 
-        public Item() 
+        public Item()
         {
             isUsable = true;
         }
 
-        public override bool OnUseEquip(Unit u) 
+        public override bool OnUseEquip(Unit u)
         {
             u.hp += 20;
 
@@ -85,7 +85,7 @@ namespace emblemaigneo
         {
         }
 
-        public Equipment() 
+        public Equipment()
         {
             isUsable = false;
         }
@@ -97,14 +97,15 @@ namespace emblemaigneo
             return true;
         }
 
-        public override void OnDeEquip(Unit u) {
+        public override void OnDeEquip(Unit u)
+        {
             u.stats[0] -= 20;
         }
     };
 
-    public class Unit :  ObservableObject
+    public class Unit : ObservableObject
     {
-        public Unit(int maxHp_) 
+        public Unit(int maxHp_)
         {
             maxHp = maxHp_;
             hp = maxHp - 3;
@@ -126,18 +127,18 @@ namespace emblemaigneo
         public int row { get; set; } = -1;
         public int colum { get; set; } = -1;
         public int id { get; set; } = -1;
-        public int sitiolista { get; set; } = -1;
+        public int sitioLista { get; set; } = -1;
 
         public BitmapImage GetImage()
         {
             return new BitmapImage(new Uri("ms-appx:///Assets/Units/" + icon));
         }
 
-        public string getHpDisplay() 
+        public string getHpDisplay()
         {
             return hp + "/" + maxHp;
         }
-        public double getHpPercentage() 
+        public double getHpPercentage()
         {
             float currHP = hp;
             float maxHP = maxHp;
@@ -155,7 +156,8 @@ namespace emblemaigneo
                 name = "Iron Sword",
                 effectDescription = "Streght +20",
                 weight = 20,
-                equipedChar = Army.GetUnitByName("Byleth(M)")
+                equipedChar = Army.GetUnitByName("Byleth(M)"),
+                range = 1
 
              },
             new Equipment()
@@ -163,7 +165,8 @@ namespace emblemaigneo
                 name = "Iron Sword",
                 effectDescription = "Streght +20",
                 weight = 20,
-                equipedChar = Army.GetUnitByName("Byleth(F)")
+                equipedChar = Army.GetUnitByName("Byleth(F)"),
+                range = 1
 
              },
             new Equipment()
@@ -171,7 +174,8 @@ namespace emblemaigneo
                 name = "Silver Sword",
                 effectDescription = "Streght +25",
                 weight = 15,
-                equipedChar = Army.GetUnitByName("Corrin(F)")
+                equipedChar = Army.GetUnitByName("Corrin(F)"),
+                range = 1
 
              },
             new Equipment()
@@ -179,7 +183,8 @@ namespace emblemaigneo
                 name = "Iron Sword",
                 effectDescription = "Streght +20",
                 weight = 20,
-                equipedChar = Army.GetUnitByName("Corrin(F)")
+                equipedChar = Army.GetUnitByName("Corrin(F)"),
+                range = 1
 
              },
             new Item()
@@ -203,7 +208,8 @@ namespace emblemaigneo
                 name = "Long Bow",
                 effectDescription = "Def -10",
                 weight = 10,
-                equipedChar = Army.GetUnitByName("Pyra")
+                equipedChar = Army.GetUnitByName("Pyra"),
+                range = 2
              },
             new Item()
             {
@@ -218,7 +224,8 @@ namespace emblemaigneo
                 name = "Silver Sword",
                 effectDescription = "Streght +25",
                 weight = 15,
-                equipedChar = Army.GetUnitByName("Chrom")
+                equipedChar = Army.GetUnitByName("Chrom"),
+                range = 1
 
              },
           };
@@ -228,6 +235,24 @@ namespace emblemaigneo
         {
             return Objetos;
         }
+
+        public static List<Object> getItemsByUnit(Unit unit) 
+        {
+            selectedUnit = unit;
+
+            List<Object> items = Objetos.FindAll(isEquiped);
+
+            return items;
+        }
+
+        private static bool isEquiped(Object item) 
+        {
+            if (item.equipedChar != null) return selectedUnit.name == item.equipedChar.name;
+
+            return false;
+        }
+
+        static Unit selectedUnit;
     }
 
 
@@ -242,7 +267,7 @@ namespace emblemaigneo
 
                 stats = new int[8] { 10, 23, 20, 25, 10, 15, 20, 25 },
                 id =0,
-                sitiolista=0
+                sitioLista=0
              },
             new Unit(30)
             {
@@ -251,7 +276,7 @@ namespace emblemaigneo
 
                 stats = new int[8] { 17, 15, 20, 25, 10, 15, 20, 25 },
                 id =1,
-                sitiolista=1
+                sitioLista=1
              },
             new Unit(26)
             {
@@ -260,7 +285,7 @@ namespace emblemaigneo
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
                 id =2,
-                sitiolista=2
+                sitioLista=2
              },
             new Unit(25)
             {
@@ -269,7 +294,7 @@ namespace emblemaigneo
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
                 id=3,
-                sitiolista=3
+                sitioLista=3
              },
             new Unit(25)
             {
@@ -278,7 +303,7 @@ namespace emblemaigneo
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
                 id=4,
-                sitiolista=4
+                sitioLista=4
              },
             new Unit(17)
             {
@@ -287,7 +312,7 @@ namespace emblemaigneo
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
                 id=5,
-                sitiolista=5
+                sitioLista=5
              },
             new Unit(27)
             {
@@ -296,7 +321,7 @@ namespace emblemaigneo
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
                 id=6,
-                sitiolista=6
+                sitioLista=6
              },
             new Unit(20)
             {
@@ -305,7 +330,7 @@ namespace emblemaigneo
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
                 id=7,
-                sitiolista=7
+                sitioLista=7
              },
             new Unit(19)
             {
@@ -314,7 +339,7 @@ namespace emblemaigneo
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
                 id=8,
-                sitiolista=8
+                sitioLista=8
              },
             new Unit(18)
             {
@@ -323,7 +348,7 @@ namespace emblemaigneo
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
                 id=9,
-                sitiolista=9
+                sitioLista=9
              },
             new Unit(21)
             {
@@ -332,7 +357,7 @@ namespace emblemaigneo
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
                 id=10,
-                sitiolista=10
+                sitioLista=10
              },
             new Unit(22)
             {
@@ -341,7 +366,7 @@ namespace emblemaigneo
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
                 id=11,
-                sitiolista=11
+                sitioLista=11
              },
             new Unit(13)
             {
@@ -350,10 +375,10 @@ namespace emblemaigneo
 
                 stats = new int[8] { 10, 15, 20, 25, 10, 15, 20, 25 },
                 id=12,
-                sitiolista=12
+                sitioLista=12
              },
             new Unit(-1)
-            { 
+            {
                 name = "placeholder",
 
                 icon = "transparente.png"

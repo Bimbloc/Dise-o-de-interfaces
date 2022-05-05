@@ -84,6 +84,7 @@ namespace emblemaigneo
             if (e.Key == Windows.System.VirtualKey.GamepadA || e.Key == Windows.System.VirtualKey.Space || e.Key == Windows.System.VirtualKey.Enter)
                 e.Handled = true;
 
+            e.Handled = true;
             if (changed)
             {
                 FocusPointer();
@@ -113,13 +114,11 @@ namespace emblemaigneo
                         contentControl.GotFocus += new RoutedEventHandler(onControlFocus);
                     }
                     //eventos menu inicio
-                    else 
+                    else
                     {
                         contentControl.SetValue(Control.AllowDropProperty,true);
                         contentControl.Drop += new DragEventHandler(dropeaTropa);
                         contentControl.KeyDown += new KeyEventHandler(InitBatKeyDown);
-                        
-                        
                     }
                     contentControls[i, j] = contentControl;
 
@@ -137,8 +136,6 @@ namespace emblemaigneo
                 if (unit.row != -1) 
                 {
                     UnitDisplay unitDisplay = new UnitDisplay(unit);
-
-                    unitDisplay.Background = new SolidColorBrush(Color.FromArgb(100, 50, 50, 50));
 
                     contentControls[unit.colum, unit.row].Content = unitDisplay;
                 }
@@ -164,16 +161,21 @@ namespace emblemaigneo
 
                 else if (mainPage.getState() == MapLogic.State.MOVING) 
                 {
+                    if (isInRange(4, GetColumn(tileCC), GetRow(tileCC)))
+                    {
+                        mainPage.setState(MapLogic.State.MAP_NAVIGATING);
+
+                        UnitDisplay unit = contentControls[mainPage.Logic.selectedUnit.colum, mainPage.Logic.selectedUnit.row].Content as UnitDisplay;
+
+                        createTileGrid(mainPage.Logic.selectedUnit.colum, mainPage.Logic.selectedUnit.row);
+
+                        tileCC.Content = unit;
+
+                        mainPage.Logic.selectedUnit.colum = GetColumn(tileCC);
+                        mainPage.Logic.selectedUnit.row = GetRow(tileCC);
+                    }
+
                     mainPage.setState(MapLogic.State.MAP_NAVIGATING);
-
-                    UnitDisplay unit = contentControls[mainPage.Logic.selectedUnit.colum, mainPage.Logic.selectedUnit.row].Content as UnitDisplay;
-
-                    createTileGrid(mainPage.Logic.selectedUnit.colum, mainPage.Logic.selectedUnit.row);
-
-                    tileCC.Content = unit;
-
-                    mainPage.Logic.selectedUnit.colum = GetColumn(tileCC);
-                    mainPage.Logic.selectedUnit.row = GetRow(tileCC);
 
                     clearBackground();
                 }
@@ -257,9 +259,11 @@ namespace emblemaigneo
         {
             contentControls[pointer.x, pointer.y].Focus(FocusState.Keyboard);
         }
-        void dropeaTropa(object sender, DragEventArgs e)
+        private async void dropeaTropa(object sender, DragEventArgs e)
         {
-            inicioBatalla.cuadriculagrid_Drop(sender,e);
+            int id = int.Parse(await e.DataView.GetTextAsync());
+
+            inicioBatalla.cuadriculagrid_Drop(sender, e, id);
         }
         void InitBatKeyDown(object sender, KeyRoutedEventArgs e)
         {

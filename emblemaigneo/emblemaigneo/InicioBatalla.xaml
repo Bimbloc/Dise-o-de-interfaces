@@ -56,27 +56,24 @@
     <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="20*"/>
             <ColumnDefinition Width="35*"/>
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="8*"/>
+            <RowDefinition Height="4*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Image  Grid.ColumnSpan="4"
-            Grid.RowSpan="3"
-            Source="ms-appx:///Assets/mapa.png"
-            Stretch="Fill"  AllowDrop="True"
-            DragOver="cuadriculagrid_DragOver"/>
-        <Grid 
-            x:Name="Map" Grid.Row="1" Grid.Column="2" AllowDrop="True"
+        <Grid x:Name="Map" Grid.Row="1" Grid.Column="2" AllowDrop="True"
             DragOver="cuadriculagrid_DragOver"
             TabFocusNavigation="Local" Grid.ColumnSpan="2" >
 
+            <Image Source="ms-appx:///Assets/mapa.png"
+            Stretch="Fill"  AllowDrop="True"
+            DragOver="cuadriculagrid_DragOver"/>
         </Grid>
         <Grid x:Name="MiGrid" 
               Background="{StaticResource TransparentBlack}" 
