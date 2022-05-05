@@ -49,5 +49,10 @@ namespace emblemaigneo
                     break;
             }
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(InicioBatalla));
+        }
     }
 }

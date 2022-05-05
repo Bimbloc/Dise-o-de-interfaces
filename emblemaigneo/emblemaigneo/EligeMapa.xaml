@@ -97,16 +97,16 @@
         </ScrollViewer>
         <StackPanel x:Name="dificultades"  Visibility="Collapsed" Spacing="26" Orientation="Vertical" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal" Background="CadetBlue">
-            <Button Background="CadetBlue" BorderBrush="CadetBlue">NORMAL</Button>
-                <TextBlock TextWrapping="Wrap" Text="Descripcion de la dificultad"></TextBlock>
+            <Button Background="CadetBlue" BorderBrush="CadetBlue" Click="Button_Click_1">NORMAL</Button >
+                <TextBlock TextWrapping="Wrap" Text="Enemigos con estadisticas neutrales"></TextBlock>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Background="Yellow">
-                <Button Background="Yellow" BorderBrush="Yellow">HARD</Button>
-                <TextBlock TextWrapping="Wrap" Text="Descripcion de la dificultad"></TextBlock>
+                <Button Background="Yellow" BorderBrush="Yellow" Click="Button_Click_1">HARD</Button>
+                <TextBlock TextWrapping="Wrap" Text="Mayor cantidad de enemigos , más inteligentes"></TextBlock>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Background="Red">
-                <Button Background="Red" BorderBrush="Red">LUNATIC</Button>
-                <TextBlock TextWrapping="Wrap" Text="Descripcion de la dificultad"></TextBlock>
+                <Button Background="Red" BorderBrush="Red" Click="Button_Click_1">LUNATIC</Button>
+                <TextBlock TextWrapping="Wrap" Text="Enemigos más rapidos y con más vida "></TextBlock>
             </StackPanel>
         </StackPanel>
         <Button x:Name="Goback" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Stretch" Click="Goback_Click" >
