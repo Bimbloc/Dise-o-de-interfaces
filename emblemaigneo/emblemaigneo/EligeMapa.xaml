@@ -95,7 +95,7 @@
         </StackPanel>
         </Grid>
         </ScrollViewer>
-        <StackPanel x:Name="dificultades"  Visibility="Visible" Spacing="26" Orientation="Vertical" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel x:Name="dificultades"  Visibility="Collapsed" Spacing="26" Orientation="Vertical" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal" Background="CadetBlue">
             <Button Background="CadetBlue" BorderBrush="CadetBlue" Click="Button_Click_1">NORMAL</Button >
                 <TextBlock TextWrapping="Wrap" Text="Standart difficulty recomended for all players" VerticalAlignment="Center"></TextBlock>
