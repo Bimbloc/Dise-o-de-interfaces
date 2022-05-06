@@ -530,11 +530,51 @@
                             Click="AttackKeyDown"/>
                     <Button Style="{StaticResource ButtonStyle}"
                         Content="Items" Margin="0,0,0,20"
-                          Click="Button_Click"/>
+                          Click="Item_Click"/>
                     <Button Style="{StaticResource ButtonStyle}"
                         Content="Wait"/>
                 </StackPanel>
             </ContentControl>
+
+            <ContentControl x:Name="ExitWindow"
+                            Canvas.ZIndex="20"
+                            IsTabStop="True" Grid.Row="1" Grid.Column="1"
+                            IsFocusEngagementEnabled="True"
+                            Visibility="Collapsed"
+                            FocusDisengaged="ExitWindow_FocusDisengaged">
+                <StackPanel Style="{StaticResource BlackPanel}" Orientation="Vertical" 
+                            HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Padding="10">
+                        Are you sure you want to exit?
+                        </TextBlock>
+                    </Viewbox>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                            Spacing="100" Padding="20">
+                        <Viewbox>
+                            <Button Content="Yes" Style="{StaticResource ButtonStyle}"
+                                    Click="YesButton_Click"/>
+                        </Viewbox>
+                        <Viewbox>
+                            <Button Content="No" Style="{StaticResource ButtonStyle}"
+                                    Click="NoButton_Click"/>
+                        </Viewbox>
+                    </StackPanel>
+                </StackPanel>
+            </ContentControl>
+            
+            <StackPanel Grid.Column="2" Style="{StaticResource BlackPanel}" HorizontalAlignment="Right" VerticalAlignment="Top" Canvas.ZIndex="20">
+                <Viewbox HorizontalAlignment="Center" VerticalAlignment="Top" StretchDirection="DownOnly">
+                    <Button FontSize="20" Padding="5" HorizontalAlignment="Center" 
+                            Content="Exit" Margin="20,0,20,0" FontWeight="Bold"
+                            Style="{StaticResource ButtonStyle}" Click="Exit_Click"/>
+                </Viewbox>
+                <Viewbox HorizontalAlignment="Center" VerticalAlignment="Top" StretchDirection="DownOnly">
+                    <TextBlock FontSize="12" Padding="2" HorizontalAlignment="Center" Foreground="#FFD9D7D7">
+                        Esc / B
+                    </TextBlock>
+                </Viewbox>
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>

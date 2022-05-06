@@ -67,103 +67,101 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid x:Name="Map" Grid.Row="1" Grid.Column="2" AllowDrop="True"
+        <ContentControl x:Name="MapCC" Grid.Row="1" Grid.Column="2" IsFocusEngagementEnabled="True">
+            <Grid x:Name="Map" AllowDrop="True"
             DragOver="cuadriculagrid_DragOver"
-            TabFocusNavigation="Local" Grid.ColumnSpan="2" >
+            TabFocusNavigation="Local" Grid.ColumnSpan="2">
 
-            <Image Source="ms-appx:///Assets/mapa.png"
+                <Image Source="ms-appx:///Assets/mapa.png"
             Stretch="Fill"  AllowDrop="True"
             DragOver="cuadriculagrid_DragOver"/>
-        </Grid>
-        <Grid x:Name="MiGrid" 
+            </Grid>
+        </ContentControl>
+
+        <ContentControl x:Name="MiGridCC" IsFocusEngagementEnabled="True"
+                        Grid.Row="1" Grid.Column="1">
+            <Grid x:Name="MiGrid" 
               Background="{StaticResource TransparentBlack}" 
-              CornerRadius="18"
-              Grid.Row="1"
-              Grid.Column="1">
+              CornerRadius="18">
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="100"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="100"/>
-            </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
 
-
-                
-            <Button 
+                <Button 
                x:Name="Reorganizabuton"
                 Click="Reorganizabuton_Click"
                 Grid.Row="2"
                 Style="{StaticResource ButtonStyle}"
                 Margin="16, 0, 8, 0">
 
-                <StackPanel Orientation="Horizontal"  Spacing="12.5">
-                    <SymbolIcon Foreground="Black"  Symbol="Refresh" HorizontalAlignment="Right"/>
-                    <TextBlock FontSize="40">Reorganize</TextBlock>
-                </StackPanel>
-            </Button>
+                    <StackPanel Orientation="Horizontal"  Spacing="12.5">
+                        <SymbolIcon Foreground="Black"  Symbol="Refresh" HorizontalAlignment="Right"/>
+                        <TextBlock FontSize="40">Reorganize</TextBlock>
+                    </StackPanel>
+                </Button>
 
-
-
-            <Button x:Name="statbattlebutton"
+                <Button x:Name="statbattlebutton"
                     Click="statbattlebutton_Click"
                 Grid.Column="1"
                 Grid.Row="2"
                 Margin="8, 0, 16, 0"
                 Style="{StaticResource ButtonStyle}">
-                <StackPanel Orientation="Horizontal"  Spacing="12.5">
-                    <TextBlock FontSize="40">Start Battle</TextBlock>
-                    <SymbolIcon Foreground="Black"  Symbol="Forward" HorizontalAlignment="Right"/>
+                    <StackPanel Orientation="Horizontal"  Spacing="12.5">
+                        <TextBlock FontSize="40">Start Battle</TextBlock>
+                        <SymbolIcon Foreground="Black"  Symbol="Forward" HorizontalAlignment="Right"/>
 
-                </StackPanel>
-            </Button>
+                    </StackPanel>
+                </Button>
 
-            <Border Grid.ColumnSpan="2"/>
-            <Border Grid.Row="2"
+                <Border Grid.ColumnSpan="2"/>
+                <Border Grid.Row="2"
                     Grid.ColumnSpan="2"/>
-            <Border  
+                <Border  
                 HorizontalAlignment="Stretch" 
                 VerticalAlignment="Stretch"
                 Grid.ColumnSpan="2"
                 Grid.RowSpan="3">
-            </Border>
+                </Border>
 
-            <GridView  x:Name="tropasgrid" Grid.Row="1" 
+                <GridView  x:Name="tropasgrid" Grid.Row="1" 
                       Grid.ColumnSpan="2"
                       HorizontalAlignment="Center"                    
                       ItemTemplate="{StaticResource Troop_List}"
                       ItemsSource= "{x:Bind Ejercito}" CanDragItems="True" DragItemsStarting="tropasgrid_DragItemsStarting">
-                <GridViewHeaderItem></GridViewHeaderItem>
-                <GridViewHeaderItem></GridViewHeaderItem>
-                <GridViewHeaderItem></GridViewHeaderItem>
-                <GridViewHeaderItem></GridViewHeaderItem>
-                <GridViewHeaderItem></GridViewHeaderItem>
-                <GridViewHeaderItem></GridViewHeaderItem>
-                <GridViewHeaderItem></GridViewHeaderItem>
-                <GridViewHeaderItem></GridViewHeaderItem>
-                <GridViewHeaderItem></GridViewHeaderItem>
-                <GridViewHeaderItem></GridViewHeaderItem>
-                <GridViewHeaderItem></GridViewHeaderItem>
-                <GridViewHeaderItem></GridViewHeaderItem>
-                <GridViewHeaderItem></GridViewHeaderItem>
-                <GridViewHeaderItem></GridViewHeaderItem>
-                <GridViewHeaderItem></GridViewHeaderItem>
-                <GridViewHeaderItem></GridViewHeaderItem>
-                <GridViewHeaderItem></GridViewHeaderItem>
-                <GridViewHeaderItem></GridViewHeaderItem>
-                <GridViewHeaderItem></GridViewHeaderItem>
-                <GridViewHeaderItem></GridViewHeaderItem>
-            </GridView>
-
-
-            <TextBlock Grid.ColumnSpan="2"
+                    <GridViewHeaderItem></GridViewHeaderItem>
+                    <GridViewHeaderItem></GridViewHeaderItem>
+                    <GridViewHeaderItem></GridViewHeaderItem>
+                    <GridViewHeaderItem></GridViewHeaderItem>
+                    <GridViewHeaderItem></GridViewHeaderItem>
+                    <GridViewHeaderItem></GridViewHeaderItem>
+                    <GridViewHeaderItem></GridViewHeaderItem>
+                    <GridViewHeaderItem></GridViewHeaderItem>
+                    <GridViewHeaderItem></GridViewHeaderItem>
+                    <GridViewHeaderItem></GridViewHeaderItem>
+                    <GridViewHeaderItem></GridViewHeaderItem>
+                    <GridViewHeaderItem></GridViewHeaderItem>
+                    <GridViewHeaderItem></GridViewHeaderItem>
+                    <GridViewHeaderItem></GridViewHeaderItem>
+                    <GridViewHeaderItem></GridViewHeaderItem>
+                    <GridViewHeaderItem></GridViewHeaderItem>
+                    <GridViewHeaderItem></GridViewHeaderItem>
+                    <GridViewHeaderItem></GridViewHeaderItem>
+                    <GridViewHeaderItem></GridViewHeaderItem>
+                    <GridViewHeaderItem></GridViewHeaderItem>
+                </GridView>
+                
+                <TextBlock Grid.ColumnSpan="2"
                    Text="Drag the Troops"
                    Style="{StaticResource TextStyle}" TextAlignment="Left"/>
-
-        </Grid>
+            </Grid>
+        </ContentControl>
 
     </Grid>
 </Page>
