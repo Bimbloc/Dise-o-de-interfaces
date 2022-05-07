@@ -153,7 +153,7 @@ namespace emblemaigneo
             {
                 UserControl tileCC = sender as UserControl;
 
-                if (mainPage.getState() == MapLogic.State.MAP_NAVIGATING)
+                if (mainPage.getState() == MapLogic.State.MAP_NAVIGATING || mainPage.getState() == MapLogic.State.ATTACKING)
                 {
                     //si hay unidades en la casilla abre el menu de acciones 
                     if (tileCC.Content is UnitDisplay)
@@ -162,6 +162,8 @@ namespace emblemaigneo
 
                         mainPage.setState(MapLogic.State.ACTION_MENU);
                     }
+
+                    clearBackground();
                 }
 
                 else if (mainPage.getState() == MapLogic.State.MOVING) 
@@ -200,7 +202,7 @@ namespace emblemaigneo
         {
             UserControl tileCC = sender as UserControl;
 
-            if (mainPage.getState() == MapLogic.State.MAP_NAVIGATING)
+            if (mainPage.getState() == MapLogic.State.MAP_NAVIGATING || mainPage.getState() == MapLogic.State.ATTACKING)
             {
                 //si hay unidades en la casilla abre el menu de acciones 
                 if (tileCC.Content is UnitDisplay)
@@ -214,6 +216,8 @@ namespace emblemaigneo
                 }
 
                 else tileCC.Focus(FocusState.Keyboard);
+
+                clearBackground();
             }
 
             else if (mainPage.getState() == MapLogic.State.MOVING)
