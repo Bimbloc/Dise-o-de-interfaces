@@ -162,6 +162,12 @@
                    Style="{StaticResource TextStyle}" TextAlignment="Left"/>
             </Grid>
         </ContentControl>
+        <Button HorizontalAlignment="Stretch" Click="Button_Click" Grid.Column="1" Grid.Row="2"  Foreground="White" Background="Black" Width="172">
+            <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
+                <SymbolIcon Symbol="Back" HorizontalAlignment="Left"/>
+                <TextBlock HorizontalAlignment="Left">GO BACK</TextBlock>
 
+            </StackPanel>
+        </Button>
     </Grid>
 </Page>
