@@ -50,5 +50,11 @@ namespace emblemaigneo
         {
             Frame.Navigate(typeof(InicioBatalla));
         }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+
+            App.Current.Exit();
+        }
     }
 }

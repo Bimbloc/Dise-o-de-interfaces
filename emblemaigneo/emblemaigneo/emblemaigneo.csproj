@@ -145,6 +145,7 @@
       <DependentUpon>Opciones.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System\Windows\Application.cs" />
     <Compile Include="Unit.cs" />
     <Compile Include="UnitDisplay.cs" />
   </ItemGroup>

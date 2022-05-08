@@ -45,23 +45,29 @@
                Stretch="Fill"/>
         <StackPanel
             Orientation="Vertical" Margin="4" Spacing="30" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" >
-            <Button x:Name="Continue" Click="Continue_Click" Width="auto">
+            <Button x:Name="Continue"  Click="Continue_Click" HorizontalAlignment="Stretch">
              
-                <StackPanel  Orientation="Horizontal" Margin="10" Spacing="12">
+                <StackPanel  Orientation="Horizontal"  Margin="10" Spacing="12">
                     <TextBlock HorizontalAlignment="Left">CONTINUE</TextBlock>
                     <SymbolIcon Symbol="Next" HorizontalAlignment="Right"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="Newgame" Click="Newgame_Click" >
+            <Button x:Name="Newgame" HorizontalAlignment="Stretch" Click="Newgame_Click" >
                 <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
                     <TextBlock HorizontalAlignment="Left">NEW GAME</TextBlock>
                     <SymbolIcon Symbol="Add" HorizontalAlignment="Right"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="Settings" Width="auto"  Click="Settings_Click">
+            <Button x:Name="Settings" HorizontalAlignment="Stretch"  Click="Settings_Click">
                 <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
                     <TextBlock HorizontalAlignment="Left"> SETTINGS</TextBlock>
                     <SymbolIcon Symbol="Setting" Width="42"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="Exit" HorizontalAlignment="Stretch"  Click="Exit_Click">
+                <StackPanel Orientation="Horizontal" Margin="10" Spacing="12">
+                    <TextBlock HorizontalAlignment="Left"> EXIT</TextBlock>
+                    <SymbolIcon Symbol="Cancel" Width="42"/>
                 </StackPanel>
             </Button>
 
