@@ -31,10 +31,10 @@ namespace emblemaigneo
         GridView gitem;
 
         public ObservableCollection<Unit> Ejercito { get; } = new ObservableCollection<Unit>();
-      
+
         public InicioBatalla()
         {
-            
+
             if (Ejercito != null)
                 foreach (Unit character in Army.GetAllUnits())
                 {
@@ -42,8 +42,8 @@ namespace emblemaigneo
                 }
 
             this.InitializeComponent();
-            
-            Cuadricula = new CuadriculaMapa(32, 18, null,this);
+
+            Cuadricula = new CuadriculaMapa(32, 18, null, this);
             Map.Children.Add(Cuadricula);
             Cuadricula.Name = "Cuadricula";
             Cuadricula.SetValue(Grid.RowSpanProperty, 3);
@@ -98,9 +98,9 @@ namespace emblemaigneo
 
             e.Data.SetText(id_);
         }
-       public  void colocaTropa()
-        { 
-        
+        public void colocaTropa()
+        {
+
         }
 
         private void Reorganizabuton_Click(object sender, RoutedEventArgs e)
@@ -108,32 +108,45 @@ namespace emblemaigneo
             Frame.Navigate(typeof(InicioBatalla));
         }
 
-        public  void MiGrid_KeyDown(object sender, KeyRoutedEventArgs e)
+        public void MiGrid_KeyDown(object sender, KeyRoutedEventArgs e)
         {
-            switch
-            (e.Key)
+            switch (e.Key)
             {
                 case Windows.System.VirtualKey.Enter:
+                case Windows.System.VirtualKey.Space:
                 case Windows.System.VirtualKey.GamepadY:
-            
+
                     UserControl cc = sender as UserControl;
 
-                UnitDisplay ui = new UnitDisplay(Ejercito[0]);
+                    UnitDisplay ui = new UnitDisplay(Ejercito[0]);
 
-                ui.unit.colum = Grid.GetColumn(cc);
-                ui.unit.row = Grid.GetRow(cc);
-                cc.Content = ui;
-                Ejercito.RemoveAt(0);
-                foreach (Unit character in Ejercito)
-                {
-                    if (character.sitioLista > 0)
+                    ui.unit.colum = Grid.GetColumn(cc);
+                    ui.unit.row = Grid.GetRow(cc);
+                    cc.Content = ui;
+                    Ejercito.RemoveAt(0);
+
+                    foreach (Unit character in Ejercito)
                     {
-                        character.sitioLista--;
-
+                        if (character.sitioLista > 0)
+                        {
+                            character.sitioLista--;
+                        }
                     }
-                }
-                break;
+
+                    e.Handled = true;
+                    break;
+
+                case Windows.System.VirtualKey.Escape:
+
+                    MiGridCC.Focus(FocusState.Keyboard);
+                    MiGridCC.IsFocusEngaged = true;
+                    break;
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Menu));
         }
     }
 }

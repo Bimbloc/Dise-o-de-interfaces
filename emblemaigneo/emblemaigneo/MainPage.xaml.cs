@@ -84,6 +84,18 @@ namespace emblemaigneo
             BattlePreview.Visibility = Visibility.Collapsed;
         }
 
+        public void ShowExitWindow() 
+        {
+            ExitWindow.Visibility = Visibility.Visible;
+            ExitWindow.Focus(FocusState.Keyboard);
+            ExitWindow.IsFocusEngaged = true;
+        }
+
+        public void CollapseExitWindow()
+        {
+            ExitWindow.Visibility = Visibility.Collapsed;
+        }
+
         public void SetSelectedUnit(Unit unit_) 
         {
             Logic.selectedUnit = unit_;
@@ -99,11 +111,17 @@ namespace emblemaigneo
 
         private void Map_KeyDown(object sender, KeyRoutedEventArgs e)
         {
-            if (e.Key == Windows.System.VirtualKey.GamepadA || e.Key == Windows.System.VirtualKey.Space || e.Key == Windows.System.VirtualKey.Enter)
+            if (e.Key == Windows.System.VirtualKey.Escape) 
+            {
+                ShowExitWindow();
+
+                e.Handled = true;
+            }
+            else if (e.Key == Windows.System.VirtualKey.GamepadA || e.Key == Windows.System.VirtualKey.Space || e.Key == Windows.System.VirtualKey.Enter)
                 e.Handled = true;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Item_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(inventario), Logic.selectedUnit.name);
         }
@@ -115,6 +133,26 @@ namespace emblemaigneo
             ShowBattlePreview();
 
             Logic.state = MapLogic.State.ATTACKING;
+        }
+
+        private void ExitWindow_FocusDisengaged(Control sender, FocusDisengagedEventArgs args)
+        {
+            CollapseExitWindow();
+        }
+
+        private void YesButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Menu));
+        }
+
+        private void NoButton_Click(object sender, RoutedEventArgs e)
+        {
+            CollapseExitWindow();
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            ShowExitWindow();
         }
     }
 }

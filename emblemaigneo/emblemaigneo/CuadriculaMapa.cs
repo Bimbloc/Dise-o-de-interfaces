@@ -13,7 +13,6 @@ namespace emblemaigneo
 {
     class CuadriculaMapa : MyGrid
     {
-        public Grid[,] tiles { get; set; }
         public UserControl[,] contentControls { get; set; }
 
         public bool gameStarted { get; set; } = false;
@@ -30,7 +29,6 @@ namespace emblemaigneo
 
         public CuadriculaMapa(int columnas, int filas, MainPage mainPage_ = null,InicioBatalla inibatalla = null) 
         {
-            tiles = new Grid[columnas, filas];
             contentControls = new UserControl[columnas, filas];
 
             pointer.x = 0;
@@ -79,6 +77,13 @@ namespace emblemaigneo
                 e.Handled = true;
 
                 changed = true;
+            }
+
+            if (e.Key == Windows.System.VirtualKey.Escape && gameStarted)
+            {
+                mainPage.ShowExitWindow();
+
+                e.Handled = true;
             }
 
             if (e.Key == Windows.System.VirtualKey.GamepadA || e.Key == Windows.System.VirtualKey.Space || e.Key == Windows.System.VirtualKey.Enter)
@@ -148,7 +153,7 @@ namespace emblemaigneo
             {
                 UserControl tileCC = sender as UserControl;
 
-                if (mainPage.getState() == MapLogic.State.MAP_NAVIGATING)
+                if (mainPage.getState() == MapLogic.State.MAP_NAVIGATING || mainPage.getState() == MapLogic.State.ATTACKING)
                 {
                     //si hay unidades en la casilla abre el menu de acciones 
                     if (tileCC.Content is UnitDisplay)
@@ -157,6 +162,8 @@ namespace emblemaigneo
 
                         mainPage.setState(MapLogic.State.ACTION_MENU);
                     }
+
+                    clearBackground();
                 }
 
                 else if (mainPage.getState() == MapLogic.State.MOVING) 
@@ -182,13 +189,20 @@ namespace emblemaigneo
 
                 e.Handled = true;
             }
+
+            else if (e.Key == Windows.System.VirtualKey.Escape)
+            {
+                mainPage.ShowExitWindow();
+
+                e.Handled = true;
+            }
         }
 
         private void onTileClick(object sender, RoutedEventArgs e)
         {
             UserControl tileCC = sender as UserControl;
 
-            if (mainPage.getState() == MapLogic.State.MAP_NAVIGATING)
+            if (mainPage.getState() == MapLogic.State.MAP_NAVIGATING || mainPage.getState() == MapLogic.State.ATTACKING)
             {
                 //si hay unidades en la casilla abre el menu de acciones 
                 if (tileCC.Content is UnitDisplay)
@@ -202,6 +216,8 @@ namespace emblemaigneo
                 }
 
                 else tileCC.Focus(FocusState.Keyboard);
+
+                clearBackground();
             }
 
             else if (mainPage.getState() == MapLogic.State.MOVING)
